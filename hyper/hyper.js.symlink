@@ -1,0 +1,107 @@
+/**************************************************************
+ * hyper config                                               *
+ * ... https://hyper.js#cfg                                   *
+ * @   https://github.com/JesseLeite/an-old-hope-syntax-atom/ *
+ **************************************************************/
+
+// palette
+const selection = 'rgba(242, 242, 242, 0.2)';
+const colors = {
+  vader: '#EB3D54',
+  yoda: '#78BD65',
+  threePO: '#E5CD52',
+  r2: '#4FB4D8',
+  luke: '#EF7C2A',
+  falcon: {
+    veryLightGrey: '#CBCDD2',
+    lightGrey: '#848794',
+    grey: '#686B78',
+    darkGrey: '#45474F',
+    veryDarkGrey: '#1C1D21',
+  },
+};
+
+module.exports = {
+  config: {
+    // appearance
+    fontSize: 12,
+    fontFamily: 'Fira Code',
+    backgroundColor: colors.falcon.veryDarkGrey,
+    foregroundColor: colors.falcon.veryLightGrey,
+    borderColor: colors.falcon.grey,
+    cursorColor: colors.r2,
+    cursorShape: 'BEAM',
+    cursorBlink: true,
+    colors: {
+      black: colors.falcon.veryDarkGrey,
+      red: colors.vader,
+      green: colors.yoda,
+      yellow: colors.threePO,
+      blue: colors.r2,
+      magenta: colors.luke,
+      cyan: colors.r2,
+      white: colors.falcon.veryLightGrey,
+      lightBlack: colors.falcon.grey,
+      lightRed: colors.vader,
+      lightGreen: colors.yoda,
+      lightYellow: colors.threePO,
+      lightBlue: colors.r2,
+      lightMagenta: colors.luke,
+      lightCyan: colors.r2,
+      lightWhite: colors.falcon.veryLightGrey,
+    },
+    showHamburgerMenu: true,
+    showWindowControls: false,
+    padding: '12px 14px',
+    termCSS: `
+      ::selection {
+        background: ${selection} !important;
+      }
+
+      .cursor-node {
+        mix-blend-mode: difference;
+      }
+    `,
+    css: `
+      .tab_tab:not(.tab_active) {
+        color: ${colors.falcon.lightGrey};
+      }
+
+      .splitpane_divider {
+        background-color: ${colors.falcon.grey} !important;
+      }
+
+      x-screen x-row {
+        font-variant-ligatures: contextual;
+      }
+    `,
+
+    // features
+    bell: false,
+    copyOnSelect: true,
+    quickEdit: true,
+
+    // shell
+    shell: '/bin/zsh',
+    shellArgs: ['--login'],
+
+    // environment variables
+    env: {},
+
+    // plugin configs
+    hyperTabs: {
+      tabIconsColored: true,
+    },
+  },
+  plugins: [
+    'hyper-statusline',
+    'hyper-tabs-enhanced',
+    'hypercwd',
+    'hyperlinks',
+    'hyperminimal',
+    'hyperterm-alternatescroll',
+    'hyperterm-paste',
+    'hyperterm-tabs',
+  ],
+  localPlugins: [],
+};

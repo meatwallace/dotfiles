@@ -1,0 +1,80 @@
+{
+  ":: Theme": "",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "workbench.colorTheme": "An Old Hope",
+  "workbench.iconTheme": "file-icons",
+
+  ":: Settings": "",
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false,
+  "editor.detectIndentation": false,
+  "workbench.startupEditor": "newUntitledFile",
+
+  ":: Search": "",
+  "search.useIgnoreFilesByDefault": true,
+
+  ":: Javascript": "",
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
+
+  ":: Prettier": "",
+  "prettier.eslintIntegration": true,
+  "prettier.trailingComma": "all",
+  "prettier.singleQuote": true,
+
+  ":: Docs": "",
+  "docthis.authorName": "Geoff Whatley (@meatwallace)",
+  "docthis.includeDescriptionTag": true,
+  "docthis.includeAuthorTag": true,
+
+  ":: JSON": "",
+  "json.format.enable": false,
+
+  ":: Markdown": "",
+  "markdownlint.config": {
+    "MD013": {
+      "line_length": 80
+    },
+    "MD029": {
+      "style": "ordered"
+    }
+  },
+
+  ":: HTML": "",
+  "html.format.enable": false,
+  "html.suggest.angular1": false,
+  "html.suggest.ionic": false,
+  "html.validate.scripts": false,
+  "html.validate.styles": false,
+
+  ":: Emmet": "",
+  "emmet.triggerExpansionOnTab": false,
+
+  ":: CSS": "",
+  "css.validate": false,
+
+  ":: TODOs": "",
+  "todohighlight.keywords": ["TODO", "DOC", "DEPRECATE"],
+  "todohighlight.defaultStyle": {
+    "backgroundColor": "#45474F",
+    "color": "#CBCDD2"
+  },
+
+  ":: Spell check": "",
+  "cSpell.userWords": [
+    "Fira",
+    "Geoff",
+    "Whatley",
+    "docthis",
+    "markdownlint",
+    "meatwallace",
+    "minimap",
+    "todohighlight"
+  ]
+}
