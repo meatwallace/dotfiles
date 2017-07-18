@@ -3,23 +3,37 @@
 ## install
 
 ```bash
-cd
-mkdir dotfiles
-cd dotfiles
-curl -#L https://github.com/meatwallace/dotfiles/tarball/master | tar -xzv --strip-components 1
+# create our directory
+mkdir -p ~/projects/dotfiles && cd $_
+
+# grab dotfiles
+curl --progress-bar --location https://github.com/meatwallace/dotfiles/tarball/master | tar -xzv --strip-components 1
+
+# link
+ln -s ~/projects/dotfiles/ ~/.dotfiles
+
+# initialize
 script/bootstrap
 
+# map back to repo
+git init .
+git remote add -t \* -f origin git@github.com:meatwallace/dotfiles.git
+git add .
+git checkout master
 ```
 
 ## todo
 
+- [ ] [font](https://github.com/tonsky/FiraCode) 
+- [ ] [vs code settings](https://code.visualstudio.com/docs/getstarted/settings)
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
-- [ ] vscode settings  - https://code.visualstudio.com/docs/getstarted/settings
 - [ ] quokka
 - [ ] commitizen
-- [ ] cross platform
+- [ ] android emulator
+- [ ] ios emulator / xcode
+- [ ] auto updating
 
 ## vscode plugins
 
@@ -50,13 +64,13 @@ script/bootstrap
 - regex previewer
 - search node_modules
 - sort lines
- - svg reviewer
- - swift language
- - todo highlight
- - todo parser
- - version lens
- - view node package
- - wallaby.js
+- svg reviewer
+- swift language
+- todo highlight
+- todo parser
+- version lens
+- view node package
+- wallaby.js
 
 ## thanks
 
