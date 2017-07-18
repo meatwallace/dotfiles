@@ -24,13 +24,14 @@ git checkout master
 
 ## todo
 
-- [ ] [font](https://github.com/tonsky/FiraCode) 
 - [ ] [vs code settings](https://code.visualstudio.com/docs/getstarted/settings)
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
-- [ ] quokka
-- [ ] commitizen
+- [ ] global node packages
+  - [ ] zeit now
+  - [ ] quokka
+  - [ ] commitizen
 - [ ] android emulator
 - [ ] ios emulator / xcode
 - [ ] auto updating
