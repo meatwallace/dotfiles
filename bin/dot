@@ -4,22 +4,22 @@
 # install and update :^) #
 ##########################
 
-export ZSH=$HOME/.dotfiles
+cd $HOME/.dotfiles
 
 if [[ "$(uname -s)" == "Darwin" ]]
 then
   # set mac defaults
-  $ZSH/mac/set-defaults.sh
+  ./mac/set-defaults.sh
 fi
 
 # install ruby
-$ZSH/ruby/install.sh 2>&1
+./ruby/install.sh 2>&1
 
 # install homebrew
-$ZSH/homebrew/install.sh 2>&1
+./homebrew/install.sh 2>&1
 
 # upgrade homebrew
 brew update
 
 # install software
-$ZSH/script/install
+./script/install
