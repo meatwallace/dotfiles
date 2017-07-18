@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-if [[ -x "$(command -v brew >/dev/null 2>&1)" ]]
+if [[ ! -x "$(command -v brew)" ]]
 then
   if [[ "$(uname -s)" == "Darwin" ]]
   then

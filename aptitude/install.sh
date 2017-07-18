@@ -1,11 +1,14 @@
 #!/bin/bash -e
 
-if [[ -x "$(command -v aptitude >/dev/null 2>&1)" ]]
+if [[ "$(uname -s)" == "Linux" ]]
 then
-  sudo apt-get install aptitude
-fi
+  if ! [[ -x "$(command -v aptitude)" ]]
+  then
+    sudo apt-get install aptitude
+  fi
 
-sudo aptitude update
-sudo aptitude dist-upgrade
-sudo aptitude -f install
-sudo aptitude autoclean
+  sudo aptitude update
+  sudo aptitude dist-upgrade
+  sudo aptitude -f install
+  sudo aptitude autoclean
+fi

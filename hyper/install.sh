@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-if [[ -x "$(command -v hyper >/dev/null 2>&1)" ]]
+if [[ ! -x "$(command -v hyper)" ]]
 then
   if [[ "$(uname -s)" == "Darwin" ]]
   then
