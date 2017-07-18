@@ -28,6 +28,7 @@ git checkout master
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
+- [ ] applications
 - [ ] global node packages
   - [ ] zeit now
   - [ ] quokka

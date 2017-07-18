@@ -1,13 +1,11 @@
 #!/bin/bash -e
 
-if [[ ! -x "$(command -v google-chrome)" ]]
+if [[ "$(uname -s)" == "Darwin" ]] && [[ ! -x "/Applications/Google Chrome.app" ]]
 then
-  if [[ "$(uname -s)" == "Darwin" ]]
-  then
-    brew cask install google-chrome
-  else
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg -i google-chrome-stable_current_amd64.deb
-    rm google-chrome-stable-current_amd64.deb
-  fi
+  brew cask install google-chrome
+elif [[ "$(uname -s)" == "Linux" ]] && [[ ! -x "$(command -v google-chrome)" ]]
+then
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i google-chrome-stable_current_amd64.deb
+  rm google-chrome-stable-current_amd64.deb
 fi
