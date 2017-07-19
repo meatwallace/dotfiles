@@ -15,6 +15,12 @@
   "editor.minimap.enabled": false,
   "editor.detectIndentation": false,
   "workbench.startupEditor": "newUntitledFile",
+  "zenMode.restore": true,
+
+  ":: File assosciations": "",
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
 
   ":: Search": "",
   "search.useIgnoreFilesByDefault": true,
@@ -64,17 +70,5 @@
   "todohighlight.defaultStyle": {
     "backgroundColor": "#45474F",
     "color": "#CBCDD2"
-  },
-
-  ":: Spell check": "",
-  "cSpell.userWords": [
-    "Fira",
-    "Geoff",
-    "Whatley",
-    "docthis",
-    "markdownlint",
-    "meatwallace",
-    "minimap",
-    "todohighlight"
-  ]
+  }
 }

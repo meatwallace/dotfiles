@@ -1,0 +1,20 @@
+[
+  {
+    "name": "dotfiles",
+    "rootPath": "$home/projects/dotfiles",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "janus",
+    "rootPath": "$home/projects/janus",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "docs",
+    "rootPath": "$home/projects/docs",
+    "paths": [],
+    "group": ""
+  }
+]
