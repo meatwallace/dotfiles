@@ -24,7 +24,6 @@ git checkout master
 
 ## todo
 
-- [ ] [vs code settings](https://code.visualstudio.com/docs/getstarted/settings)
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
@@ -40,8 +39,6 @@ git checkout master
 ## vscode plugins
 
 - an old hope theme
-- auto-open markdown preview
-- code spellchecker
 - codemetrics
 - debugger for chrome
 - document this
@@ -51,7 +48,9 @@ git checkout master
 - file icons
 - git history (git log)
 - git lens
+- graphql for vscode
 - js refactorings
+- json5 syntax
 - json tools
 - language support for java
 - markdown toc
@@ -66,7 +65,7 @@ git checkout master
 - regex previewer
 - search node_modules
 - sort lines
-- svg reviewer
+- svg viewer
 - swift language
 - todo highlight
 - todo parser
