@@ -9,6 +9,11 @@
     "body": ["export const $1 = $2;", "$0"],
     "description": "Create a named, exported constant"
   },
+  "default-export": {
+    "prefix": "expd",
+    "body": ["export { default as $1 } from './$1';", "$0"],
+    "description": "Create default export passthrough"
+  },
   "react-functional-component": {
     "prefix": "rfc",
     "body": [

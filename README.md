@@ -38,10 +38,10 @@ git checkout master
 
 ## vscode plugins
 
-- an old hope theme
-- codemetrics
+- babel javascript
 - debugger for chrome
 - document this
+- dracula official
 - editorconfig for vs code
 - elm
 - eslint
@@ -49,9 +49,8 @@ git checkout master
 - git history (git log)
 - git lens
 - graphql for vscode
-- js refactorings
-- json5 syntax
 - json tools
+- json5 syntax
 - language support for java
 - markdown toc
 - markdownlint
@@ -62,14 +61,11 @@ git checkout master
 - project manager
 - quokka
 - react native tools
-- regex previewer
-- search node_modules
 - sort lines
 - svg viewer
 - swift language
 - todo highlight
 - todo parser
-- version lens
 - view node package
 - wallaby.js
 

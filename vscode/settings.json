@@ -1,9 +1,9 @@
 {
   ":: Theme": "",
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Operator Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 12,
-  "workbench.colorTheme": "An Old Hope",
+  "editor.fontSize": 13,
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "file-icons",
 
   ":: Settings": "",
@@ -19,7 +19,7 @@
 
   ":: File assosciations": "",
   "files.associations": {
-    "*.js": "javascriptreact"
+    "*.js": "javascript"
   },
 
   ":: Search": "",
