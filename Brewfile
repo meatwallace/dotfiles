@@ -19,7 +19,7 @@ brew 'node'
 brew 'openssl'
 brew 'postgres'
 brew 'redis'
-brew 'sox'
+brew 'sox', args: ['with-lame']
 brew 'spaceman-diff'
 brew 'unrar'
 brew 'wget'
