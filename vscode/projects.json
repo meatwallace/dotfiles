@@ -1,19 +1,31 @@
 [
   {
-    "name": "dotfiles",
+    "name": "meatwallace/dotfiles",
     "rootPath": "$home/projects/dotfiles",
     "paths": [],
     "group": ""
   },
   {
-    "name": "janus",
+    "name": "lvr/janus",
     "rootPath": "$home/projects/janus",
     "paths": [],
     "group": ""
   },
   {
-    "name": "docs",
+    "name": "lvr/docs",
     "rootPath": "$home/projects/docs",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "lvr/challenge",
+    "rootPath": "$home/projects/coding-challenge",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "meatwallace/text",
+    "rootPath": "$home/projects/proto",
     "paths": [],
     "group": ""
   }
