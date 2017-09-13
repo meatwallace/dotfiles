@@ -52,6 +52,11 @@
     }
   },
 
+  ":: Shell": "",
+  "shellcheck.enable": true,
+  "shellcheck.run": "onType",
+  "shellcheck.executablePath": "shellcheck",
+
   ":: HTML": "",
   "html.format.enable": false,
   "html.suggest.angular1": false,

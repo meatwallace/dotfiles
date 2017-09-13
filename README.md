@@ -27,6 +27,8 @@ git checkout master
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
+- [ ] travis ci integration
+- [ ] precommit linting hooks
 - [ ] applications
 - [ ] global node packages
   - [ ] zeit now
@@ -61,6 +63,7 @@ git checkout master
 - project manager
 - quokka
 - react native tools
+- shellcheck
 - sort lines
 - svg viewer
 - swift language
