@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 autoload colors && colors
 
 # @ehrenmurdick

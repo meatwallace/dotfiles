@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 # replacements
 alias ls="gls -F --color"
 

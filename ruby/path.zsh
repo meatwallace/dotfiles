@@ -1,3 +1,4 @@
+#!/bin/bash -e
 
 export PATH="$PATH:$HOME/.rvm/bin"
 

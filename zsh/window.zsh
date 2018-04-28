@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 ########################################
 # nice window title                    #
 # @   http://dotfiles.org/~_why/.zshrc #

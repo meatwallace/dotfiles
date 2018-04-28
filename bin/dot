@@ -4,7 +4,7 @@
 # install and update :^) #
 ##########################
 
-cd $HOME/.dotfiles
+cd "$HOME/.dotfiles"
 
 if [[ "$(uname -s)" == "Darwin" ]]
 then
