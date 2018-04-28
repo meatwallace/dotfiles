@@ -1,10 +1,11 @@
 #!/bin/bash -e
 
-if [[ "$(uname -s)" == "Darwin" ]]
-then
+if [[ "$(uname -s)" == "Darwin" ]]; then
   brew tap caskroom/fonts
   brew cask install font-fira-code
-else
+
+# on linux, do not fetch if we already have it
+elif ! ls ~/.local/share/fonts/FiraCode* 1> /dev/null 2>&1; then
   mkdir -p ~/.local/share/fonts
 
   for type in Bold Light Medium Regular Retina; do
