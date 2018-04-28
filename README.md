@@ -27,6 +27,7 @@ git checkout master
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
+- [ ] hosted
 - [ ] travis ci integration
 - [ ] precommit linting hooks
 - [ ] applications
@@ -41,34 +42,37 @@ git checkout master
 ## vscode plugins
 
 - babel javascript
+- bracket pair colorizer
+- carbon-now-sh
 - debugger for chrome
-- document this
 - dracula official
 - editorconfig for vs code
-- elm
 - eslint
-- file icons
-- git history (git log)
-- git lens
+- flow language support
+- git history
+- gitlens - git supercharged
 - graphql for vscode
 - json tools
 - json5 syntax
-- language support for java
-- markdown toc
+- latest typescript and javascript grammar
+- markdown preview enhanced
 - markdownlint
+- material icon theme
 - npm
 - npm intellisense
 - path intellisense
-- prettier
+- prettier - code formatter
 - project manager
 - quokka
 - react native tools
 - shellcheck
 - sort lines
+- sort-imports
 - svg viewer
-- swift language
+- svg
 - todo highlight
 - todo parser
+- todo tree
 - view node package
 - wallaby.js
 

@@ -4,17 +4,27 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "workbench.colorTheme": "Dracula",
-  "workbench.iconTheme": "file-icons",
+  "workbench.iconTheme": "material-icon-theme",
 
   ":: Settings": "",
+  "editor.detectIndentation": false,
+  "editor.folding": false,
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
+  "editor.scrollBeyondLastLine": false,
+  "editor.snippetSuggestions": "none",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "editor.scrollBeyondLastLine": false,
-  "editor.minimap.enabled": false,
-  "editor.detectIndentation": false,
+  "explorer.autoReveal": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.defaultLanguage": "javascript",
+  "files.useExperimentalFileWatcher": true,
+  "keyboard.touchbar.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.feedback.visible": false,
+  "zenMode.hideStatusBar": false,
   "zenMode.restore": true,
 
   ":: File assosciations": "",
@@ -22,22 +32,28 @@
     "*.js": "javascript"
   },
 
-  ":: Search": "",
-  "search.useIgnoreFilesByDefault": true,
+  ":: Git": "",
+  "git.autofetch": true,
+
+  ":: CSS": "",
+  "css.validate": false,
+
+  ":: HTML": "",
+  "html.format.enable": false,
+  "html.suggest.angular1": false,
+  "html.suggest.ionic": false,
+  "html.validate.scripts": false,
+  "html.validate.styles": false,
 
   ":: Javascript": "",
   "javascript.format.enable": false,
+  "javascript.nameSuggestions": false,
   "javascript.validate.enable": false,
-
-  ":: Prettier": "",
-  "prettier.eslintIntegration": true,
-  "prettier.trailingComma": "all",
-  "prettier.singleQuote": true,
-
-  ":: Docs": "",
-  "docthis.authorName": "Geoff Whatley (@meatwallace)",
-  "docthis.includeDescriptionTag": true,
-  "docthis.includeAuthorTag": true,
+  "jsDocCompletion.enabled": false,
+  "typescript.autoImportSuggestions.enabled": false,
+  "typescript.quickSuggestionsForPaths": false,
+  "typescript.tsc.autoDetect": "off",
+  "typescript.validate.enable": false,
 
   ":: JSON": "",
   "json.format.enable": false,
@@ -52,28 +68,43 @@
     }
   },
 
+  "::Reason": "",
+
+
   ":: Shell": "",
   "shellcheck.enable": true,
   "shellcheck.run": "onType",
   "shellcheck.executablePath": "shellcheck",
 
-  ":: HTML": "",
-  "html.format.enable": false,
-  "html.suggest.angular1": false,
-  "html.suggest.ionic": false,
-  "html.validate.scripts": false,
-  "html.validate.styles": false,
+  ":: SVG": "",
+  "svgviewer.enableautopreview": false,
+
+  ":: ESLint": "",
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+
+  ":: Flow": "",
+  "flow.useNPMPackagedFlow": true,
+
+  ":: Prettier": "",
+  "prettier.eslintIntegration": true,
+  "prettier.requireConfig": true,
 
   ":: Emmet": "",
   "emmet.triggerExpansionOnTab": false,
 
-  ":: CSS": "",
-  "css.validate": false,
+  ":: Sort Imports": "",
+  "sort-imports.default-sort-style": "module-compact",
 
   ":: TODOs": "",
   "todohighlight.keywords": ["TODO", "DOC", "DEPRECATE"],
   "todohighlight.defaultStyle": {
     "backgroundColor": "#45474F",
     "color": "#CBCDD2"
-  }
+  },
+  "window.zoomLevel": 0,
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "material-icon-theme.folders.theme": "specific"
 }
