@@ -18,6 +18,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # apps
+alias a='atom'
+alias a:stars='apm stars --user meatwallace'
+alias a:update='a:stars --install'
 alias code='code-insiders'
 
 # dirs
