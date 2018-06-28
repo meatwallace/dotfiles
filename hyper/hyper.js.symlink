@@ -7,17 +7,12 @@ module.exports = {
   config: {
     // appearance
     fontSize: 13,
-    fontFamily: 'Operator Mono',
+    fontFamily: 'Dank Mono',
     cursorShape: 'BEAM',
     cursorBlink: true,
     showHamburgerMenu: false,
     showWindowControls: false,
     padding: '12px 14px',
-    css: `
-      x-screen x-row {
-        font-variant-ligatures: contextual;
-      }
-    `,
 
     // features
     bell: false,
@@ -37,7 +32,7 @@ module.exports = {
     },
   },
   plugins: [
-    'hyper-dracula',
+    'hyper-night-owl',
     'hyper-statusline',
     'hyper-tabs-enhanced',
     'hypercwd',
