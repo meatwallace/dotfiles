@@ -1,0 +1,79 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnType: true
+    "atom-ide-datatip":
+      datatipDebounceDelay: 1
+      datatipInteractedWithDebounceDelay: 1
+    "atom-ide-diagnostics-ui":
+      autoVisibility: true
+      showDiagnosticTraces: true
+      showDirectoryColumn: true
+    "atom-ide-outline-view": {}
+    "atom-ide-terminal":
+      fontFamily: "Dank Mono"
+    use: {}
+  autosave: {}
+  "bracket-matcher":
+    highlightMatchingLineNumber: true
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "about"
+      "autocomplete-snippets"
+      "autoflow"
+      "autosave"
+      "background-tips"
+      "bookmarks"
+      "welcome"
+      "whitespace"
+      "busy-signal"
+      "intentions"
+      "linter"
+    ]
+    packagesWithKeymapsDisabled: [
+      "github"
+      "grammar-selector"
+      "prettier-atom"
+      "spell-check"
+    ]
+    projectHome: "/Users/geoff/projects"
+    themes: [
+      "one-dark-ui"
+      "jackhammer-syntax"
+    ]
+  editor:
+    fontFamily: "Dank Mono"
+    fontSize: 16
+    showIndentGuide: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "7ce5fc7e-de23-485a-9980-6f33f3a84a4f"
+  "find-and-replace":
+    autocompleteSearches: true
+  "git-diff":
+    showIconsInEditorGutter: true
+  "ide-flowtype":
+    tryFlowBin: true
+  "linter-ui-default":
+    panelHeight: 229
+  "one-dark-ui":
+    fontSize: 10
+    hideDockButtons: true
+    tabSizing: "Maximum"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      showInStatusBar: true
+    prettierOptions:
+      arrowParens: "always"
+      jsxBracketSameLine: true
+      singleQuote: true
+      tabWidth: 2
+      trailingComma: "all"
+    useEslint: true
+  swackets:
+    colorSquareBrackets: true
+  tabs:
+    alwaysShowTabBar: false
+  "tree-view": {}

@@ -24,6 +24,7 @@ git checkout master
 
 ## todo
 
+- [ ] sublime installation & config
 - [ ] prezto modules
 - [ ] zsh plugins
 - [ ] arc theme
@@ -34,47 +35,10 @@ git checkout master
 - [ ] global node packages
   - [ ] zeit now
   - [ ] quokka
-  - [ ] commitizen
+  - [ ] commitizen - commitlint?
 - [ ] android emulator
 - [ ] ios emulator / xcode
 - [ ] auto updating
-
-## vscode plugins
-
-- babel javascript
-- bracket pair colorizer
-- carbon-now-sh
-- debugger for chrome
-- dracula official
-- editorconfig for vs code
-- eslint
-- flow language support
-- git history
-- gitlens - git supercharged
-- graphql for vscode
-- json tools
-- json5 syntax
-- latest typescript and javascript grammar
-- markdown preview enhanced
-- markdownlint
-- material icon theme
-- npm
-- npm intellisense
-- path intellisense
-- prettier - code formatter
-- project manager
-- quokka
-- react native tools
-- shellcheck
-- sort lines
-- sort-imports
-- svg viewer
-- svg
-- todo highlight
-- todo parser
-- todo tree
-- view node package
-- wallaby.js
 
 ## thanks
 
