@@ -3,14 +3,8 @@
 # prezto config
 source "$HOME/.zprezto/init.zsh"
 
-# antigen
-source "$HOME/antigen.zsh"
-
-# shortcut to this dotfiles path is $ZSH
+# add a shortcut to our dotfiles path
 export ZSH=$HOME/.dotfiles
-
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/projects
 
 # all of our zsh files
 typeset -U config_files
@@ -26,7 +20,7 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  source $file
+  source "$file"
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -40,21 +34,3 @@ do
 done
 
 unset config_files
-
-# Better history
-# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
-
-# zsh modules
-antigen bundle djui/alias-tips
-antigen bundle lukechilds/zsh-nvm
-
-antigen apply
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

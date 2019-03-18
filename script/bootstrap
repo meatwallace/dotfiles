@@ -38,6 +38,7 @@ setup_gitconfig () {
     info 'setup gitconfig'
 
     git_credential='cache'
+
     if [ "$(uname -s)" == "Darwin" ]
     then
       git_credential='osxkeychain'
@@ -53,7 +54,6 @@ setup_gitconfig () {
     success 'gitconfig'
   fi
 }
-
 
 link_file () {
   local src=$1 dst=$2
@@ -145,9 +145,9 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-
 # install and setup
 info "installing dependencies"
+
 if source bin/dot | while read -r data; do info "$data"; done
 then
   success "dependencies installed"

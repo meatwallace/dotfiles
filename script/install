@@ -1,7 +1,9 @@
 #!/bin/bash -e
 
-# run brew using Brewfile
-brew bundle
+if [[ -x "$(command -v brew)" ]]
+then
+  brew bundle
+fi
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
