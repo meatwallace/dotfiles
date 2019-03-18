@@ -9,6 +9,5 @@ else
   mkdir "$QUOKKA"
 fi
 
-
 # symlink our config
 ln -s "${ZSH}/quokka/config.json" "${QUOKKA}/config.json"

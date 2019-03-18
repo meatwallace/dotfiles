@@ -1,11 +1,6 @@
 #!/bin/bash -e
 
-if [[ ! -x "$(command -v brew)" ]]
+if [[ "$(uname -s)" == "Darwin" ]] && [[ ! -x "$(command -v brew)" ]]
 then
-  if [[ "$(uname -s)" == "Darwin" ]]
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  else
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  fi
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi

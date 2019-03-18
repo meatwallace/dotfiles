@@ -6,20 +6,24 @@
 
 cd "$HOME/.dotfiles"
 
-if [[ "$(uname -s)" == "Darwin" ]]
+# if we have git and no changes to the local dotfiles repo, pull in from upstream
+# before running our update
+if [[ -x "$(command -v git)" ]] && [[ -x ".git" ]] && [[ -z "$(git diff-index HEAD --)" ]]
 then
-  # set mac defaults
-  ./mac/set-defaults.sh
+  git pull
 fi
 
-# install ruby
-./ruby/install.sh 2>&1
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+  # enforce our system defaults
+  ./mac/set-defaults.sh
 
-# install homebrew
-./homebrew/install.sh 2>&1
+  # install homebrew if it's not available
+  ./homebrew/install.sh 2>&1
 
-# upgrade homebrew
-brew update
+  # upgrade homebrew
+  brew update
+fi
 
-# install software
+# install software as needed
 ./script/install

@@ -1,26 +1,17 @@
 # executes commands at login, pre-zshrc
 
 # browser
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
+export BROWSER="open"
 
 # language
-
 if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+  export LANG="en_US.UTF-8"
 fi
 
 # paths
 
 # ensure path arrays do not contain duplicates
 typeset -gU cdpath fpath mailpath path
-
-# set the the list of directories that cd searches
-# cdpath=(
-#   $cdpath
-# )
 
 # set the list of directories that Zsh searches for programs.
 path=(

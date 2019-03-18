@@ -1,3 +1,5 @@
-export EDITOR='nano'
-export VISUAL='nano'
+#!/bin/bash -e
+
+export EDITOR='vi'
+export VISUAL='vi'
 export PAGER='less'
