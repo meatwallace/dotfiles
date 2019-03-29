@@ -1,6 +1,0 @@
-#!/bin/bash -e
-
-# warpdrive
-wd() {
-  source "$HOME/bin/wd/wd.sh"
-}

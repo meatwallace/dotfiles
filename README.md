@@ -1,28 +1,74 @@
 # dotfiles
 
-## install
+my personal configuration for both Arch Linux based & Mac systems, available as
+an [Antergos](https://antergos.com) based docker image, or through an automated
+setup script hosted via the URL below.
 
-```sh
-# the dream
-curl --location https://meatbox.one | sh
+i recommend **not** using this, but feel free to take a gander or a gamble.
+
+## Usage
+
+to boot into the Antergos-based docker image with simple terminal access:
+
+```
+docker run -it meatwallace/meatbox:latest
 ```
 
+to run the latest setup script, execute the following in your terminal:
+
 ```sh
-# create our directory
-mkdir -p ~/projects/dotfiles && cd $_
-
-# grab dotfiles
-curl --progress-bar --location https://github.com/meatwallace/dotfiles/tarball/master | tar -xzv --strip-components 1
-
-# link
-ln -s ~/projects/dotfiles/ ~/.dotfiles
-
-# initialize
-script/bootstrap
-
-# map back to repo
-git init .
-git remote add -t \* -f origin git@github.com:meatwallace/dotfiles.git
-git add .
-git checkout master
+curl https://meatbox.one | bash
 ```
+
+if you're feeling adventurous/daring and are on linux w/ docker, you can grab
+[x11docker](https://github.com/mviereck/x11docker) (included in my config),
+and try running the docker image as a full desktop environment: 
+
+```sh
+# !! WARNING !!
+# TL;DR: don't try this at home. really.
+# 
+# to allow the desktop environment & apps to work seamlessly, the following
+# script opens up a bunch of security holes, allowing the booted container
+# to hijack the host environment via a variety of vectors. in short, I do
+# not recommend running this (with my image or any others) unless you're aware
+# of what `x11docker` is doing or you're me.
+# !! WARNING !!
+
+x11docker \
+  --desktop \
+  --fullscreen \
+  --init=systemd \
+  --dbus-system \
+  --user=RETAIN \
+  --sudouser \
+  --clipboard \
+  --pulseaudio \
+  --cap-default \
+  -- \
+  --cap-add=SYS_ADMIN \
+  -- \
+  meatwallace/meatbox:latest /usr/bin/xinitrcsession-helper
+```
+
+## Overview
+
+this repository contains an over-engineered system configuration that aims to
+be pragmatic for me to use, but is built upon needless complexity, prone to
+changing, and a mix of technologies; it serves as a personal playground for
+my learning & mastery of a variety of workflows, tools, languages, and just
+generally, sharpening the saw.
+
+some of what you'll find:
+
+- my `.vimrc`, a new and ongoing venture into the world of `(neo)vim`
+- my `.zshrc` and associated config files, using `zplugin` for plugin management
+- my `.config` directory with my setup for `awesome`, `rofi`, `compton`, etc
+  for a full desktop environment for Linux based systems, designed for no-frills
+  getting shit done and almost exclusivly orientated around terminal usage
+- `.meatbox`, containing all of  the setup scripts and `meatbox`, a simplistic
+  CLI for managing setup & upgrades of the configuration
+- `.meatlab`, a work in progress config for my home media server, currently a
+  whopping 2 containers glued together with `docker-compose`
+- automatic linting, testing, and building of the image via circle CI
+

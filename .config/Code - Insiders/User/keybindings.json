@@ -1,0 +1,6 @@
+[
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm"
+  }
+]

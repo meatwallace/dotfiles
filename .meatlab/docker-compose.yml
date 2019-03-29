@@ -1,0 +1,38 @@
+---
+version: '3.6'
+services:
+
+  ###########################################################
+  # FRONTENDS
+  ##
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    hostname: heimdall
+    restart: unless-stopped
+    volumes:
+      - ~/containers/heimdall/config:/config
+    ports:
+      - 80:80
+      - 443:443
+
+  ###########################################################
+  # MEDIA CENTRE
+  ##
+
+  # Plex Media Server
+  # @ http://localhost:32400/web/
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    hostname: plex
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - VERSION=docker
+    volumes:
+      - ~/containers/plex/config:/config
+      - ~/containers/plex/transcode:/transcode
+      - ~/containers/downloads/completed/tv:/data/tvshows
+      - ~/containers/downloads/completed/movies:/data/movies
+

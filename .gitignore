@@ -1,1 +1,3 @@
-git/gitconfig.local.symlink
+node_modules
+.DS_Store
+

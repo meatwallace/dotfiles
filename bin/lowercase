@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+lowercase() {
+  local string="$1"
+
+  echo "${string,,}"
+}
+
+lowercase "$@"

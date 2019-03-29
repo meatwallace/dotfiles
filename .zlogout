@@ -1,0 +1,2 @@
+# executes commands at logout
+

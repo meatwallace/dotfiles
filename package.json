@@ -1,0 +1,19 @@
+{
+  "name": "@meatwallace/meatbox",
+  "version": "1.0.0",
+  "description": "personal configuration for both Arch Linux & Mac systems",
+  "repository": "https://github.com/meatwallace/meatbox",
+  "author": "@meatwallace",
+  "license": "The Unlicense",
+  "private": true,
+  "dependencies": {
+    "@prettier/plugin-lua": "0.0.1",
+    "@prettier/plugin-ruby": "0.10.0",
+    "fkill-cli": "5.2.0",
+    "gtop": "1.0.0",
+    "neovim": "4.5.0",
+    "now": "15.0.3",
+    "prettier": "1.16.4",
+    "prettier-plugin-java": "0.0.10"
+  }
+}

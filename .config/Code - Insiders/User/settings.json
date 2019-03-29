@@ -1,0 +1,145 @@
+{
+  // Theme
+  "editor.fontFamily": "Operator Mono Book",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 20,
+  "material-icon-theme.folders.theme": "specific",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#161719",
+    "activityBar.border": "#262729",
+    "editor.background": "#161719",
+    "editor.foreground": "#adc3d9",
+    "editorGroup.border": "#262729",
+    "editorGutter.background": "#161719",
+    "editorLineNumber.activeForeground": "#53668b",
+    "editorLineNumber.foreground": "#293345",
+    "sideBar.background": "#161719",
+    "sideBar.border": "#262729",
+    "sideBar.foreground": "#adc3d9",
+    "sideBarSectionHeader.background": "#293345",
+    "sideBarSectionHeader.foreground": "#adc3d9",
+    "statusBar.background": "#293345",
+    "statusBar.border": "#262729"
+    // "editorGutter.addedBackground": "#30518f",
+    // "editorGutter.commentRangeForeground": "#0407c0",
+    // "panel.border": "#ff0000",
+    // "sideBar.dropBackground": "#ff0000",
+    // "tab.border": "#ff0000",
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": []
+  },
+  // Settings
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderIndentGuides": true,
+  "editor.renderLineHighlight": "none",
+  "editor.rulers": [80, 120],
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "window.zoomLevel": 0,
+  "bracketPairColorizer.forceIterationColorCycle": true,
+  // "diffEditor.ignoreTrimWhitespace": false,
+  // "editor.folding": false,
+  // "editor.hideCursorInOverviewRuler": true,
+  // "editor.matchBrackets": true,
+  // "editor.occurrencesHighlight": false,
+  // "editor.parameterHints": false,
+  // "editor.quickSuggestions": false,
+  // "editor.scrollBeyondLastLine": false,
+  // "editor.snippetSuggestions": "none",
+  // "editor.suggestOnTriggerCharacters": false,
+  // "explorer.autoReveal": false,
+  // "explorer.openEditors.visible": 0,
+  // "files.defaultLanguage": "javascript",
+  // "files.useExperimentalFileWatcher": true,
+  // "keyboard.touchbar.enabled": false,
+  // "workbench.activityBar.visible": false,
+  // "workbench.editor.showIcons": false,
+  // "workbench.startupEditor": "newUntitledFile",
+  // "workbench.statusBar.feedback.visible": false,
+  // "workbench.statusBar.visible": true,
+  // "zenMode.fullScreen": false,
+  // "zenMode.hideStatusBar": false,
+  // "zenMode.restore": true,
+
+  // File Associations
+  "files.associations": {
+    "*.js": "javascript"
+  },
+
+  // Git
+  "git.autofetch": true,
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.mode.active": "zen",
+
+  // CSS
+  "css.validate": false,
+
+  // HTML
+  "emmet.triggerExpansionOnTab": false,
+  "html.format.enable": false,
+  "html.validate.scripts": false,
+  "html.validate.styles": false,
+
+  // JavaScript
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+  "flow.useNPMPackagedFlow": true,
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
+  "prettier.eslintIntegration": true,
+  "prettier.requireConfig": true,
+  "sort-imports.default-sort-style": "module-compact",
+  "typescript.tsc.autoDetect": "off",
+  // "javascript.nameSuggestions": false,
+  // "typescript.quickSuggestionsForPaths": false,
+  // "typescript.validate.enable": false,
+
+  // JSON
+  "json.format.enable": false,
+
+  // Markdown
+  "markdownlint.config": {
+    "MD013": {
+      "line_length": 80
+    },
+    "MD029": {
+      "style": "ordered"
+    }
+  },
+
+  // Reason
+
+  // Shell
+  "shellcheck.enable": true,
+  "shellcheck.run": "onType",
+  "shellcheck.customArgs": ["-x"],
+  "shellformat.path": "/usr/bin/shfmt",
+
+  // SVG
+  "svgviewer.enableautopreview": false,
+
+  // TODOs
+  "todohighlight.keywords": ["TODO", "DOC", "DEPRECATE"],
+  "todohighlight.defaultStyle": {
+    "backgroundColor": "#45474F",
+    "color": "#CBCDD2"
+  },
+  // TOSORT
+  "search.location": "panel",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "breadcrumbs.enabled": true,
+  "workbench.colorTheme": "Nord",
+  "[dockerfile]": {
+    "editor.defaultFormatter": "PeterJausovec.vscode-docker"
+  }
+}

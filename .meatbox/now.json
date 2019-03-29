@@ -1,0 +1,12 @@
+{
+  "name": "meatbox",
+  "alias": ["meatbox.one"],
+  "scope": "meatwallace",
+  "regions": ["all"],
+  "public": false,
+  "version": 2,
+  "builds": [
+    { "src": "index.sh", "use": "@now/static" }
+  ]
+}
+
