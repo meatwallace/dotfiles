@@ -4,9 +4,6 @@
 # shellcheck source=.zpath
 . "$HOME/.zpath"
 
-# enforce vi-mode rather than zsh's default emacs mode
-bindkey -v
-
 # grab all of our zsh functions from ~/.zfuncs and mark them for autoloading 
 function () {
   local -a zfuncs
@@ -20,11 +17,8 @@ function () {
 
 # prompt & command configuration
 setopt AUTOCD                     # automatically swap to a directory without requiring to type `cd`
-setopt COMPLETE_ALIASES           # don't expand aliases before completion is attempted
-setopt COMPLETE_IN_WORD           # completion is attempted from both ends of the command
 setopt PROMPT_SUBST               # enable parameter expansion, command substituion, and arithmetic expansion in prompts
 setopt CORRECT                    # try to correct the spelling of our commands
-setopt CORRECTALL                 # offer corrections for mispelt arguments
 setopt NO_LIST_BEEP               # don't beep on an ambiguous completion
 
 # directory stack
@@ -61,10 +55,10 @@ setopt LOCAL_TRAPS                # allow functions to have local traps
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # pasting with tabs doesn't perform completion
-zstyle ':completion:*' insert-tab pending
+# zstyle ':completion:*' insert-tab pending
 
 # menu-driven auto completion
-zstyle ':completion:*' menu select
+# zstyle ':completion:*' menu select
 
 # initialize our completion
 autoload -Uz bashcompinit && bashcompinit
@@ -95,3 +89,15 @@ autoload -Uz _zplugin
 . ~/.purepower
 zplugin ice src"powerlevel10k.zsh-theme"
 zplugin light romkatv/powerlevel10k
+
+# enforce vi-mode rather than zsh's default emacs mode
+# unsetopt ZLE
+bindkey -v
+KEYTIMEOUT=1
+
+# export FZF_COMPLETION_TRIGGER=''
+. /usr/share/fzf/key-bindings.zsh
+. /usr/share/fzf/completion.zsh
+# bindkey '^T' fzf-completion
+#bindkey '^I' $fzf_default_completion
+

@@ -1,67 +1,79 @@
-#!/usr/bin/env bash
-
-# navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~"
-alias -- -="cd -"
+#!/bin/sh
 
 # commands preloaded w/ default args
-alias ls="ls -GF --color"
-alias mv="mv -v"
-alias rm="rm -i -v"
-alias cp="cp -v"
-alias mkdir="mkdir -p -v"
-alias emacs="emacs -nw"
+alias ls='ls -GF --color'
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+alias mkdir='mkdir -p -v'
+alias emacs='emacs -nw'
 
 # single letter shortcuts to core commands
-alias c="cd"
-alias d="dirs -v | head -10"
-alias g="git"
-alias l="ls -GF --color"
-alias m="mkdir"
-alias n="nnn -ils"
-alias r="rm"
-alias s="sudo"
-alias t="tizonia"
-alias v="nvim"
-alias y="yarn"
+alias a=''
+alias b='bat'
+alias c='cat'
+alias d='dirs -v | head -10'
+alias f='fzf'
+alias g='git'
+alias l='ls -GF --color'
+alias m='mkdir'
+alias n='nnn -ils'
+alias r='rm'
+alias s='sudo'
+alias t='tizonia'
+alias v='nvim'
+alias y='yarn'
 
 # commands aliased to alternatives
-alias vim="nvim"
+alias vim='nvim'
+
+# docker
+# TODO
+
+# facebook messenger
+fbm() { messer "$@"; }
+fbmc() { fbm --command="contacts"; }
+fbmh() { fbm --command="history \"$1\" ${2:-10}"; }
+fbmm() { contact="$1"; shift; message="$*"; messer --command="message \"$contact\" $message"; }
+fbmr() { messer --command="reply \"$*\""; }
+fbmrc() { messer --command="recent ${1:-10}"; }
 
 # git
-alias ga="git add ."
-alias gc="git commit"
-alias gca="git commit -a"
+alias ga='git add .'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
 alias gd="git diff --color | sed 's/^\([^-+ ]*\)[-+ ]/\\1/' | less -r"
-alias gf="git fetch"
+alias gf='git fetch'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gnb="git checkout -b"
-alias gp="git push origin HEAD"
-alias gs="git status -sb"
+alias gnb='git checkout -b'
+alias gp='git push origin HEAD'
+alias gs='git status -sb'
 
 # tizonia
-alias tzsp="tizonia-all --spotify-playlist"
+alias tscc='tizonia --soundcloud-creator'
+alias tscl='tizonia --soundcloud-user-likes'
+alias tscs='tizonia --soundcloud-user-stream'
+alias tscp='tizonia --soundcloud-user-playlist'
+alias tspp='tizonia --spotify-playlist'
 
 # vim
 alias vf='nvim $(fzf)'
 
 # apps
-alias code="code-insiders"
+alias code='code-insiders'
 
 # shortcuts
-alias chmox="chmod +x"
+alias chmox='chmod +x'                            # flags a file as executable
+en() { awk '{printf "%s\\n", $0}' "$1"; }         # escapes newlines
 
 # cli
 alias sc="shellcheck"
-alias rn="react-native"
+alias rn='react-native'
 
 # term
 alias reload!='. "$HOME"/.profile'
-alias cls="clear"
+alias cls='clear'
 
 # ssh
-# alias cpkey="copyq copy - < ~/.ssh/id_rsa.pub | echo "Public key copied to pasteboard.""
+# alias cpkey='copyq copy - < ~/.ssh/id_rsa.pub | echo 'Public key copied to pasteboard.''

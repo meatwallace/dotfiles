@@ -1,3 +1,4 @@
-node_modules
 .DS_Store
-
+libs/*
+!libs/.gitkeep
+node_modules

@@ -1,0 +1,64 @@
+version: 2.1
+
+jobs:
+  linting:
+    docker:
+      - image: koalaman/shellcheck-alpine:latest
+    steps:
+      - checkout
+      - run:
+          name: "Run Shellcheck"
+          command: |
+            find . -type f -name '*.sh' | wc -l
+            # TODO(#35): fix bogus shellcheck errors on Circle CI
+            find . -type f -name '*.sh' | xargs shellcheck --external-sources --exclude=SC1091,SC2086
+
+  deploy_staging:
+    docker:
+      - image: meatwallace/alpine-zeit-now:latest
+    steps:
+      - checkout
+      - run:
+          name: "Deploy to Staging"
+          command: NOW_TARGET=staging ./scripts/deploy.sh
+  
+  build:
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Build Dockerfile"
+          command: |
+            apk add --no-cache git &>/dev/null
+            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh
+          no_output_timeout: 2h
+
+  deploy_production:
+    docker:
+      - image: meatwallace/alpine-zeit-now:latest
+    steps:
+      - checkout
+      - run:
+          name: "Deploy to Production"
+          command: NOW_TARGET=production ./scripts/deploy.sh
+
+workflows:
+  version: 2
+  lint-build-and-deploy:
+    jobs:
+      - linting
+      - deploy_staging:
+          requires:
+            - linting
+      - build:
+          requires:
+            - deploy_staging
+      - deploy_production:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+

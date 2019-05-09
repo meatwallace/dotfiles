@@ -6,7 +6,7 @@
 	"makepkgbin": "makepkg",
 	"makepkgconf": "",
 	"pacmanbin": "pacman",
-	"pacmanconf": "/etc/pacman.conf",
+	"pacmanconf": "$HOME/.config/pacman/pacman.conf",
 	"tarbin": "bsdtar",
 	"redownload": "no",
 	"rebuild": "no",

@@ -1,5 +1,7 @@
 # dotfiles
 
+[![CircleCI](https://circleci.com/gh/meatwallace/dotfiles/tree/master.svg?style=svg)](https://circleci.com/gh/meatwallace/dotfiles/tree/master)
+
 my personal configuration for both Arch Linux based & Mac systems, available as
 an [Antergos](https://antergos.com) based docker image, or through an automated
 setup script hosted via the URL below.
@@ -61,14 +63,15 @@ generally, sharpening the saw.
 
 some of what you'll find:
 
-- my `.vimrc`, a new and ongoing venture into the world of `(neo)vim`
-- my `.zshrc` and associated config files, using `zplugin` for plugin management
-- my `.config` directory with my setup for `awesome`, `rofi`, `compton`, etc
-  for a full desktop environment for Linux based systems, designed for no-frills
-  getting shit done and almost exclusivly orientated around terminal usage
-- `.meatbox`, containing all of  the setup scripts and `meatbox`, a simplistic
-  CLI for managing setup & upgrades of the configuration
-- `.meatlab`, a work in progress config for my home media server, currently a
-  whopping 2 containers glued together with `docker-compose`
-- automatic linting, testing, and building of the image via circle CI
+- `.vimrc`, a new and ongoing venture into the world of `(neo)vim`
+- `.zshrc` and associated config files, using `zplugin` for plugin management
+- `.config/` with my setup for `awesome`, `rofi`, `compton`, etc. for a full
+  desktop environment for Linux based systems, aiming for a complete yet
+  no-frills getting shit done workflow orientated around the terminal
+- `scripts/`, containing all of  the setup scripts, cooirdinated by `meatbox`,
+  a simplistic CLI for managing setup & upgrades of the configuration
+- `projects/meatlab`, a work in progress config for my home media server,
+  currently a whopping 2 containers glued together with `docker-compose`
+- automatic linting, testing, and building the entire setup as a docker image
+  via CircleCI
 

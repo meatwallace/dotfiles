@@ -147,9 +147,10 @@ if has('nvim')
   " use the system version of python2 to avoid complexity of managing both
   " with `asdf`
   let g:python_host_prog = expand('/usr/bin/python2') 
-  " explicitly use our `asdf` managed python version 
+
+  " explicitly use our `asdf` managed python & ruby versions
   let g:python3_host_prog = expand('~/.asdf/shims/python3') 
-  
+  let g:ruby_host_prog = expand('~/.asdf/installs/ruby/2.6.3/bin/neovim-ruby-host') 
   " use our hacky root package.json installed neovim instead of the expected
   " global installation location
   let g:node_host_prog = expand('~/node_modules/neovim')
@@ -195,31 +196,47 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
   " behaviour
-  Plug 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
   " Plug 'jiangmiao/auto-pairs'
   " Plug 'tpope/vim-commentary'
 
   " searching
+  " Plug 'shougo/denite.nvim', Cond(has('python3'))
   Plug 'junegunn/fzf.vim'
 
   " autocomplete
-  Plug 'tpope/vim-fugitive'
-  Plug 'w0rp/ale'
+  " Plug 'tpope/vim-fugitive'
+  " Plug 'w0rp/ale'
   Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
   " Plug 'kabbamine/zeavim.vim'
 
   " editor ui
+  " Plug 'ryanoasis/vim-devicons'
   Plug 'arcticicestudio/nord-vim'
-  Plug 'cocopon/iceberg.vim'
+  " Plug 'cocopon/iceberg.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   " Plug 'ap/vim-buftabline'
 
 call plug#end()
 
-
 " custom command to upgrade vim-plug after updating plugins
 command! PU PlugUpdate | PlugUpgrade
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" lightline 
+"""
+
+let g:lightline = {
+  \ 'colorscheme': '16color',
+  \ 'active': {
+  \   'left': [ ['mode', 'paste'],
+  \             ['cocstatus', 'readonly', 'filename', 'modified'] ]
+  \ },
+  \ 'component_function': {
+  \   'cocstatus': 'coc#status'
+  \ },
+  \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
@@ -305,17 +322,6 @@ command! -nargs=0 Format :call CocAction('format')
 "use `:Fold` to fold the current buffer
 command! -nargs=? Fold :call CocAction('fold, <f-args>)
 
-let g:lightline = {
-  \ 'colorscheme': '16color',
-  \ 'active': {
-  \   'left': [ ['mode', 'paste'],
-  \             ['cocstatus', 'readonly', 'filename', 'modified'] ]
-  \ },
-  \ 'component_function': {
-  \   'cocstatus': 'coc#status'
-  \ },
-  \ }
-
 " using CocList
 " show all diagnostics
 nnoremap <silent> ,a :<C-u>CocList diagnostics<CR>
@@ -339,8 +345,36 @@ nnoremap <silent> ,k :<C-u>CocPrevious<CR>
 nnoremap <silent> ,p :<C-u>CocListResume<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fzf.vim
+"""
+
+nnoremap <C-f> :Files<CR>
+nnoremap <C-g> :Rg<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" denite.nvim
+"""
+
+" plugin: denite.nvim
+" call denite#custom#var('file_rec', 'command', ['rg', '--files', '--no-ignore', '--hidden', '--follow', '--glob', '!.git/*'])
+
+" nnoremap <C-f> :Denite file/rec<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " keymappings
 """
+
+" shift lines up and down with - and _
+" nnoremap <leader>_ ddp
+" nnoremap <leader>- ddkkp
+
+" uppercase the current word
+" nnoremap <leader>u viw<S-u><ESC>
+" inoremap <leader>u <ESC>viw<S-u><ESC>i
+
+" quote the current word
+nnoremap <leader>" viw<ESC>a"<ESC>bi"<ESC>lel
+nnoremap <leader>' viw<ESC>a'<ESC>bi'<ESC>lel
 
 " remove our arrow key mappings
 nnoremap <left>   <Nop>
@@ -357,21 +391,5 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 
 " reload our vim config
 nnoremap <leader>sv :source $MYVIMRC<CR>
-
-" keymappings for fzf.vim
-nnoremap <C-f> :Files<CR>
-nnoremap <C-g> :Rg<CR>
-
-" shift lines up and down with - and _
-" nnoremap <leader>_ ddp
-" nnoremap <leader>- ddkkp
-
-" uppercase the current word
-" nnoremap <leader>u viw<S-u><ESC>
-" inoremap <leader>u <ESC>viw<S-u><ESC>i
-
-" quote the current word
-nnoremap <leader>" viw<ESC>a"<ESC>bi"<ESC>lel
-nnoremap <leader>' viw<ESC>a'<ESC>bi'<ESC>lel
 
 colorscheme nord
