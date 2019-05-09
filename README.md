@@ -1,5 +1,7 @@
 # dotfiles
 
+[![CircleCI](https://circleci.com/gh/meatwallace/dotfiles/tree/master.svg?style=svg)](https://circleci.com/gh/meatwallace/dotfiles/tree/master)
+
 my personal configuration for both Arch Linux based & Mac systems, available as
 an [Antergos](https://antergos.com) based docker image, or through an automated
 setup script hosted via the URL below.

@@ -134,6 +134,7 @@ meatbox_setup() {
   [...rest] flags
 
   start-sudo-loop "$MEATBOX_PASSWORD"
+
   meatbox_run_os_script "setup.sh" "$flags"
   meatbox_run_universal_script "setup.sh" "$flags"
 }
@@ -142,6 +143,7 @@ meatbox_update() {
   [...rest] flags
 
   start-sudo-loop "$MEATBOX_PASSWORD"
+
   meatbox_run_os_script "update.sh" "$flags"
   meatbox_run_universal_script "update.sh" "$flags"
 }

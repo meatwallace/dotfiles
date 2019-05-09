@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -eo pipefail
 
@@ -20,17 +20,19 @@ export PATH="$MEATBOX_BIN_DIR:$PATH"
 YADM_DIR="$MEATBOX_LIBS_DIR/yadm"
 
 if [ ! -d "$YADM_DIR" ]; then
-  git clone https://github.com/TheLocehiliosan/yadm.git "$YADM_DIR" &>/dev/null
+  git clone https://github.com/TheLocehiliosan/yadm.git "$YADM_DIR" >/dev/null
 
   ln -fs "$YADM_DIR/yadm" "$MEATBOX_BIN_DIR/yadm"
 fi
 
 # clone our system config and update origin to use SSL in the future
-yadm clone -f https://github.com/meatwallace/meatbox &>/dev/null
+yadm clone -f https://github.com/meatwallace/dotfiles >/dev/null
 yadm remote set-url origin "git@github.com:meatwallace/dotfiles.git"
 
-# alias our system config cli into our user's /bin
-ln -fs "$MEATBOX_SCRIPTS_DIR/meatbox.sh" "$MEATBOX_BIN_DIR/meatbox"
+# TODO(#37): remove once circle CI changes are merged to master
+if [ ! -f "$HOME/bin/meatbox" ]; then
+  ln -fs "$MEATBOX_SCRIPTS_DIR/meatbox.sh" "$MEATBOX_BIN_DIR/meatbox"
+fi
 
 # reload our bash_profile so our env is set up correctly
 # shellcheck source=../.bash_profile

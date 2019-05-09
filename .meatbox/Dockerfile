@@ -35,7 +35,7 @@ ARG CACHE_BUSTER=1
 
 RUN \
   # run our system setup script from our staging alias
-  curl https://meatbox.meatwallace.now.sh | bash && \
+  curl "https://meatbox.meatwallace.now.sh" | bash && \
   # clean up any extraneous dependencies left over by our installation
   yay --clean --noconfirm && \
   # clean up pacman's package cache for installed & uninstalled packages

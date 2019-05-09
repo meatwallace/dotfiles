@@ -115,7 +115,9 @@ watchman
 firefox
 firefox-developer-edition
 google-chrome
-ungoogled-chromium
+# disabling installation of ungoogled chromium as compilation takes over 2
+# hours and i don't value my privacy enough for that kind of time
+# ungoogled-chromium
 vivaldi-snapshot
 vivaldi-snapshot-ffmpeg-codecs
 vivaldi

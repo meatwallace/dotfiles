@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eo pipefail
+
+NOW_TARGET="${NOW_TARGET:-staging}"
 
 now \
   --token "$NOW_TOKEN" \
-  --local-config "$MEATBOX_DIR/now.json" \
   --target "$NOW_TARGET"
+
