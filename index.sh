@@ -3,7 +3,7 @@
 set -eo pipefail
 
 # these are mirrored in the root .env file
-export MEATBOX_DIR="$HOME/.meatbox"
+export MEATBOX_DIR="$HOME"
 export MEATBOX_BIN_DIR="$HOME/bin"
 export MEATBOX_LIBS_DIR="$MEATBOX_DIR/libs"
 export MEATBOX_SCRIPTS_DIR="$MEATBOX_DIR/scripts"

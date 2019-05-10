@@ -24,7 +24,7 @@ jobs:
             apk add --no-cache curl &>/dev/null
             curl -L --url "https://latest-now-cli.now.sh/download?branch=now-dev&bin=now-alpine" -o /usr/bin/now &>/dev/null
             chmod +x /usr/bin/now
-            (cd .meatbox; NOW_TARGET=staging ./scripts/deploy.sh)
+            NOW_TARGET=staging ./scripts/deploy.sh
   
   build:
     docker:
@@ -36,7 +36,7 @@ jobs:
           name: "Build Dockerfile"
           command: |
             apk add --no-cache docker git &>/dev/null
-            (cd .meatbox; GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh)
+            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh
           no_output_timeout: 2h
 
   deploy_production:
@@ -50,7 +50,7 @@ jobs:
             apk add --no-cache curl &>/dev/null
             curl -L --url "https://latest-now-cli.now.sh/download?branch=now-dev&bin=now-alpine" -o /usr/bin/now &>/dev/null
             chmod +x /usr/bin/now
-            (cd .meatbox; NOW_TARGET=staging ./scripts/deploy.sh)
+            NOW_TARGET=staging ./scripts/deploy.sh
 
 workflows:
   version: 2
