@@ -4,7 +4,7 @@ function usage() {
   cat << HEREDOC
 profile
 
-Usage: profile [--] <command>
+Usage: profile [options] [--] <command>
 
 Options:
   -h, --help                show this message

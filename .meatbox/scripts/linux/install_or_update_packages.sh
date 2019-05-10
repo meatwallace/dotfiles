@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euxo pipefail
+set -euo pipefail
 
 # grab the list of packages out of our "Yayfile" and diff it against the list
 # of from packages via `yay` so we don't try to install anything unavailable
