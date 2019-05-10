@@ -20,11 +20,9 @@ function () {
 
 # prompt & command configuration
 setopt AUTOCD                     # automatically swap to a directory without requiring to type `cd`
-setopt COMPLETE_ALIASES           # don't expand aliases before completion is attempted
-setopt COMPLETE_IN_WORD           # completion is attempted from both ends of the command
+# setopt COMPLETE_IN_WORD           # completion is attempted from both ends of the command
 setopt PROMPT_SUBST               # enable parameter expansion, command substituion, and arithmetic expansion in prompts
 setopt CORRECT                    # try to correct the spelling of our commands
-setopt CORRECTALL                 # offer corrections for mispelt arguments
 setopt NO_LIST_BEEP               # don't beep on an ambiguous completion
 
 # directory stack

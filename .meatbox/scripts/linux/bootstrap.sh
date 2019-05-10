@@ -6,7 +6,9 @@ set -euo pipefail
 # conditional script execution
 
 declare -a scripts=(
+  add_pacman_repo_keys.sh
   refresh_package_databases.sh
+  update_pacman_mirrorlist.sh
   install_yay.sh
   install_pciutils.sh
   install_aria2.sh

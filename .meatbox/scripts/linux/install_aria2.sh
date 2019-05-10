@@ -6,5 +6,5 @@ set -euo pipefail
 # downloading in `app-fast`. use `pacman` directly as `yay` is configured
 # to use `app-fast` as it's `pacman` bin
 if is not available "aria2c"; then
-  sudo pacman -S --noconfirm aria2 >/dev/null
+  yay -S --noconfirm aria2 >/dev/null
 fi

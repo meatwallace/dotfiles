@@ -16,5 +16,6 @@ x11docker \
   -- \
   --cap-add=SYS_ADMIN \
   -- \
-  meatwallace/meatbox:latest /usr/bin/xinitrcsession-helper
-
+  meatwallace/meatbox /usr/bin/xinitrcsession-helper
+  # requires root user to run our login screen 
+  # meatwallace/meatbox /usr/bin/lightdm

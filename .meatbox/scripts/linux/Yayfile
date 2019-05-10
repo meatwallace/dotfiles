@@ -21,6 +21,7 @@ zsh-completions
 
 # utils
 jq
+reflector
 
 # bluetooth
 bluez
@@ -42,6 +43,7 @@ lightdm-mini-greeter
 light-locker
 rofi
 # rofi-1pass
+xcape
 xclip
 xdg-utils
 xdotool
@@ -56,20 +58,21 @@ xorg-xhost
 xorg-xrandr
 xorg-xdpyinfo
 
-# core
+# core software
 alacritty
 aria2
 feh
 fzf
+insync
 kitty
 maim
+mpv
 neofetch
 python-pillow
 ranger
 ripgrep
 tizonia-all
 w3m
-xcape
 
 # fonts
 nerd-fonts-complete
@@ -96,6 +99,7 @@ kubectl-bin
 minikube-bin
 
 # editors
+android-studio
 emacs
 neovim
 python2-neovim-git
@@ -115,13 +119,14 @@ watchman
 firefox
 firefox-developer-edition
 google-chrome
+google-chrome-dev
 # disabling installation of ungoogled chromium as compilation takes over 2
 # hours and i don't value my privacy enough for that kind of time
 # ungoogled-chromium
-vivaldi-snapshot
-vivaldi-snapshot-ffmpeg-codecs
 vivaldi
 vivaldi-ffmpeg-codecs
+vivaldi-snapshot
+vivaldi-snapshot-ffmpeg-codecs
 
 # misc
 # TODO(#22): reenable 1password cli in arch installation when checksums are reverified 

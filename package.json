@@ -8,12 +8,14 @@
   "private": true,
   "dependencies": {
     "@prettier/plugin-lua": "0.0.1",
-    "@prettier/plugin-ruby": "0.10.0",
+    "@prettier/plugin-ruby": "0.12.2",
+    "discord-term": "1.2.3",
     "fkill-cli": "5.2.0",
     "gtop": "1.0.0",
+    "messer": "0.5.2",
     "neovim": "4.5.0",
-    "now": "15.0.3",
-    "prettier": "1.16.4",
+    "now": "15.2.0",
+    "prettier": "1.17.0",
     "prettier-plugin-java": "0.0.10"
   }
 }

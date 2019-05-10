@@ -24,11 +24,12 @@ RUN \
   # add a temporary sudo config file allowing our user to use pacman & make without
   # a password so our setup script doesn't require a custom `askpass` just for
   # docker
-  echo "${MEATBOX_USER} ALL=NOPASSWD: /usr/bin/bash, /usr/bin/pacman, /usr/bin/make, /usr/bin/nvidia-xconfig, /usr/bin/systemctl, /usr/bin/usermod, /usr/bin/ln" >> "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}" && \
+  echo "${MEATBOX_USER} ALL=NOPASSWD: /usr/bin/bash, /usr/bin/ln, /usr/bin/make, /usr/bin/nvidia-xconfig, /usr/bin/pacman, /usr/bin/pacman-key, /usr/bin/systemctl, /usr/bin/usermod" >> "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}" && \
   chmod 0440 "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
 # swap into our user account
 USER "${MEATBOX_USER}"
+WORKDIR "/home/${MEATBOX_USER}"
 
 # we prevent caching of our setup script by injecting our current commit SHA1 here
 ARG MEATBOX_CHECKOUT_SHA1

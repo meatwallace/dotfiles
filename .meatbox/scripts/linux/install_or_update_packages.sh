@@ -12,8 +12,4 @@ if is available "tizonia"; then
 fi
 
 # install any packages that aren't installed or require updating
-echo "installing packages:"
-echo "quoted: $packages"
-echo "unquoted:" $packages
-
-yay -S --noconfirm --needed --overwrite /etc/lightdm $packages # >/dev/null
+yay -Sq --noconfirm --needed --overwrite /etc/lightdm $packages >/dev/null
