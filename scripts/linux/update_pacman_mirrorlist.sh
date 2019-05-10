@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if is not available "reflector"; then
-  sudo pacman -S --noconfirm reflector
+  sudo pacman -S --config="$HOME/.config/pacman/pacman.conf" --noconfirm reflector
 fi
 
 reflector \

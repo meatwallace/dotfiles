@@ -15,7 +15,6 @@ alias rm='rm -i -v'
 alias cp='cp -v'
 alias mkdir='mkdir -p -v'
 alias emacs='emacs -nw'
-alias pacman='pacman --config "$HOME/.config/pacman/pacman.conf" --hooksdir "$HOME/.config/pacman/hooks"'
 
 # single letter shortcuts to core commands
 alias c='cd'
