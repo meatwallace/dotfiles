@@ -4,5 +4,5 @@ set -euo pipefail
 
 # install `yay` if it's unavalable, a `pacman` wrapper that integrates the AUR
 if is not available "yay"; then
-  pacman -S --noconfirm yay
+  sudo pacman -S --noconfirm yay
 fi
