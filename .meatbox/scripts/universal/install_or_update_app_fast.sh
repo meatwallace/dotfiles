@@ -4,7 +4,9 @@ set -euo pipefail
 
 app_fast_dir="$MEATBOX_LIBS_DIR/app-fast"
 
-if is equal "$(sysinfo os)" "macos"; then
+kernel="$(uname -s)"
+
+if is equal "$kernel" "Darwin"; then
   app_fast_dir="usr/local/bin/app-fast"
 fi
 
