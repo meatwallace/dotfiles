@@ -15,5 +15,5 @@ declare -a scripts=(
 )
 
 for script in "${scripts[@]}"; do
-  "./$script" >/dev/null
+  "./$script" # >/dev/null
 done
