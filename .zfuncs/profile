@@ -14,6 +14,10 @@ Options:
 HEREDOC
 }
 
+function profile_help() {
+  usage
+}
+
 function profile() {
   # initialize & parse any options received
   local -A options
@@ -31,7 +35,7 @@ function profile() {
   # process any passed options
   while true; do
     case "$1" in
-      -h | --help ) usage; exit 1; ;;
+      -h | --help ) profile_help; exit 1; ;;
       -c | --count ) count="$2"; shift 2 ;;
       -v | --verbose ) verbose=1; shift ;;
       -- ) shift; break ;;
