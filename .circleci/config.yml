@@ -35,8 +35,8 @@ jobs:
       - run:
           name: "Build Dockerfile"
           command: |
-            apk add --no-cache docker &>/dev/null
-            (cd .meatbox; DOCKER_IMAGE_VERSION=$CIRCLE_SHA1 ./scripts/build.sh)
+            apk add --no-cache docker git &>/dev/null
+            (cd .meatbox; GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh)
           no_output_timeout: 2h
 
   deploy_production:
