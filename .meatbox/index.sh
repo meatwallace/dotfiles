@@ -29,6 +29,10 @@ fi
 yadm clone -f https://github.com/meatwallace/dotfiles >/dev/null
 yadm remote set-url origin "git@github.com:meatwallace/dotfiles.git"
 
+if [ -n "$MEATBOX_BRANCH" ]; then
+  yadm checkout "$MEATBOX_BRANCH"
+fi
+
 # TODO(#37): remove once circle CI changes are merged to master
 if [ ! -f "$HOME/bin/meatbox" ]; then
   ln -fs "$MEATBOX_SCRIPTS_DIR/meatbox.sh" "$MEATBOX_BIN_DIR/meatbox"

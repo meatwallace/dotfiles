@@ -30,12 +30,12 @@ RUN \
 # swap into our user account
 USER "${MEATBOX_USER}"
 
-# we prevent caching of our setup script by injecting a timestamp ARG here
-ARG CACHE_BUSTER=1
+# we prevent caching of our setup script by injecting our current commit SHA1 here
+ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
   # run our system setup script from our staging alias
-  curl "https://meatbox.meatwallace.now.sh" | bash && \
+  curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
   # clean up any extraneous dependencies left over by our installation
   yay --clean --noconfirm && \
   # clean up pacman's package cache for installed & uninstalled packages
