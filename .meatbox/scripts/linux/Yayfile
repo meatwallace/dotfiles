@@ -96,13 +96,13 @@ kubectl-bin
 minikube-bin
 
 # editors
-emacs
+# emacs
 neovim
 python2-neovim-git
-oni
-sublime-text
-veonim
-visual-studio-code-insiders
+# oni
+# sublime-text
+# veonim
+# visual-studio-code-insiders
 
 # dev
 # android-file-transfer ????
