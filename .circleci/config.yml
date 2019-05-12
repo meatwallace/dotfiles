@@ -15,16 +15,12 @@ jobs:
 
   deploy_staging:
     docker:
-      - image: mhart/alpine-node:slim-12.2.0
+      - image: meatwallace/alpine-zeit-now:latest
     steps:
       - checkout
       - run:
           name: "Deploy to Staging"
-          command: |
-            apk add --no-cache curl &>/dev/null
-            curl -L --url "https://latest-now-cli.now.sh/download?branch=now-dev&bin=now-alpine" -o /usr/bin/now &>/dev/null
-            chmod +x /usr/bin/now
-            NOW_TARGET=staging ./scripts/deploy.sh
+          command: NOW_TARGET=staging ./scripts/deploy.sh
   
   build:
     docker:
@@ -41,20 +37,16 @@ jobs:
 
   deploy_production:
     docker:
-      - image: mhart/alpine-node:slim-12.2.0
+      - image: meatwallace/alpine-zeit-now:latest
     steps:
       - checkout
       - run:
           name: "Deploy to Production"
-          command: |
-            apk add --no-cache curl &>/dev/null
-            curl -L --url "https://latest-now-cli.now.sh/download?branch=now-dev&bin=now-alpine" -o /usr/bin/now &>/dev/null
-            chmod +x /usr/bin/now
-            NOW_TARGET=staging ./scripts/deploy.sh
+          command: NOW_TARGET=production ./scripts/deploy.sh
 
 workflows:
   version: 2
-  lint-staging-build-production:
+  lint-build-and-deploy:
     jobs:
       - linting
       - deploy_staging:
@@ -66,4 +58,7 @@ workflows:
       - deploy_production:
           requires:
             - build
+          filters:
+            branches:
+              only: master
 
