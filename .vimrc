@@ -147,9 +147,10 @@ if has('nvim')
   " use the system version of python2 to avoid complexity of managing both
   " with `asdf`
   let g:python_host_prog = expand('/usr/bin/python2') 
-  " explicitly use our `asdf` managed python version 
+
+  " explicitly use our `asdf` managed python & ruby versions
   let g:python3_host_prog = expand('~/.asdf/shims/python3') 
-  
+  let g:ruby_host_prog = expand('~/.asdf/installs/ruby/2.6.3/bin/neovim-ruby-host') 
   " use our hacky root package.json installed neovim instead of the expected
   " global installation location
   let g:node_host_prog = expand('~/node_modules/neovim')

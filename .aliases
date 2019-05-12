@@ -1,13 +1,5 @@
 #!/bin/sh
 
-# navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ~='cd ~'
-alias -- -='cd -'
-
 # commands preloaded w/ default args
 alias ls='ls -GF --color'
 alias mv='mv -v'
@@ -17,14 +9,16 @@ alias mkdir='mkdir -p -v'
 alias emacs='emacs -nw'
 
 # single letter shortcuts to core commands
-alias c='cd'
+alias a=''
+alias b='bat'
+alias c='cat'
 alias d='dirs -v | head -10'
 alias f='fzf'
 alias g='git'
 alias l='ls -GF --color'
 alias m='mkdir'
 alias n='nnn -ils'
-alias r='r'
+alias r='rm'
 alias s='sudo'
 alias t='tizonia'
 alias v='nvim'
@@ -57,11 +51,11 @@ alias gp='git push origin HEAD'
 alias gs='git status -sb'
 
 # tizonia
-alias tzscs='tizonia --soundcloud-user-stream'
-alias tzscl='tizonia --soundcloud-user-likes'
-alias tzscp='tizonia --soundcloud-user-playlist'
-alias tzscc='tizonia --soundcloud-creator'
-alias tzsp='tizonia --spotify-playlist'
+alias tscc='tizonia --soundcloud-creator'
+alias tscl='tizonia --soundcloud-user-likes'
+alias tscs='tizonia --soundcloud-user-stream'
+alias tscp='tizonia --soundcloud-user-playlist'
+alias tspp='tizonia --spotify-playlist'
 
 # vim
 alias vf='nvim $(fzf)'
@@ -74,7 +68,7 @@ alias chmox='chmod +x'                            # flags a file as executable
 en() { awk '{printf "%s\\n", $0}' "$1"; }         # escapes newlines
 
 # cli
-alias sc='docker run --rm -it -v $(pwd):/mnt koalaman/shellcheck'
+alias sc="shellcheck"
 alias rn='react-native'
 
 # term
