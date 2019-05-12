@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   linting:
     docker:
-      - image: koalaman/shellcheck-alpine:v0.6.0
+      - image: koalaman/shellcheck-alpine:latest
     steps:
       - checkout
       - run:
@@ -24,14 +24,14 @@ jobs:
   
   build:
     docker:
-      - image: alpine:3.9
+      - image: docker:latest
     steps:
       - checkout
       - setup_remote_docker
       - run:
           name: "Build Dockerfile"
           command: |
-            apk add --no-cache docker git &>/dev/null
+            apk add --no-cache git &>/dev/null
             GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh
           no_output_timeout: 2h
 
