@@ -1,6 +1,4 @@
-#!/bin/sh
-
-set -eo pipefail
+#!/bin/sh -e
 
 NOW_TARGET="${NOW_TARGET:-staging}"
 

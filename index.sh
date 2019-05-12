@@ -1,6 +1,4 @@
-#!/bin/sh
-
-set -eo pipefail
+#!/bin/sh -e
 
 # these are mirrored in the root .env file
 export MEATBOX_DIR="$HOME"

@@ -1,6 +1,4 @@
-#!/bin/sh
-
-set -eo pipefail
+#!/bin/sh -e
 
 GIT_BRANCH=${GIT_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
 GIT_COMMIT_SHA1=${GIT_COMMIT_SHA1:-$(git commit rev-parse HEAD)}
