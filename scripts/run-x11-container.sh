@@ -4,8 +4,7 @@ x11docker \
   --name=meatbox \
   --desktop \
   --xephyr \
-  --fullscreen \
-  --size=1920x1080 \
+  --size=1840x1035 \
   --init=systemd \
   --dbus-system \
   --user=RETAIN \
@@ -16,6 +15,6 @@ x11docker \
   -- \
   --cap-add=SYS_ADMIN \
   -- \
-  meatwallace/meatbox /usr/bin/xinitrcsession-helper
+  meatwallace/meatbox:latest /usr/bin/xinitrcsession-helper
   # requires root user to run our login screen 
   # meatwallace/meatbox /usr/bin/lightdm

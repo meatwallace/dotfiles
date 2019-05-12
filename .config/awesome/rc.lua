@@ -238,11 +238,11 @@ local function captureScreenshot(opts)
 end
 
 local function captureScreenshotSelection()
-  capture_screenshot('--select')
+  captureScreenshot('--select')
 end
 
 local function captureScreenshotActiveWindow()
-  capture_screenshot('--window=$(xdotool getactivewindow)')
+  captureScreenshot('--window=$(xdotool getactivewindow)')
 end
 
 -- {{{ Key bindings
