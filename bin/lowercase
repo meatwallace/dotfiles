@@ -1,11 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -eo pipefail
 
 lowercase() {
-  local string="$1"
-
-  echo "${string,,}"
+  if [ $# -eq 0 ]; then
+    tr '[:upper:]' '[:lower:]'
+  else
+    echo "$*" | tr '[:upper:]' '[:lower:]'
+  fi
 }
 
 lowercase "$@"
