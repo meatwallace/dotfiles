@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -eo pipefail
+set -e
 
-if is not available "yarn"; then
+if [ ! -x "$(command -v yarn)" ]; then
   # source our bash_profile to ensure `asdf` is available
-  # shellcheck source=../../../.bash_profile
+  # shellcheck source=../../.bash_profile
   . "$HOME/.bash_profile"
 
-  curl -o- -L https://yarnpkg.com/install.sh | bash &>/dev/null
+  curl -o- -L https://yarnpkg.com/install.sh | bash >/dev/null 2>&1
 fi

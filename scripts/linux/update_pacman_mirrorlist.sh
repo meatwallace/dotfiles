@@ -1,11 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-if is not available "reflector"; then
+set -eu
+
+if [ ! -x "$(command -v reflector)" ]; then
   sudo pacman -S --config="$HOME/.config/pacman/pacman.conf" --noconfirm reflector
 fi
 
-# use the system's version of python, where reflector is installed
-asdf shell python system
+if [ -x "$(command -v asdf)" ]; then
+  # use the system's version of python, where reflector is installed
+  asdf shell python system
+fi
 
 reflector \
   --latest 200 \

@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-if is not available "lspci"; then
+if [ ! -x "$(command -v lspci)" ]; then
   yay -S --noconfirm "pciutils" >/dev/null
 fi

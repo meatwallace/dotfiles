@@ -1,4 +1,6 @@
-#!/bin/sh -e
+#!/bin/sh
+
+set -e
 
 # these are mirrored in the root .env file
 export MEATBOX_DIR="$HOME"
@@ -31,21 +33,3 @@ if [ -n "$MEATBOX_CHECKOUT_SHA1" ]; then
   yadm checkout "$MEATBOX_CHECKOUT_SHA1"
 fi
 
-# TODO(#37): remove once circle CI changes are merged to master
-if [ ! -f "$HOME/bin/meatbox" ]; then
-  ln -fs "$MEATBOX_SCRIPTS_DIR/meatbox.sh" "$MEATBOX_BIN_DIR/meatbox"
-fi
-
-# reload our bash_profile so our env is set up correctly
-# shellcheck source=../.bash_profile
-. "$HOME/.bash_profile"
-
-# run our bootstrap command to ensure we have all of our dependencies
-meatbox bootstrap
-
-# reload our bash_profile again to ensure all our libs are sourced
-# shellcheck source=../.bash_profile
-. "$HOME/.bash_profile"
-
-# setup our machine
-meatbox setup

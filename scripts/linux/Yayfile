@@ -3,11 +3,11 @@
 
 # languages & package managers
 esy
-flatpak
+# flatpak
 python
 python3
-python-pipenv
-snapd
+# python-pipenv
+# snapd
 yarn
 yay
 
@@ -76,11 +76,9 @@ tizonia-all
 w3m
 
 # fonts
-nerd-fonts-complete
+# nerd-fonts-complete
 ttf-fira-code
-# TODO(#23): reenable mac fonts when working with sqlite@3.28.0
-# ttf-mac-fonts
-ttf-ms-fonts
+ttf-liberation
 
 # virtualization
 libvirt
@@ -100,14 +98,14 @@ kubectl-bin
 minikube-bin
 
 # editors
-android-studio
-emacs
+# android-studio
+# emacs
 neovim
 python2-neovim-git
 oni
-sublime-text
+# sublime-text
 veonim
-visual-studio-code-insiders
+# visual-studio-code-insiders
 
 # dev
 # android-file-transfer ????
@@ -124,8 +122,8 @@ google-chrome-dev
 # disabling installation of ungoogled chromium as compilation takes over 2
 # hours and i don't value my privacy enough for that kind of time
 # ungoogled-chromium
-vivaldi
-vivaldi-ffmpeg-codecs
+# vivaldi
+# vivaldi-ffmpeg-codecs
 vivaldi-snapshot
 vivaldi-snapshot-ffmpeg-codecs
 

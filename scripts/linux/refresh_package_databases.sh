@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
-if is available "yay"; then
+if [ -x "$(command -v yay)" ]; then
   yay -Syy >/dev/null
 else
   sudo pacman -Syy --config "$HOME/.config/pacman/pacman.conf" >/dev/null
