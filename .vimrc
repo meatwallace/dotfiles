@@ -196,7 +196,7 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
   " behaviour
-  " Plug 'sheerun/vim-polyglot'
+  Plug 'sheerun/vim-polyglot'
   " Plug 'jiangmiao/auto-pairs'
   " Plug 'tpope/vim-commentary'
 
@@ -213,7 +213,6 @@ call plug#begin('~/.vim/plugged')
   " editor ui
   " Plug 'ryanoasis/vim-devicons'
   Plug 'arcticicestudio/nord-vim'
-  " Plug 'cocopon/iceberg.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   " Plug 'ap/vim-buftabline'
