@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+local location
+
+location=${1:-Melbourne,Australia}
+
+curl -s "wttr.in/$location?q"

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-mkdir "$HOME"/{docs,downloads,music,pictures,projects,public,screenshots,templates,videos}
+mkdir "$HOME"/{docs,downloads,music,pictures,public,screenshots,templates,videos}
 
 # create a symlinked desktop dir that maps to our docs, likely breaking things
 ln -fs "$HOME/docs" "$HOME/desktop"
