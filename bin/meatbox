@@ -50,7 +50,7 @@ meatbox_verify_libs() {
   bootstrapped="true"
   bash_version="$(get-bash-version)"
 
-  libs="asdf app-fast is"
+  libs="asdf is"
 
   if is lt "$bash_version" "4"; then
     echo "Error: \`meatbox\` requires \`bash\` version 4.3 or newer."

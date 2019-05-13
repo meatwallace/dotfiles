@@ -11,7 +11,6 @@ declare -a scripts=(
   update_pacman_mirrorlist.sh
   install_yay.sh
   install_pciutils.sh
-  install_aria2.sh
 )
 
 for script in "${scripts[@]}"; do
