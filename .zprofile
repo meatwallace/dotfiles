@@ -1,8 +1,6 @@
 # ensure path arrays do not contain duplicates
 typeset -gU cdpath fpath mailpath path
 
-#: less config {{{
-
 # set the default Less options.
 # mouse-wheel scrolling has been disabled by -X (disable screen clearing)
 # remove -X and -F (exit if the content fits on one screen) to enable it
@@ -27,6 +25,3 @@ fi
 if [ ! -d "${TMPDIR}" ]; then
   mkdir -m 700 "${TMPDIR}"
 fi
-
-# }}}
-

@@ -1,14 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
-declare -a scripts=(
-  install_or_update_is.sh
-  install_or_update_app_fast.sh
-  install_or_update_asdf.sh
-  install_or_update_wd.sh
-)
+scripts="install_or_update_asdf.sh"
 
-for script in "${scripts[@]}"; do
+for script in $scripts; do
   "./$script" >/dev/null
 done

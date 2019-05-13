@@ -8,19 +8,19 @@ jobs:
       - checkout
       - run:
           name: "Run Shellcheck"
-          command: |
-            find . -type f -name '*.sh' | wc -l
-            # TODO(#35): fix bogus shellcheck errors on Circle CI
-            find . -type f -name '*.sh' | xargs shellcheck --external-sources --exclude=SC1091,SC2086
+          # TODO(#35): fix bogus shellcheck errors on Circle CI
+          command: find . -type f -name '*.sh' | xargs shellcheck --external-sources --exclude=SC1091,SC2086
 
   deploy_staging:
     docker:
       - image: meatwallace/alpine-zeit-now:latest
+    environment:
+      NOW_TARGET: staging
     steps:
       - checkout
       - run:
           name: "Deploy to Staging"
-          command: NOW_TARGET=staging ./scripts/deploy.sh
+          command: "./scripts/deploy.sh"
   
   build:
     docker:
@@ -31,29 +31,30 @@ jobs:
       - run:
           name: "Build Dockerfile"
           command: |
-            apk add --no-cache git &>/dev/null
+            apk add --no-cache git >/dev/null 2>&1
             GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh
           no_output_timeout: 2h
 
   deploy_production:
     docker:
       - image: meatwallace/alpine-zeit-now:latest
+    environment:
+      NOW_TARGET: production
     steps:
       - checkout
       - run:
           name: "Deploy to Production"
-          command: NOW_TARGET=production ./scripts/deploy.sh
+          command: "./scripts/deploy.sh"
 
 workflows:
   version: 2
-  lint-build-and-deploy:
+  lint_stage_then_build_then_deploy:
     jobs:
       - linting
-      - deploy_staging:
-          requires:
-            - linting
+      - deploy_staging
       - build:
           requires:
+            - linting
             - deploy_staging
       - deploy_production:
           requires:

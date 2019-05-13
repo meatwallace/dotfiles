@@ -41,35 +41,8 @@ meatbox_run_os_script() {
   script="$1"
   os="$(uname -s | lowercase)"
 
-  if is file "$MEATBOX_SCRIPTS_DIR/$os/$script"; then
+  if [ -f "$MEATBOX_SCRIPTS_DIR/$os/$script" ]; then
     meatbox_run_script "$os" "$script"
-  fi
-}
-
-meatbox_verify_libs() {
-  bootstrapped="true"
-  bash_version="$(get-bash-version)"
-
-  libs="asdf is"
-
-  if is lt "$bash_version" "4"; then
-    echo "Error: \`meatbox\` requires \`bash\` version 4.3 or newer."
-    
-    bootstrapped="false"
-  fi
-  
-  for lib in $libs; do
-    if [ -z "$(command -v "$lib")" ]; then
-      echo "Error: required dependency \`$lib\` not found."
-      
-      bootstrapped="false"
-    fi
-  done
-
-  if [ "$bootstrapped" = "false" ]; then
-    echo "Please run \`meatbox bootstrap\` before proceeding"
-
-    exit 1
   fi
 }
 
@@ -80,9 +53,6 @@ meatbox_help() {
 meatbox_bootstrap() {
   start-sudo-loop "$MEATBOX_PASSWORD"
 
-  # we use `is.sh` everywhere in our scripts
-  meatbox_run_universal_script "install_is.sh"
-
   meatbox_run_os_script "bootstrap.sh"
   meatbox_run_universal_script "bootstrap.sh"
 }
@@ -92,12 +62,6 @@ if [ "$1" = "bootstrap" ]; then
 
   exit 0
 fi
-
-meatbox_verify_libs
-
-###############################################################################
-# > core cli
-###
 
 meatbox_setup() {
   start-sudo-loop "$MEATBOX_PASSWORD"

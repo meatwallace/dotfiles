@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
 # `linuxify` is a magic script that transparently replaces MacOS' CLI utils
 # with their GNU versions and adds ones that we'd expect on most linux distros 

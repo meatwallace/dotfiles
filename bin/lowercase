@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eo pipefail
+set -e
 
 lowercase() {
   if [ $# -eq 0 ]; then

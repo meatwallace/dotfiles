@@ -129,7 +129,6 @@ function pomo_start() {
 
   while true; do
     block_start_time=$(date +%s)
-
     pomo_notify ${title[$timer_state]} ${message[$timer_state]} ${icon[$timer_state]}
 
     printf "%s\n\n" "streak: $pomodoro_count"

@@ -114,7 +114,7 @@ set splitright
 
 " rendering performance
 set lazyredraw
-set synmaxcol=200
+set synmaxcol=500
 
 " backups
 set updatetime=500

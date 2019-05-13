@@ -1,6 +1,6 @@
-###########################################################
-# meatwallace/meatbox
-##
+###############################################################################
+# meatwallace/meatbox-arch
+###
 FROM antergos/archlinux-base-devel:latest
 
 # specific to antergos setup when using the `base` installation
@@ -24,7 +24,7 @@ RUN \
   # add a temporary sudo config file allowing our user to use pacman & make without
   # a password so our setup script doesn't require a custom `askpass` just for
   # docker
-  echo "${MEATBOX_USER} ALL=NOPASSWD: /usr/bin/bash, /usr/bin/ln, /usr/bin/make, /usr/bin/nvidia-xconfig, /usr/bin/pacman, /usr/bin/pacman-key, /usr/bin/systemctl, /usr/bin/usermod" >> "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}" && \
+  echo "${MEATBOX_USER} ALL=NOPASSWD: /usr/bin/bash, /usr/bin/ln, /usr/bin/make, /usr/bin/nvidia-xconfig, /usr/bin/pacman, /usr/bin/pacman-key, /usr/bin/systemctl, /usr/bin/usermod, /home/${MEATBOX_USER}/bin/pacfast" >> "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}" && \
   chmod 0440 "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
 # swap into our user account
@@ -37,6 +37,11 @@ ARG MEATBOX_CHECKOUT_SHA1
 RUN \
   # run our system setup script from our staging alias
   curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
+  . "/home/${MEATBOX_USER}/.bash_profile" && \
+  meatbox bootstrap && \
+  . "/home/${MEATBOX_USER}/.bash_profile" && \
+  meatbox setup && \
+  . "/home/${MEATBOX_USER}/.bash_profile" && \
   # clean up any extraneous dependencies left over by our installation
   yay --clean --noconfirm && \
   # clean up pacman's package cache for installed & uninstalled packages

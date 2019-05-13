@@ -19,7 +19,9 @@ docker run -it meatwallace/meatbox:latest
 to run the latest setup script, execute the following in your terminal:
 
 ```sh
-curl https://meatbox.one | bash
+curl https://meatbox.one | sh
+meatbox bootstrap
+meatbox setup
 ```
 
 if you're feeling adventurous/daring and are on linux w/ docker, you can grab
