@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# weather
+# alias weather="curl -s 'wttr.in/melbourne,australia?q0'"
+# alias forecast="curl -s 'wttr.in/melbourne,australia?q'"
+
+local location
+
+location=${1:-Melbourne,Australia}
+
+curl -s "wttr.in/$location?q0"
