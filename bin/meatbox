@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -eo pipefail
 
@@ -20,66 +20,37 @@ Usage:
 HEREDOC
 }
 
+log_message() {
+  printf "%s" "$*"
+}
+
 meatbox_run_script() {
-  local directory="$1"
-  local script="$2"
+  directory="$1"
+  script="$2"
 
   (cd "$MEATBOX_SCRIPTS_DIR/$directory" && "./$script")
 }
 
 meatbox_run_universal_script() {
-  local script="$1"
+  script="$1"
 
   meatbox_run_script "universal" "$script"
 }
 
 meatbox_run_os_script() {
-  local script="$1"
-  local os
-  
-  os="$(uname -s)"
-  os="$(lowercase $os)"
+  script="$1"
+  os="$(uname -s | lowercase)"
 
   if is file "$MEATBOX_SCRIPTS_DIR/$os/$script"; then
     meatbox_run_script "$os" "$script"
   fi
 }
 
-meatbox_help() {
-  usage
-}
-
-meatbox_bootstrap() {
-  start-sudo-loop "$MEATBOX_PASSWORD"
-
-  # we use `is.sh` everywhere in our scripts & `neofetch` for our `sysinfo` util
-  meatbox_run_universal_script "install_is.sh"
-
-  meatbox_run_os_script "bootstrap.sh"
-  meatbox_run_universal_script "bootstrap.sh"
-}
-
-if [ "$1" = "bootstrap" ]; then
-  meatbox_bootstrap
-
-  exit 0
-fi
-
-###############################################################################
-# > preflight
-# ensure we've got all the dependencies our utility requires before proceeding
-###
-
 meatbox_verify_libs() {
-  local bootstrapped="true"
-  local bash_version="$(get-bash-version)"
+  bootstrapped="true"
+  bash_version="$(get-bash-version)"
 
-  declare -a libs=(
-    app-fast
-    asdf
-    bash-oo
-    is
-  )
+  libs="asdf app-fast is"
 
   if is lt "$bash_version" "4"; then
     echo "Error: \`meatbox\` requires \`bash\` version 4.3 or newer."
@@ -87,8 +58,8 @@ meatbox_verify_libs() {
     bootstrapped="false"
   fi
   
-  for lib in "${libs[@]}"; do
-    if [ ! -n "$(command -v "$lib")" ]; then
+  for lib in $libs; do
+    if [ -z "$(command -v "$lib")" ]; then
       echo "Error: required dependency \`$lib\` not found."
       
       bootstrapped="false"
@@ -102,67 +73,53 @@ meatbox_verify_libs() {
   fi
 }
 
+meatbox_help() {
+  usage
+}
+
+meatbox_bootstrap() {
+  start-sudo-loop "$MEATBOX_PASSWORD"
+
+  # we use `is.sh` everywhere in our scripts
+  meatbox_run_universal_script "install_is.sh"
+
+  meatbox_run_os_script "bootstrap.sh"
+  meatbox_run_universal_script "bootstrap.sh"
+}
+
+if [ "$1" = "bootstrap" ]; then
+  meatbox_bootstrap
+
+  exit 0
+fi
+
 meatbox_verify_libs
 
 ###############################################################################
-# > init
-# load in the framework & relevant modules
-###
-. bash-oo
-
-import util/namedParameters
-import util/tryCatch
-import util/exception
-import util/log
-
-namespace meatbox
-
-log_message() {
-  printf "%s" "$(UI.Color.Blue)$*$(UI.Color.Default)"
-}
-
-Log::RegisterLogger MEATLOG log_message
-
-Log::AddOutput meatbox MEATLOG
-
-###############################################################################
-# > meatbox <?command> <?...flags>
-# our main utility script built on `bash-infinity`
+# > core cli
 ###
 
 meatbox_setup() {
-  [...rest] flags
-
   start-sudo-loop "$MEATBOX_PASSWORD"
 
-  meatbox_run_os_script "setup.sh" "$flags"
-  meatbox_run_universal_script "setup.sh" "$flags"
+  meatbox_run_os_script "setup.sh"
+  meatbox_run_universal_script "setup.sh"
 }
 
 meatbox_update() {
-  [...rest] flags
-
   start-sudo-loop "$MEATBOX_PASSWORD"
 
-  meatbox_run_os_script "update.sh" "$flags"
-  meatbox_run_universal_script "update.sh" "$flags"
+  meatbox_run_os_script "update.sh"
+  meatbox_run_universal_script "update.sh"
 }
 
 meatbox() {
-  [string] cmd
-  [...rest] flags
-  
-  try {
-    case "$cmd" in
-      bootstrap|setup|update ) "meatbox_$cmd" "$flags" ;;
-      * ) meatbox_help ;;
-    esac
-  } catch {
-    echo "Caught Exception:$(UI.Color.Red) $__BACKTRACE_COMMAND__ $(UI.Color.Default)"
-    echo "File: $__BACKTRACE_SOURCE___, Line: $__BACKTRACE_LINE__"
+  cmd="$1"
 
-    Exception::PrintException "${__EXCEPTION__[@]}"
-  }
+  case "$cmd" in
+    bootstrap|setup|update) "meatbox_$cmd" ;;
+    *) meatbox_help ;;
+  esac
 }
 
 meatbox "$@"

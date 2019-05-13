@@ -1,14 +1,4 @@
 # 3rd party libraries we've symlinked
-app-fast
 is
 yadm
-
-# bash-infinity
-Array
-bash-oo
-oo-bootstrap.sh
-String
-TypePrimitives
-UI
-util
 
