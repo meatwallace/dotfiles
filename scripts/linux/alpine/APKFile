@@ -1,0 +1,106 @@
+# an homame to homebrew's Brewfile used to explicitly define the packages
+# we want to pull down from the alpine repositories
+
+# core system
+openrc
+dbus
+
+# package managers & languages
+python3@edge
+yarn
+
+# shell
+bash@edge
+zsh
+
+# source code control
+git
+git-lfs
+
+# utils
+curl
+jq
+wget
+
+# bluetooth
+bluez@edge
+
+# audio
+pulseaudio
+pulseaudio-bluez
+pulseaudio-alsa
+libpulse@edgecommunity
+alsa-plugins
+
+# desktop environment
+awesome
+rofi@testing
+# rofi-1pass - unavailable
+# xcape - unavailable
+xclip
+xdotool
+xorg-server
+
+# TODO(#36): remove packages unneeded for x11docker
+#
+# xinit
+# xdg-utils
+# xorg-server-xephyr
+# xauth
+# xhost
+# xrandr
+# xdpyinfo
+
+# core software
+alacritty@testing
+aria2
+feh
+fzf
+# insync - unavailable - alternative installation method?
+kitty@testing
+st
+# terminator - it works
+
+# needed for `maim` - need to fix grep so can use side comments
+icu-libs@edge
+maim@testing
+
+mpv
+nnn
+neofetch
+ripgrep@testing
+# tizonia-all - unavailable, but available as a docker image - tizonia/docker-tizonia
+w3m
+
+# fonts - need to work out approach w/ kitty etc
+# ttf-inconsolata
+ttf-liberation
+font-fira-code@testing
+
+# docker
+docker
+kubernetes@testing
+minikube@testing
+
+# editors
+neovim
+# python2-neovim-git - pip?
+
+# dev
+# google-cloud-sdk - unavailable - alternative install?
+# shellcheck - unavailable, but available as a docker image - koalaman/shellcheck-alpine
+# shfmt - unavailable, but available as a docker image - tmknom/shfmt
+watchman@testing
+
+# browsers
+
+# requied for firefox
+hunspell@edge
+firefox-esr@edgecommunity
+# firefox@testing - disabled due to bloat
+# chromium@edgecommunit - disabled due to bloat
+
+# misc
+# TODO(#22): reenable 1password cli in arch installation when checksums are reverified 
+# 1password-cli
+

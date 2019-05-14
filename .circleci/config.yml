@@ -32,7 +32,7 @@ jobs:
           name: "Build Dockerfile"
           command: |
             apk add --no-cache git >/dev/null 2>&1
-            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/build.sh
+            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/linux/arch/build.sh
           no_output_timeout: 2h
 
   deploy_production:
