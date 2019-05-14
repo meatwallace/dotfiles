@@ -22,7 +22,20 @@ jobs:
           name: "Deploy to Staging"
           command: "./scripts/deploy.sh"
   
-  build:
+  build_alpine:
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Build Dockerfile"
+          command: |
+            cd scripts/linux/alpine
+            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./build.sh
+          no_output_timeout: 30m
+
+  build_arch:
     docker:
       - image: docker:latest
     steps:
@@ -33,7 +46,7 @@ jobs:
           command: |
             apk add --no-cache git >/dev/null 2>&1
             GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./scripts/linux/arch/build.sh
-          no_output_timeout: 2h
+          no_output_timeout: 30m
 
   deploy_production:
     docker:
@@ -52,13 +65,18 @@ workflows:
     jobs:
       - linting
       - deploy_staging
-      - build:
+      - build_alpine:
+          requires:
+            - linting
+            - deploy_staging
+      - build_arch:
           requires:
             - linting
             - deploy_staging
       - deploy_production:
           requires:
-            - build
+            - build_alpine
+            - build_arch
           filters:
             branches:
               only: master
