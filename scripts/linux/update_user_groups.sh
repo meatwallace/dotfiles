@@ -1,8 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
 username="$(id -u -n)"
 
-sudo usermod -aG docker "$username"
+# bluetooth
+sudo usermod -aG lg "$username"
+
+# virtualization
 sudo usermod -aG libvirt "$username"
+
+# docker
+sudo usermod -aG docker "$username"

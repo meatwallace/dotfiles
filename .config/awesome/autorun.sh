@@ -18,5 +18,6 @@ run_unique xcape start-xcape
 run_unique pulseaudio start-pulseaudio-x11
 run_unique light-locker
 run_unique compton
+run_unique bt-agent
 
 nvidia-settings --load-config-only
