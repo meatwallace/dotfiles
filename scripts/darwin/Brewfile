@@ -35,7 +35,7 @@ brew 'unrar'
 # system
 brew 'fzf'
 brew 'neofetch'
-brew 'ranger'
+brew 'nnn'
 brew 'ripgrep'
 cask 'alacritty'
 cask 'kitty'
