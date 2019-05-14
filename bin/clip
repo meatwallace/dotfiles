@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+clip() {
+  if [ $# -eq 0 ]; then
+    xclip -selection clipboard
+  else
+    echo "$*" | xclip -selection clipboard
+  fi
+}
+
+clip "$@"
