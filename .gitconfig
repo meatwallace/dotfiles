@@ -27,8 +27,11 @@
 [user]
   name = Geoff Whatley
   email = me@geoffwhatley.com
+	signingkey = 95DE937EC9E87357
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[commit]
+	gpgsign = true
