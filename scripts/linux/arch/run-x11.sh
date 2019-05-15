@@ -18,7 +18,7 @@ sudo x11docker \
   --cap-add=SYS_ADMIN \
   -- \
   meatwallace/meatbox-arch:latest /usr/bin/xinitrcsession-helper
-  # --fullscreen \
-  # --size=1840x1035 \
-  # --xephyr \
-  # --init=openrc \
+# --fullscreen \
+# --size=1840x1035 \
+# --xephyr \
+# --init=openrc \

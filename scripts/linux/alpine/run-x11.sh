@@ -16,6 +16,6 @@ sudo x11docker \
   --cap-add=SYS_ADMIN \
   -- \
   meatwallace/meatbox-alpine:latest awesome
-  # --xephyr \
-  # --user=RETAIN \
-  # --sudouser \
+# --xephyr \
+# --user=RETAIN \
+# --sudouser \

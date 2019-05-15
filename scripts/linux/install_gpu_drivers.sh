@@ -4,7 +4,10 @@ set -eu
 
 gpu_vendor="$(get-gpu-vendor)"
 
-if [ "$gpu_vendor" = "nvidia" ] & [ ! -f "/etc/X11/xorg.conf.d/20-nvidia.conf" ]; then
+if
+  [ "$gpu_vendor" = "nvidia" ] &
+  [ ! -f "/etc/X11/xorg.conf.d/20-nvidia.conf" ]
+then
   yay -S --noconfirm nvidia nvidia-settings >/dev/null
 
   # generate an X11 config using NVIDIA's tool

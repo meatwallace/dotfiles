@@ -1,0 +1,61 @@
+pkg install x11-repo
+pkg add...
+
+git
+git-lfs
+zsh
+neofetch
+fzf
+yarn
+nodejs
+gitopenssh
+neofetch
+curl
+neovim
+jq
+python
+mpv
+
+
+settings -> apps -> termux -> permissions -> storage
+
+  `termux-setup-storage`
+
+
+tigervnc
+ttf-dejavu
+i3
+fluxbox
+openbox
+feh
+
+
+
+
+
+# python3
+
+
+
+bluez
+bluez-utils
+pulseaudio
+pulseaudio-bluetooth
+pulseaudio-alsa
+lib32-libpulse
+lib32-alsa-plugins
+
+
+awesome
+compton
+conky
+lightdm
+lightdm-mini-greeter
+rofi
+xcape
+xclip
+xdg-utilsxdotool
+xinit
+xinit-xsession
+xpra
+xorg-xinit

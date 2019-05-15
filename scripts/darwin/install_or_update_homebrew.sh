@@ -5,4 +5,3 @@ if [ ! -x "$(command -v brew)" ]; then
 else
   brew update >/dev/null
 fi
-

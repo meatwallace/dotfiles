@@ -85,7 +85,8 @@ alias chmox='chmod +x'                            # flags a file as executable
 en() { awk '{printf "%s\\n", $0}' "$1"; }         # escapes newlines
 
 # cli
-alias sc="shellcheck"
+alias shc="shellcheck"
+alias shfc="shfmt"
 alias rn='react-native'
 
 # term

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+shfmt() {
+  docker run -it --rm \
+    --volume "$PWD:/work" \
+    --name shfmt \
+    tmknom/shfmt -i 2 "$@"
+}
+
+shfmt "$@"

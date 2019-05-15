@@ -3,4 +3,3 @@
 set -euo pipefail
 
 brew bundle >/dev/null
-

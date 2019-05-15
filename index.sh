@@ -32,4 +32,3 @@ yadm remote set-url origin "git@github.com:meatwallace/dotfiles.git"
 if [ -n "$MEATBOX_CHECKOUT_SHA1" ]; then
   yadm checkout "$MEATBOX_CHECKOUT_SHA1"
 fi
-

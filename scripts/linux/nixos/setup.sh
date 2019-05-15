@@ -3,4 +3,3 @@
 set -euo pipefail
 
 nixos-rebuild switch
-
