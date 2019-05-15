@@ -8,6 +8,7 @@ declare -a services=(
   libvirtd.service
   virtlogd.service
   docker.service
+  sshd.socket
   # apparmor.service
   # snapd.socket
   # snapd.apparmor.service
