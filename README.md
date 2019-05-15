@@ -3,17 +3,18 @@
 [![CircleCI](https://circleci.com/gh/meatwallace/dotfiles/tree/master.svg?style=svg)](https://circleci.com/gh/meatwallace/dotfiles/tree/master)
 
 my personal configuration for both Arch Linux based & Mac systems, available as
-an [Antergos](https://antergos.com) based docker image, or through an automated
-setup script hosted via the URL below.
+both an Antergos (Arch) Linux and Alpine Linux based docker image, or can be
+installed via the setup script hosted via the URL below.
 
 i recommend **not** using this, but feel free to take a gander or a gamble.
 
 ## Usage
 
-to boot into the Antergos-based docker image with simple terminal access:
+to boot into latest docker image with simple terminal access:
 
 ```
-docker run -it meatwallace/meatbox:latest
+docker run -it --rm meatwallace/meatbox-alpine:latest
+docker run -it --rm meatwallace/meatbox-arch:latest
 ```
 
 to run the latest setup script, execute the following in your terminal:
@@ -52,7 +53,7 @@ x11docker \
   -- \
   --cap-add=SYS_ADMIN \
   -- \
-  meatwallace/meatbox:latest /usr/bin/xinitrcsession-helper
+  meatwallace/meatbox-arch:latest /usr/bin/xinitrcsession-helper
 ```
 
 ## Overview
@@ -70,10 +71,12 @@ some of what you'll find:
 - `.config/` with my setup for `awesome`, `rofi`, `compton`, etc. for a full
   desktop environment for Linux based systems, aiming for a complete yet
   no-frills getting shit done workflow orientated around the terminal
+- `.zfuncs/` and `bin/`, containing an array of ZSH and POSIX `sh` functions,
+  respectively
 - `scripts/`, containing all of  the setup scripts, cooirdinated by `meatbox`,
   a simplistic CLI for managing setup & upgrades of the configuration
 - `projects/meatlab`, a work in progress config for my home media server,
   currently a whopping 2 containers glued together with `docker-compose`
-- automatic linting, testing, and building the entire setup as a docker image
-  via CircleCI
+- automatic linting, testing, and building of the config into various docker
+  images via CircleCI
 

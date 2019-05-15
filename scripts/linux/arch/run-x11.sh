@@ -1,6 +1,6 @@
 #!/bin/sh
 
-x11docker \
+sudo x11docker \
   --name=meatbox \
   --desktop \
   --hostdisplay \
