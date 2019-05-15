@@ -101,6 +101,7 @@ android-sdk-dummy
 android-sdk-build-tools-dummy
 android-sdk-platform-tools-dummy
 android-emulator-dummy
+# android-studio
 # emacs
 neovim
 python2-neovim-git

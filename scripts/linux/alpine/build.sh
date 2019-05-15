@@ -29,4 +29,6 @@ if [ "$GIT_BRANCH" = "master" ]; then
   docker tag "$DOCKER_IMAGE_TAG_COMMIT" "$DOCKER_IMAGE_TAG_LATEST"
 
   docker push "$DOCKER_IMAGE_TAG_LATEST" >/dev/null
+  
+  docker push "$DOCKER_IMAGE_TAG_LATEST" >/dev/null
 fi

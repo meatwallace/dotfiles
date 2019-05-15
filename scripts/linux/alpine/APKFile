@@ -6,6 +6,7 @@ openrc
 dbus
 
 # package managers & languages
+python2@edge
 python3@edge
 yarn
 
@@ -87,8 +88,8 @@ neovim
 # python2-neovim-git - pip?
 
 # dev
-# google-cloud-sdk - unavailable, but available as a docker image
-# watchman@testing
+# google-cloud-sdk - unavailable - alternative install?
+watchman@testing
 
 # browsers
 
@@ -97,7 +98,3 @@ hunspell@edge
 firefox-esr@edgecommunity
 # firefox@testing - disabled due to bloat
 # chromium@edgecommunit - disabled due to bloat
-
-# misc
-# 1password-cli - unavailable
-
