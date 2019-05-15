@@ -12,9 +12,6 @@ sudo x11docker \
   --clipboard \
   --pulseaudio \
   --cap-default \
-  -- \
-  --cap-add=SYS_ADMIN \
-  -- \
   meatwallace/meatbox-alpine:latest awesome
 # --xephyr \
 # --user=RETAIN \

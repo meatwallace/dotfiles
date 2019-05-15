@@ -21,4 +21,3 @@ sudo x11docker \
 # --fullscreen \
 # --size=1840x1035 \
 # --xephyr \
-# --init=openrc \

@@ -61,6 +61,7 @@ fzf
 st
 task
 terminator
+st
 
 # needed for `maim` - need to fix grep so can use side comments
 icu-libs@edge
@@ -89,6 +90,7 @@ neovim
 # dev
 # google-cloud-sdk - unavailable, but available as a docker image
 # watchman@testing
+watchman@testing
 
 # browsers
 
@@ -99,5 +101,3 @@ firefox-esr@edgecommunity
 # chromium@edgecommunit - disabled due to bloat
 
 # misc
-# 1password-cli - unavailable
-

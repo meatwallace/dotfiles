@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+shellcheck() {
+  docker run -it --rm \
+    --volume "$PWD:/mnt" \
+    --name shellcheck \
+    koalaman/shellcheck "$@"
+}
+
+shellcheck "$@"
