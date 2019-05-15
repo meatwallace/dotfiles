@@ -52,14 +52,15 @@ xorg-server
 # xdpyinfo
 
 # core software
-alacritty@testing
+# alacritty@testing - useless without OpenGL support
 aria2
 feh
 fzf
 # insync - unavailable - alternative installation method?
-kitty@testing
+# kitty@testing - useless without OpenGL support
 st
-# terminator - it works
+task
+terminator
 
 # needed for `maim` - need to fix grep so can use side comments
 icu-libs@edge
@@ -69,12 +70,11 @@ mpv
 nnn
 neofetch
 ripgrep@testing
-# tizonia-all - unavailable, but available as a docker image - tizonia/docker-tizonia
 w3m
 
-# fonts - need to work out approach w/ kitty etc
-# ttf-inconsolata
+# fonts
 ttf-liberation
+font-fantasque-sans@testing
 font-fira-code@testing
 
 # docker
@@ -87,10 +87,8 @@ neovim
 # python2-neovim-git - pip?
 
 # dev
-# google-cloud-sdk - unavailable - alternative install?
-# shellcheck - unavailable, but available as a docker image - koalaman/shellcheck-alpine
-# shfmt - unavailable, but available as a docker image - tmknom/shfmt
-watchman@testing
+# google-cloud-sdk - unavailable, but available as a docker image
+# watchman@testing
 
 # browsers
 
@@ -101,6 +99,5 @@ firefox-esr@edgecommunity
 # chromium@edgecommunit - disabled due to bloat
 
 # misc
-# TODO(#22): reenable 1password cli in arch installation when checksums are reverified 
-# 1password-cli
+# 1password-cli - unavailable
 
