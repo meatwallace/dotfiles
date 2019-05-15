@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # commands preloaded w/ default args
-alias ls='ls -GF --color'
+alias ls='ls -F --color'
 alias mv='mv -v'
 alias rm='rm -i -v'
 alias cp='cp -v'
@@ -20,15 +20,15 @@ alias h=''
 alias i=''
 alias j=''
 alias k=''
-alias l='ls -GF --color'
+alias l='ls -F --color'
 alias m='mkdir'
-alias n='nnn -ils'
+alias n='nnn -il'
 alias o=''
 alias p=''
 alias q=''
 alias r='rm'
 alias s='sudo'
-alias t='tizonia'
+alias t='task'
 alias u=''
 alias v='nvim'
 alias w=''
@@ -63,16 +63,16 @@ alias gp='git push origin HEAD'
 alias gs='git status -sb'
 
 # soundcloud (tizonia)
-alias scartist='tizonia --soundcloud-creator'
-alias sclikes='tizonia --soundcloud-user-likes'
-alias scstream='tizonia --soundcloud-user-stream'
-alias sclist='tizonia --soundcloud-user-playlist'
+alias scartist='tiz --soundcloud-creator'
+alias sclikes='tiz --soundcloud-user-likes'
+alias scstream='tiz --soundcloud-user-stream'
+alias sclist='tiz --soundcloud-user-playlist'
 
 # spotify (tizoznia)
-alias spartist='tizonia --spotify-artist'
-alias spalbum='tizonia --spotify-album'
-alias splist='tizonia --spotify-playlist'
-alias sptrack='tizonia --spotify-tracks'
+alias spartist='tiz --spotify-artist'
+alias spalbum='tiz --spotify-album'
+alias splist='tiz --spotify-playlist'
+alias sptrack='tiz --spotify-tracks'
 
 # vim
 alias vf='nvim $(fzf)'

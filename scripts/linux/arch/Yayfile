@@ -11,13 +11,13 @@ python3
 yarn
 yay
 
-# source code control
-git
-git-lfs
-
 # shell
 zsh
 zsh-completions
+
+# source code control
+git
+git-lfs
 
 # utils
 jq
@@ -37,7 +37,7 @@ lib32-alsa-plugins
 # desktop environment
 awesome
 compton
-conky
+# conky
 lightdm
 lightdm-mini-greeter
 light-locker
@@ -49,7 +49,6 @@ xdg-utils
 xdotool
 xinit
 xinit-xsession
-xpra
 xorg-xinit
 xorg-server
 xorg-server-xephyr
@@ -57,6 +56,11 @@ xorg-xauth
 xorg-xhost
 xorg-xrandr
 xorg-xdpyinfo
+
+# fonts
+ttf-fantasque-sans-mono
+ttf-fira-code
+ttf-liberation
 
 # core software
 alacritty
@@ -70,13 +74,9 @@ mpv
 neofetch
 nnn
 ripgrep
-tizonia-all
+scrcpy
+task
 w3m
-
-# fonts
-# nerd-fonts-complete
-ttf-fira-code
-ttf-liberation
 
 # virtualization
 libvirt
@@ -96,7 +96,11 @@ kubectl-bin
 minikube-bin
 
 # editors
-# android-studio
+android-studio
+android-sdk-dummy
+android-sdk-build-tools-dummy
+android-sdk-platform-tools-dummy
+android-emulator-dummy
 # emacs
 neovim
 python2-neovim-git
@@ -106,10 +110,7 @@ veonim
 # visual-studio-code-insiders
 
 # dev
-# android-file-transfer ????
 google-cloud-sdk
-shellcheck
-shfmt
 watchman
 
 # browsers
@@ -117,9 +118,6 @@ firefox
 firefox-developer-edition
 google-chrome
 google-chrome-dev
-# disabling installation of ungoogled chromium as compilation takes over 2
-# hours and i don't value my privacy enough for that kind of time
-# ungoogled-chromium
 # vivaldi
 # vivaldi-ffmpeg-codecs
 vivaldi-snapshot
