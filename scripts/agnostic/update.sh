@@ -2,7 +2,7 @@
 
 set -eu
 
-declare scripts="
+scripts="
   install_or_update_asdf.sh
   install_or_update_node_modules.sh
   install_or_update_python_packages.sh

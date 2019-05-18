@@ -12,4 +12,4 @@ setup() {
   nixos-rebuild switch
 }
 
-setup "$@"
+setup

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -eu
+
+# TODO: requires much smarter implementation w/ handling of various managers,
+# operations, and flags
+meatman() {
+  cmd="$1"
+  packages="$2"
+
+  if [ ! "$cmd" = "add" ]; then
+    echo "command unsupported"
+    exit 1
+  fi
+
+# TODO: handle flags
+  if [ -x "$(command -v pacman)" ]; then
+    sudo pacman -Sy --config "$HOME/.config/pacman/pacman.conf" --noconfirm --needed $packages
+  elif [ -x "$(command -v apk)" ]; then
+    sudo apk add --no-cache $packages
+  else
+    echo "unsupported distro"
+    exit 1
+  fi
+}
+
+meatman "$@"

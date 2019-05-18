@@ -14,4 +14,4 @@ bootstrap() {
   done
 }
 
-bootstrap "$@"
+bootstrap

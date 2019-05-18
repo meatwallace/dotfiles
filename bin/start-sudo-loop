@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -eo pipefail
+set -e
 
 start_sudo_loop() {
-  local password="$1"
+  password="$1"
 
   if [ -n "$password" ]; then
     echo "$password" | sudo -Sv

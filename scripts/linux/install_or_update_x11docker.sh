@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -eo pipefail
+set -e 
 
 curl -fsSl https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | sudo bash -s -- --update >/dev/null

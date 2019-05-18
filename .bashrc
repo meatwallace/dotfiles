@@ -7,7 +7,7 @@ asdf_dir="$MEATBOX_LIBS_DIR/asdf"
 
 # load `asdf`, our version manager
 if [ -d "$asdf_dir" ]; then
-  # shellcheck source=.meatbox/libs/asdf/asdf.sh
+  # shellcheck source=libs/asdf/asdf.sh
   . "$asdf_dir/asdf.sh"
 fi
 
