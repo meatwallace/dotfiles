@@ -1,13 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
-declare -a scripts=(
+scripts="
+  set_system_defaults.sh
   install_or_update_homebrew_packages.sh
   update_system.sh
-)
+"
 
-for script in "${scripts[@]}"; do
-  "./$script" >/dev/null
-done
+update() {
+  for script in $scripts; do
+    "./$script" >/dev/null
+  done
+}
 
+update "$@"

@@ -1,14 +1,19 @@
 pkg install x11-repo
-pkg add...
+
+# requires storage permissions
+termux-setup-storage
+
+available packages:
 
 git
 git-lfs
 zsh
 neofetch
+feh
 fzf
 yarn
 nodejs
-gitopenssh
+openssh
 neofetch
 curl
 neovim
@@ -16,27 +21,13 @@ jq
 python
 mpv
 
-
-settings -> apps -> termux -> permissions -> storage
-
-  `termux-setup-storage`
-
-
 tigervnc
 ttf-dejavu
 i3
 fluxbox
 openbox
-feh
 
-
-
-
-
-# python3
-
-
-
+# unavailable / requires checking
 bluez
 bluez-utils
 pulseaudio
@@ -44,7 +35,6 @@ pulseaudio-bluetooth
 pulseaudio-alsa
 lib32-libpulse
 lib32-alsa-plugins
-
 
 awesome
 compton

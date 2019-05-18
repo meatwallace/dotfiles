@@ -2,14 +2,14 @@
 
 set -eu
 
-scripts="
-  install_or_update_x11docker.sh
-"
+scripts=""
 
-update() {
+setup() {
   for script in $scripts; do
     "./$script" >/dev/null
   done
+
+  nixos-rebuild switch
 }
 
-update "$@"
+setup "$@"

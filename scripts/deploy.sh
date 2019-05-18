@@ -1,4 +1,6 @@
-#!/bin/sh -e
+#!/bin/sh
+
+set -eu
 
 NOW_TARGET="${NOW_TARGET:-staging}"
 
