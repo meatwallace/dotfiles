@@ -74,6 +74,24 @@ alias spalbum='tiz --spotify-album'
 alias splist='tiz --spotify-playlist'
 alias sptrack='tiz --spotify-tracks'
 
+# tmux
+alias tm='tmux'
+alias tmx='tmux attach -t meatmux || tmux new -s meatmux'
+alias tma='tmux attach -t'
+alias tmad='tmux attach -d -t'
+alias tmls='tmux list-sessions'
+alias tmksv='tmux kill-server'
+alias tmkss='tmux kill-session -t'
+
+# task(warrior)
+alias t='task'
+alias tadd='task add'
+alias tappend='task append'
+alias tstart='task start'
+alias tstop='task stop'
+alias tdone='task done'
+alias tedit='task edit'
+
 # vim
 alias vf='nvim $(fzf)'
 
