@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/meatwallace/zplugin/master/doc/install.sh)"

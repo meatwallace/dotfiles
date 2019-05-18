@@ -2,8 +2,6 @@
 
 set -eu
 
-username="$(id -u -n)"
-
 # lightdm
 # libvirtd
 # virtlogd

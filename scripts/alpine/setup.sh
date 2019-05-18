@@ -10,6 +10,7 @@ scripts="
   update_system_packages.sh
   update_user_groups.sh
   enable_services.sh
+  update_openrc_config.sh
   update_package_configuration.sh
 "
 
@@ -19,4 +20,4 @@ setup() {
   done
 }
 
-setup "$@"
+setup

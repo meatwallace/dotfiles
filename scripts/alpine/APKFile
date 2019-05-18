@@ -6,6 +6,26 @@ dbus
 openrc
 sudo
 
+# replace busybox w/ standard gnu utils
+binutils
+coreutils
+findutils
+grep
+pciutils
+usbutils
+util-linux
+
+# reuired to build packages by `asdf`
+build-base
+bzip2-dev
+linux-headers
+libffi-dev
+openssl-dev
+readline-dev
+sqlite-dev
+unzip
+zlib-dev
+
 # package managers & languages
 python2@edge
 python3@edge
@@ -21,7 +41,9 @@ git-lfs
 
 # utils
 curl
+gnupg
 jq
+less
 wget
 
 # bluetooth

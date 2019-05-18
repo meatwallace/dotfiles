@@ -12,10 +12,6 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-# }}}
-
-#: tmp directory {{{
-
 # if we don't have a TMPDIR variable set or it's empty, export it
 if [ -z "${TMPDIR}" ]; then
   export TMPDIR="/tmp/zsh-${UID}"

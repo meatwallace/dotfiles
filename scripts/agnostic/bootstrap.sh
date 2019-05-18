@@ -3,7 +3,8 @@
 set -eu
 
 scripts="
-  install_or_update_asdf.sh
+install_or_update_asdf.sh
+install_yarn.sh
 "
 
 bootstrap() {
@@ -12,4 +13,4 @@ bootstrap() {
   done
 }
 
-bootstrap "$@"
+bootstrap

@@ -1,7 +1,7 @@
 {
   "name": "@meatwallace/meatbox",
   "version": "1.0.0",
-  "description": "personal configuration for both Arch Linux & Mac systems",
+  "description": "personal configuration for both Linux & Mac systems",
   "repository": "https://github.com/meatwallace/meatbox",
   "author": "@meatwallace",
   "license": "The Unlicense",

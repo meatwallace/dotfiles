@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 usage() {
   cat << HEREDOC
@@ -25,63 +25,53 @@ log_message() {
 }
 
 meatbox_run_script() {
-  directory="$1"
-  script="$2"
+  ctx="$1"
+  cmd="$2"
 
-  (cd "$MEATBOX_SCRIPTS_DIR/$directory" && "./$script")
-}
-
-meatbox_run_universal_script() {
-  script="$1"
-
-  meatbox_run_script "universal" "$script"
-}
-
-meatbox_run_os_script() {
-  script="$1"
-  os="$(uname -s | lowercase)"
-
-  if [ -f "$MEATBOX_SCRIPTS_DIR/$os/$script" ]; then
-    meatbox_run_script "$os" "$script"
+  if [ -f "$MEATBOX_SCRIPTS_DIR/$ctx/$cmd.sh" ]; then
+    (cd "$MEATBOX_SCRIPTS_DIR/$ctx" && "./$cmd.sh")
   fi
+}
+
+meatbox_run() {
+  kernel="$(uname -s | lowercase)"
+
+  meatbox_run_script "$kernel" "$cmd"
+  
+  if [ "$kernel" = "linux" ]; then
+    distro=""
+
+    # cat /etc/*release
+
+    # ID=alpine
+    # NAME="Alpine Linux"
+
+    # ID=antergos
+    # ID_LIKE=archlinux
+    # NAME="Antergos Linux"
+
+    # DISTRIB_ID=Arch
+    # NAME="ArchBang Linux"
+    # ID=arch
+
+    meatbox_run_script "$distro" "$cmd"
+  fi
+
+  meatbox_run_script "agnostic" "$cmd"
 }
 
 meatbox_help() {
   usage
 }
 
-meatbox_bootstrap() {
-  start-sudo-loop "$MEATBOX_PASSWORD"
-
-  meatbox_run_os_script "bootstrap.sh"
-  meatbox_run_universal_script "bootstrap.sh"
-}
-
-if [ "$1" = "bootstrap" ]; then
-  meatbox_bootstrap
-
-  exit 0
-fi
-
-meatbox_setup() {
-  start-sudo-loop "$MEATBOX_PASSWORD"
-
-  meatbox_run_os_script "setup.sh"
-  meatbox_run_universal_script "setup.sh"
-}
-
-meatbox_update() {
-  start-sudo-loop "$MEATBOX_PASSWORD"
-
-  meatbox_run_os_script "update.sh"
-  meatbox_run_universal_script "update.sh"
-}
-
 meatbox() {
   cmd="$1"
 
   case "$cmd" in
-    bootstrap|setup|update) "meatbox_$cmd" ;;
+    bootstrap|setup|update)
+      start-sudo-loop "$MEATBOX_PASSWORD"
+      meatbox_run "$cmd"      
+      ;;
     *) meatbox_help ;;
   esac
 }

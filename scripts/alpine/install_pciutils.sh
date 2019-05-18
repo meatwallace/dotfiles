@@ -3,5 +3,5 @@
 set -eu
 
 if [ ! -x "$(command -v lspci)" ]; then
-  yay -S --noconfirm "pciutils" >/dev/null
+  apk add --no-cache pciutils
 fi

@@ -1,17 +1,19 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
 git_clone_or_update() {
-  local repo_url="$1"
-  local repo_dir="$2"
+  repo_url="$1"
+  repo_dir="$2"
 
   # use the repository's name as the directory if we didn't explicitly pass one
-  if is empty "$repo_dir"; then
+  if [ -z "$repo_dir" ]; then
     repo_dir="${repo_dir%.git}"
   fi
 
-  if is not a directory "$repo_dir"; then
+  if [ ! -d "$repo_dir" ]; then
+    mkdir -p "$repo_dir"
+
     git clone "$repo_url" "$repo_dir" >/dev/null
   else
     (

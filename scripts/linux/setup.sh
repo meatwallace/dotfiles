@@ -15,4 +15,4 @@ setup() {
   done
 }
 
-setup "$@"
+setup

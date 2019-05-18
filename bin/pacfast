@@ -43,7 +43,7 @@ download_packages() {
     --dir="$cache_dir"
 
   rm "$dl_list_file"
-}   
+}
 
 # if we have unfinished jobs from a previous run, complete them
 if [ -f "$dl_list_file" ]; then

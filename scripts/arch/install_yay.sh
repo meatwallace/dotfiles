@@ -1,8 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
-# install `yay` if it's unavalable, a `pacman` wrapper that integrates the AUR
-if [ ! -x "$(command -v yay)" ]; then
-  sudo pacman -S --config "$HOME/.config/pacman/pacman.conf" --noconfirm yay
-fi
+install_yay() {
+  # install `yay` if it's unavalable, a `pacman` wrapper that integrates the AUR
+  if [ ! -x "$(command -v yay)" ]; then
+    meatman add yay
+  fi 
+}
+
+install_yay
