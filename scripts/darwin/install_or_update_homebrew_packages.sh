@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -euo pipefail
+set -eu
 
 brew bundle >/dev/null

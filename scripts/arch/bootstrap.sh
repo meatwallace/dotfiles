@@ -3,9 +3,11 @@
 set -eu
 
 scripts="
-  install_or_update_homebrew.sh
-  install_mas.sh 
-  install_or_update_linuxify.sh
+  add_pacman_repo_keys.sh
+  refresh_package_databases.sh
+  update_pacman_mirrorlist.sh
+  install_yay.sh
+  install_pciutils.sh
 "
 
 bootstrap() {

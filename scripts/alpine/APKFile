@@ -2,8 +2,9 @@
 # we want to pull down from the alpine repositories
 
 # core system
-openrc
 dbus
+openrc
+sudo
 
 # package managers & languages
 python2@edge
@@ -11,7 +12,7 @@ python3@edge
 yarn
 
 # shell
-bash@edge
+bash
 zsh
 
 # source code control
@@ -24,7 +25,7 @@ jq
 wget
 
 # bluetooth
-bluez@edge
+bluez
 
 # audio
 pulseaudio
@@ -43,7 +44,6 @@ xdotool
 xorg-server
 
 # TODO(#36): remove packages unneeded for x11docker
-#
 # xinit
 # xdg-utils
 # xorg-server-xephyr
@@ -59,9 +59,6 @@ feh
 fzf
 # insync - unavailable - alternative installation method?
 # kitty@testing - useless without OpenGL support
-st
-task
-terminator
 
 # needed for `maim` - need to fix grep so can use side comments
 icu-libs@edge
@@ -71,7 +68,10 @@ mpv
 nnn
 neofetch
 ripgrep@testing
+task
+tmux
 w3m
+xterm
 
 # fonts
 ttf-liberation
@@ -97,4 +97,4 @@ watchman@testing
 hunspell@edge
 firefox-esr@edgecommunity
 # firefox@testing - disabled due to bloat
-# chromium@edgecommunit - disabled due to bloat
+# chromium@edgecommunity - disabled due to bloat

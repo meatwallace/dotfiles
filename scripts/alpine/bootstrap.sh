@@ -3,9 +3,9 @@
 set -eu
 
 scripts="
-  install_or_update_homebrew.sh
-  install_mas.sh 
-  install_or_update_linuxify.sh
+  add_edge_repositories.sh
+  refresh_package_databases.sh
+  install_pciutils.sh
 "
 
 bootstrap() {
@@ -15,3 +15,4 @@ bootstrap() {
 }
 
 bootstrap "$@"
+

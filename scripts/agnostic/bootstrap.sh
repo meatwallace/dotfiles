@@ -3,13 +3,13 @@
 set -eu
 
 scripts="
-  install_or_update_x11docker.sh
+  install_or_update_asdf.sh
 "
 
-update() {
+bootstrap() {
   for script in $scripts; do
     "./$script" >/dev/null
   done
 }
 
-update "$@"
+bootstrap "$@"

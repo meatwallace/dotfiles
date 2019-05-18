@@ -36,7 +36,7 @@ ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
   # run our system setup script from our staging alias
-  curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
+  curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" sh && \
   . "/home/${MEATBOX_USER}/.bash_profile" && \
   meatbox bootstrap && \
   . "/home/${MEATBOX_USER}/.bash_profile" && \

@@ -51,6 +51,7 @@ brew 'nnn'
 brew 'ripgrep'
 brew 'srccpy'
 brew 'task'
+brew 'tmux'
 brew 'w3m'
 
 # fonts
