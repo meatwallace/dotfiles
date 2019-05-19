@@ -4,13 +4,11 @@ set -eu
 
 username="$(id -u -n)"
 
-# lg
-# libvirt
+groups="$(cat /etc/group)"
+desired_groups="docker libvirt lp"
 
-groups="
-  docker
-"
-
-for group in $groups; do
-  sudo adduser "$username" "$group"
+for group in $desired_groups; do
+  if echo "$groups" | grep -q "$group"; then
+    sudo adduser "$username" "$group"
+  fi
 done

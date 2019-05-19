@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eu
+
+widget() {
+  refresh_rate="5"
+
+  while true; do
+    case "$1" in
+      -r|--refresh-rate) refresh_rate="$2"; shift 2 ;;
+      *) break ;;
+    esac
+  done
+
+  while true; do "$@"; sleep "$refresh_rate"; done
+}
+
+widget "$@"

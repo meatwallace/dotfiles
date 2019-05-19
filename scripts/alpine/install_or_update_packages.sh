@@ -5,4 +5,4 @@ set -eu
 packages="$(grep -v '^\#' ./APKFile | grep .)"
 
 # shellcheck disable=SC2086
-apk add --no-cache $packages
+sudo apk add --no-cache $packages >/dev/null 2>&1

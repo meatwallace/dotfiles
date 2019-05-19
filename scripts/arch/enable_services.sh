@@ -2,19 +2,21 @@
 
 set -eu
 
-# apparmor.service
-# snapd.socket
-# snapd.apparmor.service
+systemctl_units="$(systemctl list-unit-files)"
 
-services="
-  bluetooth.service
-  lightdm.service
-  libvirtd.service
-  virtlogd.service
-  docker.service
-  sshd.socket
+desired_services="
+bluetooth.service
+cron.service
+lightdm.service
+libvirtd.service
+virtlogd.service
+docker.service
+sshd.socket
 "
 
-for service in $services; do
-  sudo systemctl enable --now "$service"
+for service in $desired_services; do
+  if echo "$systemctl_units" | grep -q "$service"; then
+    sudo systemctl enable "$service" || true
+    sudo systemctl start "$service" || true
+  fi
 done

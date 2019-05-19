@@ -9,8 +9,8 @@ install_yarn.sh
 
 bootstrap() {
   for script in $scripts; do
-    "./$script" >/dev/null
+    "./$script" "$@" >/dev/null
   done
 }
 
-bootstrap
+bootstrap "$@"

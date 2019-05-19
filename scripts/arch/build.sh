@@ -27,5 +27,6 @@ docker push "$DOCKER_IMAGE_TAG_COMMIT" >/dev/null
 # if we're on master, then push to latest
 if [ "$GIT_BRANCH" = "master" ]; then
   docker tag "$DOCKER_IMAGE_TAG_COMMIT" "$DOCKER_IMAGE_TAG_LATEST"
+
   docker push "$DOCKER_IMAGE_TAG_LATEST" >/dev/null
 fi

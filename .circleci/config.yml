@@ -21,6 +21,7 @@ jobs:
       - run:
           name: "Deploy to Staging"
           command: "./scripts/deploy.sh"
+          no_output_timeout: 30m
   
   build_alpine:
     docker:
@@ -33,7 +34,7 @@ jobs:
           command: |
             apk add --no-cache git >/dev/null 2>&1
             cd ./scripts/alpine
-            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./build.sh
+            GIT_BRANCH=$CIRCLE_BRANCH GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./build.sh
           no_output_timeout: 30m
 
   build_arch:
@@ -47,7 +48,7 @@ jobs:
           command: |
             apk add --no-cache git >/dev/null 2>&1
             cd ./scripts/arch
-            GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./build.sh
+            GIT_BRANCH=$CIRCLE_BRANCH GIT_COMMIT_SHA1=$CIRCLE_SHA1 ./build.sh
           no_output_timeout: 30m
 
   deploy_production:

@@ -2,13 +2,15 @@
 
 set -eu
 
-scripts="
-  install_or_update_x11docker.sh
-"
+scripts="install_or_update_x11docker.sh"
+
+fonts_dir="$HOME/.local/share/fonts"
 
 setup() {
   # ensure we have a fonts directory
-  mkdir -p "$HOME/.local/share/fonts"
+  if [ ! -d "$fonts_dir" ]; then
+    mkdir -p "$fonts_dir"
+  fi
 
   for script in $scripts; do
     "./$script" >/dev/null

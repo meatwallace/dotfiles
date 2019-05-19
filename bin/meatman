@@ -15,9 +15,9 @@ meatman() {
 
 # TODO: handle flags
   if [ -x "$(command -v pacman)" ]; then
-    sudo pacman -Sy --config "$HOME/.config/pacman/pacman.conf" --noconfirm --needed $packages
+    sudo pacman -Sy --config "$HOME/.config/pacman/pacman.conf" --noconfirm --needed "$packages"
   elif [ -x "$(command -v apk)" ]; then
-    sudo apk add --no-cache $packages
+    sudo apk add --no-cache "$packages"
   else
     echo "unsupported distro"
     exit 1

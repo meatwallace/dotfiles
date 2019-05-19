@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+bat() {
+  docker run -it --rm --name="bat" \
+    --volume="$HOME/.config/bat/config:/root/.config/bat/config" \
+    --volume="$PWD:/myapp" \
+    danlynn/bat:latest "$@"
+}
+
+bat "$@"

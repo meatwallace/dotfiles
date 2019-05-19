@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+
+weather() {
+  location="${1:-Melbourne,Australia}"
+
+  curl -s "wttr.in/$location?q0"
+}
+
+weather "$@"

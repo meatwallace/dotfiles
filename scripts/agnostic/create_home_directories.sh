@@ -2,7 +2,7 @@
 
 set -eu
 
-folders="bin containers docs downloads pictures projects screenshots unsorted"
+folders="bin containers docs downloads music pictures projects public screenshots videos unsorted .zcompcache"
 
 for folder in $folders; do
   if [ ! -d "$HOME/$folder" ]; then
