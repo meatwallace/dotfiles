@@ -26,6 +26,7 @@ RUN \
 
 # swap into our user account
 USER "${MEATBOX_USER}"
+SHELL ["/bin/bash", "-c"]
 WORKDIR "/home/${MEATBOX_USER}"
 
 # we prevent caching of our setup script by injecting our current commit SHA1 here
@@ -34,11 +35,10 @@ ARG MEATBOX_CHECKOUT_SHA1
 RUN \
   # run our system setup script from our staging alias
   curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
-  . "/home/${MEATBOX_USER}/.bashrc" && \
+  . "$HOME/.bashrc" && \
   meatbox bootstrap && \
-  . "/home/${MEATBOX_USER}/.bashrc" && \
+  . "$HOME/.bashrc" && \
   meatbox setup && \
-  . "/home/${MEATBOX_USER}/.bashrc" && \
   # clean up any extraneous dependencies left over by our installation
   yay --clean --noconfirm && \
   # clean up pacman's package cache for installed & uninstalled packages

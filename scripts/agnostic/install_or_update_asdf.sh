@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
 
 asdf_dir="$MEATBOX_LIBS_DIR/asdf"
 
@@ -21,6 +21,7 @@ else
   asdf update >/dev/null 2>&1
 fi
 
+# another ugly workaround - should just install unzip prior
 if [ ! -x "$(command -v unzip)" ]; then
   if [ -x "$(command -v pacman)" ]; then
     sudo pacman -Sy --noconfirm --needed unzip
@@ -32,32 +33,42 @@ if [ ! -x "$(command -v unzip)" ]; then
   fi
 fi
 
-# asdf returns an error code when no plugins are installed and we try to list
-# them, cheers.
 installed_plugin_packages="$(asdf current)"
+desired_plugins="lua python ruby"
 
-desired_plugins="lua nodejs python ruby"
+# hacky workaround to avoid installing nodejs on alpine as we'd need to compile
+# from source if using asdf
+if ! echo "$@" | grep "alpine"; then
+  desired_plugins="$desired_plugins nodejs"
+fi
 
 # add our version manager plugins
 for plugin in $desired_plugins; do
   if ! echo "$installed_plugin_packages" | grep -q "$plugin"; then
-    asdf plugin-add "$plugin"
-    #>/dev/null 2>&1
+    asdf plugin-add "$plugin" >/dev/null 2>&1
   else
-    asdf plugin-update "$plugin"
-    #>/dev/null 2>&1
+    asdf plugin-update "$plugin" >/dev/null 2>&1
   fi
 done
 
-# import the nodejs GPG keys to verify installation
-bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" #>/dev/null 2>&1
+# as we don't manage node via asdf on alpine, this keyring script won't exist
+if echo "$desired_plugins" | grep "nodejs"; then
+  # import the nodejs GPG keys to verify installation
+  bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" >/dev/null 2>&1
+fi
 
 # upgrade and use the latest versions of our packages
 for plugin in $desired_plugins; do
   latest_version="$(asdf list-all "$plugin" | grep -E '^[0-9.]+$' | tail -n 1)"
 
-  asdf install "$plugin" "$latest_version"
-  #>/dev/null 2>&1
-  asdf global "$plugin" "$latest_version"
-  #>/dev/null
+  # this compiles node.js from source as a workaround as there's no prebuilt
+  # binary. as that takes 6 years, we opt to just install the latest node via
+  # the alpine repo instead
+  # if [ "$plugin" = "nodejs" ] & [ ! -f "$HOME/.asdf/installs/nodejs/$latest_version/bin/node" ]; then
+  #   export NODEJS_CHECK_SIGNATURES="no"
+  #   latest_version="ref:v$latest_version"
+  # fi
+
+  asdf install "$plugin" "$latest_version" >/dev/null 2>&1
+  asdf global "$plugin" "$latest_version" >/dev/null
 done

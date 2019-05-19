@@ -3,9 +3,9 @@
 set -eu
 
 scripts="
-  add_edge_repositories.sh
-  refresh_package_databases.sh
-  install_pciutils.sh
+add_edge_repositories.sh
+refresh_package_databases.sh
+install_pciutils.sh
 "
 
 bootstrap() {

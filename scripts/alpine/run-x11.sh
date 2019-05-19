@@ -5,9 +5,9 @@ set -eu
 x11docker \
   --name=meatbox-alpine \
   --desktop \
+  --gpu \
   --xephyr \
   --size=1280x720 \
-  --gpu \
   --init=openrc \
   --runtime=nvidia \
   --dbus-system \
@@ -15,23 +15,15 @@ x11docker \
   --pulseaudio \
   --cap-default \
   --sudouser \
-  --user=root \
+  --user=RETAIN \
+  -- \
+  --volume="/var/run/docker.sock:/var/run/docker.sock" \
+  --volume="/home/$USER/projects:/home/$USER/projects" \
+  --privileged \
+  --cap-add=ALL \
+  -- \
   meatwallace/meatbox-alpine:latest awesome
 
-
-# sudo x11docker \
-#   --name=meatbox \
-#   --desktop \
-#   --hostdisplay \
-#   --xorg \
-#   --gpu \
-#   --init=openrc \
-#   --runtime=nvidia \
-#   --dbus-system \
-#   --clipboard \
-#   --pulseaudio \
-#   --cap-default \
-#   meatwallace/meatbox-alpine:latest awesome
-# --xephyr \
-# --user=RETAIN \
-# --sudouser \
+  # --hostdisplay \
+  # --xorg
+  # --fullscreen

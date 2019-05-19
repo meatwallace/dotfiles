@@ -2,16 +2,20 @@
 
 set -eu
 
-# lightdm
-# libvirtd
-# virtlogd
+openrc_units="$(sudo rc-update show -v)"
 
-services="
-  bluetooth
-  docker
-  sshd
+desired_services="
+bluetooth
+docker
+dcron
+lightdm
+libvirtd
+sshd
+virtlogd
 "
 
-for service in $services; do
-  sudo rc-update add "$service"
+for service in $desired_services; do
+  if echo "$openrc_units" | grep -q "$service"; then
+    sudo rc-update add "$service"
+  fi
 done

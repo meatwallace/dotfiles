@@ -1,7 +1,7 @@
 ###############################################################################
 # meatwallace/meatbox-alpine
 ###
-FROM alpine:3.9
+FROM mhart/alpine-node:latest
 
 ARG USER_SUDOERS_FILE="10-user"
 
@@ -11,33 +11,13 @@ ARG MEATBOX_PASSWORD
 ARG MEATBOX_SETUP_SUDOERS_FILE="20-setup"
 
 RUN \
+  # required by our setup script
   apk add --no-cache \
-    # replace busybox utils with standard linux utils
-    binutils \
-    coreutils \
-    findutils \
-    grep \
-    pciutils \
-    usbutils \
-    util-linux \
-
-    # required by our setup script
     bash \
     curl \
     git \
     gnupg \
-    sudo \
-
-    # specifically required to build packages by `asdf`
-    build-base \
-    bzip2-dev \
-    linux-headers \
-    libffi-dev \
-    openssl-dev \
-    readline-dev \
-    sqlite-dev \
-    unzip \
-    zlib-dev && \
+    sudo >/dev/null && \
   # add our user account & set the password
   adduser -D -s /bin/bash "${MEATBOX_USER}" users && \
   echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \ 
@@ -53,19 +33,44 @@ RUN \
 
 # swap into our user account
 USER "${MEATBOX_USER}"
-WORKDIR "/home/${MEATBOX_USER}"
+SHELL ["/bin/bash", "-c"]
+# WORKDIR "/home/${MEATBOX_USER}"
 
 # we prevent caching of our setup script by injecting our current commit SHA1 here
 ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
+  # replace busybox utils with standard linux utils
+  echo "${MEATBOX_PASSWORD}" | sudo -S apk add --no-cache \
+    binutils \
+    coreutils \
+    findutils \
+    grep \
+    pciutils \
+    usbutils \
+    util-linux >/dev/null && \
+  # packages required by `asdf` we'll clean up later
+  echo "${MEATBOX_PASSWORD}" | sudo -S apk add --no-cache --virtual .build-dependencies \
+    build-base \
+    bzip2-dev \
+    linux-headers \
+    libffi-dev \
+    openssl-dev \
+    readline-dev \
+    sqlite-dev \
+    unzip \
+    zlib-dev >/dev/null && \
   # run our system setup script from our staging alias
   curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
-  . "/home/${MEATBOX_USER}/.bashrc" && \
+  . "$HOME/.bashrc" && \
   meatbox bootstrap && \
-  . "/home/${MEATBOX_USER}/.bashrc" && \
+  . "$HOME/.bashrc" && \
   meatbox setup && \
-  . "/home/${MEATBOX_USER}/.bashrc" && \
-  rm -rf tmp/* /var/cache/apk/*
+  # remove our build dependencies
+  echo "${MEATBOX_PASSWORD}" | sudo -S apk del .build-dependencies >/dev/null && \
+  # clean up our any temp files that may have been created
+  rm -rf tmp/* >/dev/null && \
+  # remove the sudo config we previously created to make our docker setup work
+  echo "${MEATBOX_PASSWORD}" | sudo -S rm "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
 CMD ["/bin/zsh"]

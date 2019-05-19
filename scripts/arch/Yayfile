@@ -2,11 +2,10 @@
 # we want to pull down from the Arch default repos & the AUR
 
 # languages & package managers
-esy
+# esy
 # flatpak
 python
-python3
-# python-pipenv
+python2-pipenv
 # snapd
 yarn
 yay
@@ -20,6 +19,7 @@ git
 git-lfs
 
 # utils
+dcron
 jq
 reflector
 
@@ -41,8 +41,10 @@ compton
 lightdm
 lightdm-mini-greeter
 light-locker
+plata-theme
 rofi
 # rofi-1pass
+qt5-styleplugins
 xcape
 xclip
 xdg-utils
@@ -56,6 +58,7 @@ xorg-xauth
 xorg-xhost
 xorg-xrandr
 xorg-xdpyinfo
+zafiro-icon-theme
 
 # fonts
 ttf-fantasque-sans-mono
@@ -106,13 +109,13 @@ android-emulator-dummy
 # emacs
 neovim
 python2-neovim-git
-oni
+# oni
 # sublime-text
 veonim
 # visual-studio-code-insiders
 
 # dev
-google-cloud-sdk
+# google-cloud-sdk
 watchman
 
 # browsers
@@ -126,7 +129,7 @@ vivaldi-snapshot
 vivaldi-snapshot-ffmpeg-codecs
 
 # misc
-# TODO(#22): reenable 1password cli in arch installation when checksums are reverified 
+# TODO(#22): reenable 1password cli in arch installation when checksums are reverified
 # 1password-cli
 krita
 

@@ -3,7 +3,7 @@
 set -e
 
 GIT_BRANCH=${GIT_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
-GIT_COMMIT_SHA1=${GIT_COMMIT_SHA1:-$(git commit rev-parse HEAD)}
+GIT_COMMIT_SHA1=${GIT_COMMIT_SHA1:-$(git rev-parse HEAD)}
 
 MEATBOX_USER=${MEATBOX_USER:-meatwallace}
 MEATBOX_PASSWORD=${MEATBOX_PASSWORD:-meatword}

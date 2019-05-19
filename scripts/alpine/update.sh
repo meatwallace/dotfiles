@@ -6,12 +6,12 @@ set -eu
 # install_gpu_drivers.sh
 
 scripts="
-  refresh_package_databases.sh
-  install_or_update_packages.sh
-  update_system_packages.sh
-  update_user_groups.sh
-  enable_services.sh
-  update_package_configuration.sh
+refresh_package_databases.sh
+install_or_update_packages.sh
+update_system_packages.sh
+update_user_groups.sh
+enable_services.sh
+update_package_configuration.sh
 "
 
 update() {

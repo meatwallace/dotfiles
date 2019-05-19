@@ -34,7 +34,7 @@ well as ongoing learning & mastery of various workflows & tools.
 
 to boot into latest docker image with simple terminal access:
 
-```
+```sh
 docker run -it --rm meatwallace/meatbox-alpine:latest
 docker run -it --rm meatwallace/meatbox-arch:latest
 ```
@@ -42,7 +42,7 @@ docker run -it --rm meatwallace/meatbox-arch:latest
 to run the latest setup script, execute the following in your terminal:
 
 ```sh
-curl https://meatbox.one | sh
+curl https://meatbox.one | bash
 meatbox bootstrap
 meatbox setup
 ```

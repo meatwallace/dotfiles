@@ -1,23 +1,29 @@
 #!/bin/sh
 
-sudo x11docker \
+set -eu
+
+x11docker \
   --name=meatbox \
   --desktop \
-  --hostdisplay \
-  --xorg \
   --gpu \
+  --xephyr \
+  --size=1280x720 \
   --init=systemd \
   --runtime=nvidia \
   --dbus-system \
   --clipboard \
   --pulseaudio \
   --cap-default \
-  --user=RETAIN \
   --sudouser \
+  --user=RETAIN \
   -- \
-  --cap-add=SYS_ADMIN \
+  --volume="/var/run/docker.sock:/var/run/docker.sock" \
+  --volume="/home/$USER/projects:/home/$USER/projects" \
+  --privileged \
+  --cap-add=ALL \
   -- \
   meatwallace/meatbox-arch:latest /usr/bin/xinitrcsession-helper
-# --fullscreen \
-# --size=1840x1035 \
-# --xephyr \
+
+  # --hostdisplay \
+  # --xorg
+  # --fullscreen

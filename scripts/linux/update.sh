@@ -3,7 +3,7 @@
 set -eu
 
 scripts="
-  install_or_update_x11docker.sh
+install_or_update_x11docker.sh
 "
 
 update() {

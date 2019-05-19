@@ -4,11 +4,11 @@ set -eu
 
 username="$(id -u -n)"
 
-# bluetooth
-sudo usermod -aG lg "$username"
+groups="$(cat /etc/group)"
+desired_groups="docker libvirt lp"
 
-# virtualization
-sudo usermod -aG libvirt "$username"
-
-# docker
-sudo usermod -aG docker "$username"
+for group in $desired_groups; do
+  if echo "$groups" | grep -q "$group"; then
+    sudo usermod -aG "$group" "$username"
+  fi
+done

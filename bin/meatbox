@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -ex
 
@@ -29,35 +29,30 @@ meatbox_run_script() {
   cmd="$2"
 
   if [ -f "$MEATBOX_SCRIPTS_DIR/$ctx/$cmd.sh" ]; then
-    (cd "$MEATBOX_SCRIPTS_DIR/$ctx" && "./$cmd.sh")
+    (cd "$MEATBOX_SCRIPTS_DIR/$ctx" && "./$cmd.sh" -- "$@")
   fi
 }
 
+# TODO: implement a better way to pass args through to scripts, or perhaps
+# extract kernel detection to a utility function
 meatbox_run() {
   kernel="$(uname -s | lowercase)"
+  distro=""
 
-  meatbox_run_script "$kernel" "$cmd"
-  
   if [ "$kernel" = "linux" ]; then
-    distro=""
+    distro_id="$(cat /etc/*release | grep -E '^ID=')"
+    distro_id="${distro_id#ID=}"
 
-    # cat /etc/*release
-
-    # ID=alpine
-    # NAME="Alpine Linux"
-
-    # ID=antergos
-    # ID_LIKE=archlinux
-    # NAME="Antergos Linux"
-
-    # DISTRIB_ID=Arch
-    # NAME="ArchBang Linux"
-    # ID=arch
-
-    meatbox_run_script "$distro" "$cmd"
+    case "$distro_id" in
+      arch|antergos) distro="arch" ;;
+      alpine) distro="alpine" ;;
+      *) distro="unknown" ;;
+    esac
   fi
 
-  meatbox_run_script "agnostic" "$cmd"
+  meatbox_run_script "$kernel" "$cmd" "$kernel" "$distro"
+  meatbox_run_script "$distro" "$cmd" "$kernel" "$distro"
+  meatbox_run_script "agnostic" "$cmd" "$kernel" "$distro"
 }
 
 meatbox_help() {
@@ -66,6 +61,11 @@ meatbox_help() {
 
 meatbox() {
   cmd="$1"
+
+  # probably bad practice, but this avoids any issues where something ends up
+  # missing from the path
+  # shellcheck source=../.bashrc
+  . "$HOME/.bashrc"
 
   case "$cmd" in
     bootstrap|setup|update)

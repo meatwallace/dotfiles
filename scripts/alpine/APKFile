@@ -3,7 +3,9 @@
 
 # core system
 dbus
+dcron
 openrc
+shadow
 sudo
 
 # replace busybox w/ standard gnu utils
@@ -15,21 +17,14 @@ pciutils
 usbutils
 util-linux
 
-# reuired to build packages by `asdf`
-build-base
-bzip2-dev
-linux-headers
-libffi-dev
-openssl-dev
-readline-dev
-sqlite-dev
-unzip
-zlib-dev
-
 # package managers & languages
 python2@edge
+py2-virtualenv
 python3@edge
-yarn
+
+# nope. using mhart's node alpine image as a base instead.
+# nodejs-current@edgecommunity
+# yarn
 
 # shell
 bash
@@ -44,6 +39,7 @@ curl
 gnupg
 jq
 less
+openssh
 wget
 
 # bluetooth
@@ -58,21 +54,14 @@ alsa-plugins
 
 # desktop environment
 awesome
+plata-theme@testing
 rofi@testing
 # rofi-1pass - unavailable
 # xcape - unavailable
 xclip
 xdotool
 xorg-server
-
-# TODO(#36): remove packages unneeded for x11docker
-# xinit
-# xdg-utils
-# xorg-server-xephyr
-# xauth
-# xhost
-# xrandr
-# xdpyinfo
+zafiro-icon-theme@testing
 
 # core software
 # alacritty@testing - useless without OpenGL support
@@ -97,13 +86,13 @@ xterm
 
 # fonts
 ttf-liberation
-font-fantasque-sans@testing
+# font-fantasque-sans@testing - doesn't actually register
 font-fira-code@testing
 
 # docker
 docker
-kubernetes@testing
-minikube@testing
+# kubernetes@testing - an additional ~1gb to the uncompressed image
+# minikube@testing - not a lot of use w/o kubernetes
 
 # editors
 neovim
@@ -114,9 +103,6 @@ neovim
 watchman@testing
 
 # browsers
-
-# requied for firefox
-hunspell@edge
-firefox-esr@edgecommunity
+# firefox-esr@edgecommunity
 # firefox@testing - disabled due to bloat
-# chromium@edgecommunity - disabled due to bloat
+chromium

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -eu
 
 install_yarn() {
   if [ ! -x "$(command -v yarn)" ]; then
