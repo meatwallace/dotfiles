@@ -3,7 +3,7 @@
 set -eu
 
 if [ ! -d "$HOME/.vim" ]; then
-  mkdir "$HOME/.vim"
+  mkdir -p "$HOME/.vim/files/{backup,swap,undo}"
 fi
 
 # symlink our vim config into the .vim folder
