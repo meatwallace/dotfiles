@@ -1,6 +1,13 @@
 # an homage to homebrew's Brewfile used to explicitly define the packages
 # we want to pull down from the Arch default repos & the AUR
 
+# core system
+base
+base-devel
+dbus
+dcron
+systemd
+
 # languages & package managers
 # esy
 # flatpak
@@ -20,6 +27,7 @@ git-lfs
 
 # utils
 dcron
+gnupg
 jq
 reflector
 

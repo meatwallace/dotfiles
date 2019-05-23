@@ -22,7 +22,7 @@ x11docker \
   --privileged \
   --cap-add=ALL \
   -- \
-  meatwallace/meatbox-alpine:latest awesome
+  meatwallace/meatbox-alpine:latest "/home/$USER/.xinitrc"
 
   # --hostdisplay \
   # --xorg

@@ -19,7 +19,7 @@ RUN \
     gnupg \
     sudo >/dev/null && \
   # add our user account & set the password
-  adduser -D -s /bin/bash "${MEATBOX_USER}" users && \
+  adduser -D -s /bin/zsh "${MEATBOX_USER}" users && \
   echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \
   # add a sudo config file that allows our user to use `sudo`
   echo "${MEATBOX_USER} ALL=(ALL) ALL" | tee -a "/etc/sudoers.d/${USER_SUDOERS_FILE}" && \
@@ -34,7 +34,6 @@ RUN \
 # swap into our user account
 USER "${MEATBOX_USER}"
 SHELL ["/bin/bash", "-c"]
-# WORKDIR "/home/${MEATBOX_USER}"
 
 # we prevent caching of our setup script by injecting our current commit SHA1 here
 ARG MEATBOX_CHECKOUT_SHA1
@@ -70,6 +69,8 @@ RUN \
   echo "${MEATBOX_PASSWORD}" | sudo -S apk del .build-dependencies >/dev/null && \
   # clean up our any temp files that may have been created
   rm -rf tmp/* >/dev/null && \
+  # clean up our yarn offline mirror
+  rm -rf "$HOME/.yarn-offline-mirror" \
   # remove the sudo config we previously created to make our docker setup work
   echo "${MEATBOX_PASSWORD}" | sudo -S rm "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
