@@ -1,21 +1,25 @@
 {
   "name": "@meatwallace/meatbox",
   "version": "1.0.0",
-  "description": "personal configuration for both Linux & Mac systems",
+  "description": "personal configuration for Linux & Mac systems",
   "repository": "https://github.com/meatwallace/meatbox",
   "author": "@meatwallace",
   "license": "The Unlicense",
   "private": true,
   "dependencies": {
+    "30s": "1.2.3",
     "@prettier/plugin-lua": "0.0.1",
-    "@prettier/plugin-ruby": "0.12.2",
+    "@prettier/plugin-ruby": "0.12.3",
     "discord-term": "1.2.3",
+    "eslint": "5.16.0",
     "fkill-cli": "5.2.0",
+    "flow-bin": "0.98.1",
     "gtop": "1.0.0",
     "messer": "0.5.2",
     "neovim": "4.5.0",
-    "now": "15.2.0",
-    "prettier": "1.17.0",
-    "prettier-plugin-java": "0.0.10"
+    "prettier": "1.17.1",
+    "prettier-eslint": "8.8.2",
+    "prettier-plugin-java": "0.0.10",
+    "stylelint": "10.0.1"
   }
 }

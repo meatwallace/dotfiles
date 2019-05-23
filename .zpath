@@ -24,6 +24,7 @@ path=(
 # add our ZSH functions to our path
 fpath=(
   "$HOME/.zfuncs"
+  "$HOME/.zcompcache"
   $fpath
 )
 
