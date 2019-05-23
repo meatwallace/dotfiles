@@ -97,12 +97,14 @@ set title
 " editing behaviour
 set autoindent
 set backspace=indent,eol,start
+" set formatoptions=tcrq
 set expandtab
 set shiftround
 set shiftwidth=2
 set smarttab
 set softtabstop=2
 set tabstop=2
+" set textwidth=80
 set wrapscan
 
 " buffer management
@@ -117,13 +119,13 @@ set lazyredraw
 set synmaxcol=500
 
 " backups
-set updatetime=500
 set backup
 set backupdir=$HOME/.vim/files/backup/
 set backupext=-vimbackup
 set backupskip=
 set directory=$HOME/.vim/files/swap/
 set updatecount=100
+set updatetime=500
 set undofile
 set undodir=$HOME/.vim/files/undo/
 
@@ -146,11 +148,11 @@ iabbrev @@    me@geoffwhatley.com
 if has('nvim')
   " use the system version of python2 to avoid complexity of managing both
   " with `asdf`
-  let g:python_host_prog = expand('/usr/bin/python2') 
+  let g:python_host_prog = expand('/usr/bin/python2')
 
   " explicitly use our `asdf` managed python & ruby versions
-  let g:python3_host_prog = expand('~/.asdf/shims/python3') 
-  let g:ruby_host_prog = expand('~/.asdf/installs/ruby/2.6.3/bin/neovim-ruby-host') 
+  let g:python3_host_prog = expand('~/.asdf/shims/python3')
+  let g:ruby_host_prog = expand('~/.asdf/installs/ruby/2.6.3/bin/neovim-ruby-host')
   " use our hacky root package.json installed neovim instead of the expected
   " global installation location
   let g:node_host_prog = expand('~/node_modules/neovim')
@@ -195,73 +197,154 @@ function! Cond(cond, ...)
 endfunction
 
 call plug#begin('~/.vim/plugged')
-  " behaviour
-  Plug 'sheerun/vim-polyglot'
-  " Plug 'jiangmiao/auto-pairs'
-  " Plug 'tpope/vim-commentary'
-
-  " searching
-  " Plug 'shougo/denite.nvim', Cond(has('python3'))
-  Plug 'junegunn/fzf.vim'
-
-  " autocomplete
-  " Plug 'tpope/vim-fugitive'
-  " Plug 'w0rp/ale'
-  Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
-  " Plug 'kabbamine/zeavim.vim'
+  " tmux integration
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+  Plug 'edkolev/tmuxline.vim'
 
   " editor ui
-  " Plug 'ryanoasis/vim-devicons'
-  Plug 'arcticicestudio/nord-vim'
+  Plug 'ap/vim-buftabline'
   Plug 'itchyny/lightline.vim'
+  Plug 'maximbaz/lightline-ale'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  " Plug 'ap/vim-buftabline'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'arcticicestudio/nord-vim'
 
+  " syntax highlighting
+  Plug 'sheerun/vim-polyglot'
+
+  " session management
+  Plug 'thaerkh/vim-workspace'
+
+  " editor behaviour
+  Plug 'tpope/vim-sensible'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'tpope/vim-endwise'
+  Plug 'rstacruz/vim-closer'
+  Plug 'tpope/vim-commentary'
+
+  " searching
+  Plug 'junegunn/fzf.vim'
+  " Plug 'shougo/denite.nvim', Cond(has('python3'))
+
+  " autocomplete, linting, autoformatting
+  Plug 'w0rp/ale'
+  Plug 'python/black'
+  Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> './install.sh' } }
+
+  " git
+  Plug 'tpope/vim-fugitive'
+
+  " utils
+  " Plug 'kabbamine/zeavim.vim'
 call plug#end()
 
 " custom command to upgrade vim-plug after updating plugins
 command! PU PlugUpdate | PlugUpgrade
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" lightline 
+" lightline(-ale)
 """
 
 let g:lightline = {
   \ 'colorscheme': '16color',
   \ 'active': {
-  \   'left': [ ['mode', 'paste'],
-  \             ['cocstatus', 'readonly', 'filename', 'modified'] ]
+  \   'left': [
+  \             ['mode', 'paste'],
+  \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified']
+  \           ],
+  \   'right': [
+  \              ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \              ['lineinfo'],
+  \              ['percent'],
+  \              ['fileformat', 'fileencoding', 'filetype']
+  \            ]
+  \ },
+  \ 'component_expand': {
+  \   'linter_checking': 'lightline#ale#checking',
+  \   'linter_warnings': 'lightline#ale#warnings',
+  \   'linter_errors': 'lightline#ale#errors',
+  \   'linter_ok': 'lightline#ale#ok',
+  \ },
+  \ 'component_type': {
+  \   'linter_checking': 'left',
+  \   'linter_warnings': 'warning',
+  \   'linter_errors': 'error',
+  \   'linter_ok': 'left'
   \ },
   \ 'component_function': {
-  \   'cocstatus': 'coc#status'
+  \   'cocstatus': 'coc#status',
+  \   'gitbranch': 'fugitive#head'
   \ },
   \ }
 
+let g:lightline#ale#indicator_checking = '\uf110'
+let g:lightline#ale#indicator_warnings = '\uf071'
+let g:lightline#ale#indicator_errors = '\uf05e'
+let g:lightline#ale#indicator_ok = '\uf00c'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coc.nvim
+" vthaerkh/vim-workspace
+"""
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_autosave_always = 1
+
+nnoremap <leader>cw :ToggleWorkspace<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" editorconfig/editorconfig-vim
 """
 
-" use tab for triggering completion and cycling through our completion list
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
-" use <S-TAB> for cycling backwards through the completion list if visible
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" junegunn/fzf.vim
+"""
+
+nnoremap <C-f> :Files<CR>
+nnoremap <C-g> :Rg<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" denite.nvim
+"""
+
+" plugin: denite.nvim
+" call denite#custom#var('file_rec', 'command', ['rg', '--files', '--no-ignore', '--hidden', '--follow', '--glob', '!.git/*'])
+
+" nnoremap <C-f> :Denite file/rec<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" w0rp/ale
+"""
+
+let g:ale_fix_on_save = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" neoclide/coc.nvim
+"""
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
+" use tab for triggering completion and cycling through our completion list
+inoremap <silent> <expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+" use <S-TAB> for cycling backwards through the completion list if visible
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
 " use <C-,> to trigger completion
-inoremap <silent><expr> <C-,> coc#refresh()
+inoremap <silent> <expr> <C-,> coc#refresh()
 
 " use <CR> to confirm completion if available, otherwise <C-g>u breaks our undo
-" undo chain at the current position. CoC only does snippet insertion and
-" editing on confirmation
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" chain at the current position. CoC only does snippet insertion and editing
+" on confirmation
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " use [c and ]c to navigate diagnostics
 nnoremap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -296,7 +379,7 @@ nnoremap <leader>f <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
-  
+
   " setup formatexpr specific filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 
@@ -344,36 +427,20 @@ nnoremap <silent> ,k :<C-u>CocPrevious<CR>
 nnoremap <silent> ,p :<C-u>CocListResume<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf.vim
-"""
-
-nnoremap <C-f> :Files<CR>
-nnoremap <C-g> :Rg<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" denite.nvim
-"""
-
-" plugin: denite.nvim
-" call denite#custom#var('file_rec', 'command', ['rg', '--files', '--no-ignore', '--hidden', '--follow', '--glob', '!.git/*'])
-
-" nnoremap <C-f> :Denite file/rec<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " keymappings
 """
 
-" shift lines up and down with - and _
-" nnoremap <leader>_ ddp
-" nnoremap <leader>- ddkkp
-
-" uppercase the current word
-" nnoremap <leader>u viw<S-u><ESC>
-" inoremap <leader>u <ESC>viw<S-u><ESC>i
+" next & previous buffer
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
 
 " quote the current word
 nnoremap <leader>" viw<ESC>a"<ESC>bi"<ESC>lel
 nnoremap <leader>' viw<ESC>a'<ESC>bi'<ESC>lel
+
+" edit and soure our vim config
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " remove our arrow key mappings
 nnoremap <left>   <Nop>
@@ -384,11 +451,5 @@ inoremap <left>   <Nop>
 inoremap <down>   <Nop>
 inoremap <right>  <Nop>
 inoremap <up>     <Nop>
-
-" load our vim config file for editing
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-
-" reload our vim config
-nnoremap <leader>sv :source $MYVIMRC<CR>
 
 colorscheme nord
