@@ -20,7 +20,7 @@ RUN \
     sudo >/dev/null && \
   # add our user account & set the password
   adduser -D -s /bin/bash "${MEATBOX_USER}" users && \
-  echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \ 
+  echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \
   # add a sudo config file that allows our user to use `sudo`
   echo "${MEATBOX_USER} ALL=(ALL) ALL" | tee -a "/etc/sudoers.d/${USER_SUDOERS_FILE}" && \
   # update the file to have the correct permissions

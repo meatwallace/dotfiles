@@ -27,8 +27,18 @@ python3@edge
 # yarn
 
 # shell
-bash
-zsh
+bash@edge
+zsh@edge
+zsh-vcs@edge
+docker-zsh-completion
+fzf-zsh-completion
+git-zsh-completion@edge
+imagemagick-zsh-completion@edge
+mpv-zsh-completion
+nnn-zsh-completion
+pulseaudio-zsh-completion
+ripgrep-zsh-completion
+tmux-zsh-completion@edge
 
 # source code control
 git
@@ -43,7 +53,7 @@ openssh
 wget
 
 # bluetooth
-bluez
+bluez@edge
 
 # audio
 pulseaudio
@@ -60,6 +70,7 @@ rofi@testing
 # xcape - unavailable
 xclip
 xdotool
+xinit
 xorg-server
 zafiro-icon-theme@testing
 
@@ -75,8 +86,15 @@ fzf
 icu-libs@edge
 maim@testing
 
+mpd@edgecommunity
 mpv
 nnn
+
+# required for `ncmpcpp`
+readline-dev@edge
+boost-libs@edge
+ncmpcpp@testing
+
 neofetch
 ripgrep@testing
 task
@@ -85,9 +103,9 @@ w3m
 xterm
 
 # fonts
-ttf-liberation
-# font-fantasque-sans@testing - doesn't actually register
+font-fantasque-sans-normal@testing
 font-fira-code@testing
+ttf-liberation
 
 # docker
 docker
@@ -100,9 +118,9 @@ neovim
 
 # dev
 # google-cloud-sdk - unavailable - alternative install?
-watchman@testing
+# watchman@testing
 
 # browsers
-# firefox-esr@edgecommunity
-# firefox@testing - disabled due to bloat
 chromium
+# firefox-esr@edgecommunity
+# firefox@testing
