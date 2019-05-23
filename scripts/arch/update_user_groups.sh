@@ -3,8 +3,8 @@
 set -eu
 
 username="$(id -u -n)"
-
 groups="$(cat /etc/group)"
+
 desired_groups="docker libvirt lp"
 
 for group in $desired_groups; do

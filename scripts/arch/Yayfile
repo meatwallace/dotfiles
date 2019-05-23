@@ -73,7 +73,9 @@ fzf
 insync
 kitty
 maim
+mpd
 mpv
+ncmpcpp
 neofetch
 nnn
 ripgrep
@@ -96,33 +98,32 @@ nvidia-docker
 
 # kubernetes
 docker-machine-driver-kvm2
-kubectl-bin
-minikube-bin
+# kubectl-bin
+# minikube-bin
 
 # editors
-android-studio
-android-sdk-dummy
-android-sdk-build-tools-dummy
-android-sdk-platform-tools-dummy
-android-emulator-dummy
 # android-studio
+# android-sdk-dummy
+# android-sdk-build-tools-dummy
+# android-sdk-platform-tools-dummy
+# android-emulator-dummy
 # emacs
 neovim
 python2-neovim-git
 # oni
 # sublime-text
-veonim
+# veonim
 # visual-studio-code-insiders
 
 # dev
 # google-cloud-sdk
-watchman
+# watchman
 
 # browsers
-firefox
-firefox-developer-edition
-google-chrome
-google-chrome-dev
+# firefox
+# firefox-developer-edition
+# google-chrome
+# google-chrome-dev
 # vivaldi
 # vivaldi-ffmpeg-codecs
 vivaldi-snapshot
@@ -131,6 +132,6 @@ vivaldi-snapshot-ffmpeg-codecs
 # misc
 # TODO(#22): reenable 1password cli in arch installation when checksums are reverified
 # 1password-cli
-krita
+# krita
 
 # unsorted

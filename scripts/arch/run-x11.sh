@@ -3,7 +3,7 @@
 set -eu
 
 x11docker \
-  --name=meatbox \
+  --name=meatbox-arch \
   --desktop \
   --gpu \
   --xephyr \
