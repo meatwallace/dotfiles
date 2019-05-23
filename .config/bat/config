@@ -1,0 +1,5 @@
+--theme="base16"
+--style="numbers,changes,header,grid"
+--italic-text="always"
+# --pager="less -FR"
+# --map-syntax .ignore:.gitignore
