@@ -1,6 +1,6 @@
-XTerm.termName: xterm-256color                                                                              
+XTerm.termName: xterm-256color
 XTerm.vt100.internalBorder: 16
-XTerm.vt100.faceName: Fira Code:size=10:antialias=true
+XTerm.vt100.faceName: Fantasque Sans Mono:size=10:antialias=true
 XTerm.vt100.font: 7x13
 
 XTerm*vt100.translations: #override \
