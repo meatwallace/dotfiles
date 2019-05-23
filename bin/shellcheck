@@ -3,10 +3,9 @@
 set -eu
 
 shellcheck() {
-  docker run -it --rm \
+  docker run -it --rm --name="shellcheck" \
     --volume "$PWD:/mnt" \
-    --name shellcheck \
-    koalaman/shellcheck "$@"
+    koalaman/shellcheck:latest "$@"
 }
 
 shellcheck "$@"
