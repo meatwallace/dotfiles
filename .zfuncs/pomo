@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/zsh
 
-set -euo pipefail
+set -uo pipefail
 
 function usage() {
   cat << HEREDOC
@@ -75,7 +75,7 @@ function pomo_help() {
 
 function pomo_timer() {
   local -i minutes=$1
-  local message=${2:-get it done.}
+  local message=${2:-${message[${state[working]}}}
   
   # timer takes minutes, but we want to convert it to seconds
   local -i duration
@@ -101,9 +101,6 @@ function pomo_start() {
   local -i short_break_duration
   local -i long_break_duration
 
-  # TODO: calculate and print total session time when complete
-  local -i session_start_time
-  local -i block_start_time
   local -i pomodoro_count
   local timer_state
 
@@ -111,7 +108,6 @@ function pomo_start() {
   pomodoro_duration=25
   short_break_duration=5
   long_break_duration=15
-  session_start_time=$(date +%s) 
   pomodoro_count=0
   timer_state=${state[working]}
 
@@ -125,10 +121,10 @@ function pomo_start() {
     esac
   done
 
+  clear
   printf "%s\n\n" "pomo"
 
   while true; do
-    block_start_time=$(date +%s)
     pomo_notify ${title[$timer_state]} ${message[$timer_state]} ${icon[$timer_state]}
 
     printf "%s\n\n" "streak: $pomodoro_count"
@@ -158,7 +154,7 @@ function pomo_start() {
 
       *)
         echo "impossible state"
-        exit 1 ;;
+        break ;;
     esac
 
     printf "\r\033[2A\033[K"

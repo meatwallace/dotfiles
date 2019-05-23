@@ -3,10 +3,9 @@
 set -eu
 
 shfmt() {
-  docker run -it --rm \
+  docker run -it --rm --name="shfmt" \
     --volume "$PWD:/work" \
-    --name shfmt \
-    tmknom/shfmt -i 2 "$@"
+    tmknom/shfmt:latest -i 2 "$@"
 }
 
 shfmt "$@"
