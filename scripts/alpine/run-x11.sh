@@ -23,6 +23,7 @@ x11docker \
   --cap-add=ALL \
   -- \
   meatwallace/meatbox-alpine:latest awesome
+
   # --hostdisplay \
   # --xorg
   # --fullscreen

@@ -91,6 +91,8 @@
     p=$vi_insert
   fi
 
+  typeset -g POWERLEVEL9K_IGNORE_TERM_COLORS=true
+
   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{002}${p}%f.%F{009}${p}%f) "
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=$'\n'
   typeset -g POWERLEVEL9K_PROMPT_ON_NEWLINE=true

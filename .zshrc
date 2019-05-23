@@ -4,11 +4,11 @@
 # shellcheck source=.zpath
 . "$HOME/.zpath"
 
-# grab all of our zsh functions from ~/.zfuncs and mark them for autoloading 
+# grab all of our zsh functions from ~/.zfuncs and mark them for autoloading
 function () {
   local -a zfuncs
 
-  for func in "$HOME"/.zfuncs/*(.); do 
+  for func in "$HOME"/.zfuncs/*(.); do
     zfuncs+="$(basename $func)"
   done
 
@@ -86,18 +86,19 @@ autoload -Uz _zplugin
 # zplugin light denysdovhan/spaceship-prompt
 
 # theme: purepower
-. ~/.purepower
 zplugin ice src"powerlevel10k.zsh-theme"
 zplugin light romkatv/powerlevel10k
+. ~/.purepower
 
 # enforce vi-mode rather than zsh's default emacs mode
-# unsetopt ZLE
 bindkey -v
 KEYTIMEOUT=1
 
 # export FZF_COMPLETION_TRIGGER=''
 . /usr/share/fzf/key-bindings.zsh
-. /usr/share/fzf/completion.zsh
+if [ -f "/usr/share/fzf/completion.zsh" ]; then
+  . /usr/share/fzf/completion.zsh
+fi
+
 # bindkey '^T' fzf-completion
 #bindkey '^I' $fzf_default_completion
-
