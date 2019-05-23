@@ -12,7 +12,7 @@ widget() {
     esac
   done
 
-  while true; do "$@"; sleep "$refresh_rate"; done
+  while true; do clear; "$@"; sleep "$refresh_rate"; done
 }
 
 widget "$@"
