@@ -48,33 +48,8 @@ meatbox setup
 ```
 
 if you're feeling adventurous/daring and are on linux w/ docker, you can grab
-[x11docker](https://github.com/mviereck/x11docker) (included in my config),
-and try running the docker image as a full desktop environment: 
+[x11docker](https://github.com/mviereck/x11docker) and run the images with the
+full desktop environment. **warning: this is insecure for a lot of reasons**.
 
-```sh
-# !! WARNING !!
-# TL;DR: don't try this at home. really.
-# 
-# to allow the desktop environment & apps to work seamlessly, the following
-# script opens up a bunch of security holes, allowing the booted container
-# to hijack the host environment via a variety of vectors. in short, I do
-# not recommend running this (with my image or any others) unless you're aware
-# of what `x11docker` is doing or you're me.
-# !! WARNING !!
-
-x11docker \
-  --desktop \
-  --fullscreen \
-  --init=systemd \
-  --dbus-system \
-  --user=RETAIN \
-  --sudouser \
-  --clipboard \
-  --pulseaudio \
-  --cap-default \
-  -- \
-  --cap-add=SYS_ADMIN \
-  -- \
-  meatwallace/meatbox-arch:latest /usr/bin/xinitrcsession-helper
-```
-
+- [example Alpine x11docker script](./scripts/alpine/run-x11.sh)
+- [example Arch x11docker script](./scripts/arch/run-x11.sh)

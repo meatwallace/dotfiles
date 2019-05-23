@@ -1,7 +1,7 @@
 ###############################################################################
 # meatwallace/meatbox-arch
 ###
-FROM antergos/archlinux-base-devel:latest
+FROM archlinux/base:latest
 
 # specific to antergos setup when using the `base` installation
 ARG USER_SUDOERS_FILE="10-user"
@@ -12,9 +12,13 @@ ARG MEATBOX_PASSWORD
 ARG MEATBOX_SETUP_SUDOERS_FILE="20-setup"
 
 RUN \
-  # add our user account and set a passwordf 
-  useradd -m -g users -G wheel -s /bin/bash "${MEATBOX_USER}" && \
-  echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \ 
+  # generate locales prior to package compilation
+  locale-gen && \
+  # add core dependencies - includes the kernel, bash, gnu utils, shadow, sudo
+  pacman -Sy --noconfirm --needed base base-devel git gnupg zsh >/dev/null && \
+  # add our user account and set a passwordf
+  useradd -m -g users -G wheel -s /bin/zsh "${MEATBOX_USER}" && \
+  echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \
   # add a sudoers config allowing our user to use `sudo` and fix permissions
   echo "${MEATBOX_USER} ALL=(ALL) ALL" | tee -a "/etc/sudoers.d/${USER_SUDOERS_FILE}" && \
   chmod 0440 "/etc/sudoers.d/${USER_SUDOERS_FILE}" && \
@@ -27,7 +31,6 @@ RUN \
 # swap into our user account
 USER "${MEATBOX_USER}"
 SHELL ["/bin/bash", "-c"]
-WORKDIR "/home/${MEATBOX_USER}"
 
 # we prevent caching of our setup script by injecting our current commit SHA1 here
 ARG MEATBOX_CHECKOUT_SHA1
@@ -43,6 +46,8 @@ RUN \
   yay --clean --noconfirm && \
   # clean up pacman's package cache for installed & uninstalled packages
   sudo pacman -Scc --noconfirm && \
+  # clean up our yarn offline mirror
+  rm -rf "$HOME/.yarn-offline-mirror" \
   # remove the sudo config we previously created to make our docker setup work
   echo "${MEATBOX_PASSWORD}" | sudo -S -i rm "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
