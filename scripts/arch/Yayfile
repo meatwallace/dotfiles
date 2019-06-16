@@ -26,10 +26,13 @@ git
 git-lfs
 
 # utils
+bcal
 dcron
 gnupg
+hub
 jq
 reflector
+trickle
 
 # bluetooth
 bluez
@@ -76,6 +79,7 @@ ttf-liberation
 # core software
 alacritty
 aria2
+cli-visualizer
 feh
 fzf
 insync

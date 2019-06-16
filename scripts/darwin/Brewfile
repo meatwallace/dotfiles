@@ -27,8 +27,10 @@ brew 'lame'
 brew 'libogg'
 
 # utils
-brew 'gcc'
 brew 'ack'
+brew 'bcal'
+brew 'gcc'
+brew 'hub'
 brew 'jq'
 brew 'sox', args: ['with-lame', 'with-flac', 'with-libvorbis']
 brew 'unrar'
@@ -45,7 +47,9 @@ brew 'fzf'
 cask 'insync'
 cask 'kitty'
 # brew 'maim' - mac equivelant?
+brew 'mpd'
 brew 'mpv'
+brew 'ncmpcpp'
 brew 'neofetch'
 brew 'nnn'
 brew 'ripgrep'

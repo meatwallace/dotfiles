@@ -47,6 +47,7 @@ git-lfs
 # utils
 curl
 gnupg
+hub@testing
 jq
 less
 openssh
