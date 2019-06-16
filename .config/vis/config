@@ -1,0 +1,10 @@
+audio.sources=pulse
+# audio.stereo.enabled=true
+
+colors.scheme=base16
+
+visualizers=spectrum
+
+visualizer.spectrum.bar.width=1
+visualizer.spectrum.bar.spacing=1
+
