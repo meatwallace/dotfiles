@@ -19,12 +19,8 @@ util-linux
 
 # package managers & languages
 python2@edge
-py2-virtualenv
+#py2-virtualenv
 python3@edge
-
-# nope. using mhart's node alpine image as a base instead.
-# nodejs-current@edgecommunity
-# yarn
 
 # shell
 bash@edge
@@ -33,7 +29,7 @@ zsh-vcs@edge
 docker-zsh-completion
 fzf-zsh-completion
 git-zsh-completion@edge
-imagemagick-zsh-completion@edge
+# imagemagick-zsh-completion@edge
 mpv-zsh-completion
 nnn-zsh-completion
 pulseaudio-zsh-completion
@@ -47,7 +43,6 @@ git-lfs
 # utils
 curl
 gnupg
-hub@testing
 jq
 less
 openssh
@@ -76,10 +71,10 @@ xorg-server
 zafiro-icon-theme@testing
 
 # core software
-# alacritty@testing - useless without OpenGL support
-aria2
+# aria2
 feh
 fzf
+hub@testing
 # insync - unavailable - alternative installation method?
 # kitty@testing - useless without OpenGL support
 

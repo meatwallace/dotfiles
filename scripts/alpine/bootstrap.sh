@@ -10,8 +10,8 @@ install_pciutils.sh
 
 bootstrap() {
   for script in $scripts; do
-    "./$script" >/dev/null
+    "./$script" "$@"
   done
 }
 
-bootstrap
+bootstrap "$@"

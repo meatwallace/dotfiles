@@ -2,73 +2,68 @@
 
 set -eu
 
-asdf_dir="$MEATBOX_LIBS_DIR/asdf"
+install_or_update_asdf() {
+  asdf_dir="$MEATBOX_LIBS_DIR/asdf"
 
-if [ ! -x "$(command -v asdf)" ]; then
-  # clone in our version manager
-  git clone https://github.com/asdf-vm/asdf.git "$asdf_dir" >/dev/null
+  if ! command -v asdf; then
+    echo "asdf: installing cli"
 
-  (cd "$asdf_dir" && git checkout "$(git describe --abbrev=0 --tags)") >/dev/null
+    # clone in our version manager
+    git clone https://github.com/asdf-vm/asdf.git "$asdf_dir" >/dev/null
 
-  # disable variable checking as `asdf` will blow up when we source it
-  set +u
+    (cd "$asdf_dir" && git checkout "$(git describe --abbrev=0 --tags)") >/dev/null
 
-  # shellcheck source=../../libs/asdf/asdf.sh
-  . "$asdf_dir/asdf.sh"
+    # disable variable checking as `asdf` will blow up when we source it
+    set +u
 
-  set -u
-else
-  asdf update >/dev/null 2>&1
-fi
+    # shellcheck source=../../libs/asdf/asdf.sh
+    . "$asdf_dir/asdf.sh"
 
-# another ugly workaround - should just install unzip prior
-if [ ! -x "$(command -v unzip)" ]; then
-  if [ -x "$(command -v pacman)" ]; then
-    sudo pacman -Sy --noconfirm --needed unzip
-  elif [ -x "$(command -v apk)" ]; then
-    sudo apk add --no-cache unzip
+    set -u
   else
-    echo "unsupported distro"
-    exit 1
+    echo "asdf: updating cli"
+
+    asdf update >/dev/null || true
   fi
-fi
 
-installed_plugin_packages="$(asdf current)"
-desired_plugins="lua python ruby"
-
-# hacky workaround to avoid installing nodejs on alpine as we'd need to compile
-# from source if using asdf
-if ! echo "$@" | grep "alpine"; then
-  desired_plugins="$desired_plugins nodejs"
-fi
-
-# add our version manager plugins
-for plugin in $desired_plugins; do
-  if ! echo "$installed_plugin_packages" | grep -q "$plugin"; then
-    asdf plugin-add "$plugin" >/dev/null 2>&1
+  # we skip installing plugins on alpine and simply use a node based docker image
+  # to keep it simplistic unless required. known issues with plugins:
+  # - dart: ?
+  # - golang: requires gcc so we skip it as we're not actively developing w/ it
+  # - nodejs: asdf's plugin compiles from source, so we use a nodejs base image
+  if sysinfo distro | grep -q "alpine"; then
+    desired_plugins=""
   else
-    asdf plugin-update "$plugin" >/dev/null 2>&1
+    desired_plugins="dart golang lua nodejs python ruby"
   fi
-done
 
-# as we don't manage node via asdf on alpine, this keyring script won't exist
-if echo "$desired_plugins" | grep "nodejs"; then
-  # import the nodejs GPG keys to verify installation
-  bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" >/dev/null 2>&1
-fi
+  # add our version manager plugins
+  for plugin in $desired_plugins; do
+    if ! asdf list "$plugin" >/dev/null 2>&1; then
+      echo "asdf: installing $plugin plugin"
 
-# upgrade and use the latest versions of our packages
-for plugin in $desired_plugins; do
-  latest_version="$(asdf list-all "$plugin" | grep -E '^[0-9.]+$' | tail -n 1)"
+      asdf plugin-add "$plugin" >/dev/null
+    else
+      echo "asdf: updating $plugin plugin"
 
-  # this compiles node.js from source as a workaround as there's no prebuilt
-  # binary. as that takes 6 years, we opt to just install the latest node via
-  # the alpine repo instead
-  # if [ "$plugin" = "nodejs" ] & [ ! -f "$HOME/.asdf/installs/nodejs/$latest_version/bin/node" ]; then
-  #   export NODEJS_CHECK_SIGNATURES="no"
-  #   latest_version="ref:v$latest_version"
-  # fi
+      asdf plugin-update "$plugin" >/dev/null
+    fi
+  done
 
-  asdf install "$plugin" "$latest_version" >/dev/null 2>&1
-  asdf global "$plugin" "$latest_version" >/dev/null
-done
+  if echo "$desired_plugins" | grep -q "nodejs"; then
+    # import the nodejs GPG keys to verify installation
+    bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" >/dev/null
+  fi
+
+  # upgrade and use the latest versions of our packages
+  for plugin in $desired_plugins; do
+    latest_version="$(asdf list-all "$plugin" | grep -E '^[0-9.]+$' | tail -n 1)"
+
+    echo "asdf: installing latest version of $plugin@$latest_version"
+
+    asdf install "$plugin" "$latest_version" >/dev/null
+    asdf global "$plugin" "$latest_version" >/dev/null
+  done
+}
+
+install_or_update_asdf "$@"

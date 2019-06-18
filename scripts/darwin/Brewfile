@@ -32,6 +32,7 @@ brew 'bcal'
 brew 'gcc'
 brew 'hub'
 brew 'jq'
+brew 'p7zip'
 brew 'sox', args: ['with-lame', 'with-flac', 'with-libvorbis']
 brew 'unrar'
 

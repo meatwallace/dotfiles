@@ -2,7 +2,7 @@
 
 set -eu
 
-if ! grep "$USER" </etc/passwd | grep "zsh"; then
+if ! grep "$(id -u -n)" </etc/passwd | grep -q "zsh"; then
   zsh_bin="$(grep --max-count=1 zsh </etc/shells)"
 
   if [ -z "$MEATBOX_PASSWORD" ]; then

@@ -12,7 +12,7 @@ Usage:
   meatbox setup      configure the system as it was a clean operating system,
                      creating core directories, installing drivers and our
                      desired packages, updating our core system packages and
-                     applying our customized configuration     
+                     applying our customized configuration
   meatbox update     installs & updates our desired packages, our core system
                      packages, and applies any new or updated configuration that
                      may have changed since our last run
@@ -40,13 +40,11 @@ meatbox_run() {
   distro=""
 
   if [ "$kernel" = "linux" ]; then
-    distro_id="$(cat /etc/*release | grep -E '^ID=')"
-    distro_id="${distro_id#ID=}"
-
-    case "$distro_id" in
+    # normalize our distro to accomodate for higher level distros like Antergos
+    case "$(get-distro-id)" in
       arch|antergos) distro="arch" ;;
       alpine) distro="alpine" ;;
-      *) distro="unknown" ;;
+      *) echo "meatbox: error - distro is not supported"; exit 1 ;;
     esac
   fi
 
@@ -70,7 +68,7 @@ meatbox() {
   case "$cmd" in
     bootstrap|setup|update)
       start-sudo-loop "$MEATBOX_PASSWORD"
-      meatbox_run "$cmd"      
+      meatbox_run "$cmd"
       ;;
     *) meatbox_help ;;
   esac

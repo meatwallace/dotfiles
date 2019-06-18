@@ -9,11 +9,8 @@ dcron
 systemd
 
 # languages & package managers
-# esy
-# flatpak
 python
 python2-pipenv
-# snapd
 yarn
 yay
 
@@ -26,11 +23,11 @@ git
 git-lfs
 
 # utils
-bcal
 dcron
 gnupg
 hub
 jq
+p7zip
 reflector
 trickle
 
@@ -67,7 +64,7 @@ xorg-server
 xorg-server-xephyr
 xorg-xauth
 xorg-xhost
-xorg-xrandr
+# xorg-xrandr
 xorg-xdpyinfo
 zafiro-icon-theme
 
@@ -77,7 +74,8 @@ ttf-fira-code
 ttf-liberation
 
 # core software
-alacritty
+# alacritty
+asciinema
 aria2
 cli-visualizer
 feh
@@ -113,13 +111,14 @@ docker-machine-driver-kvm2
 # kubectl-bin
 # minikube-bin
 
-# editors
+# editors & development tooling
 # android-studio
 # android-sdk-dummy
 # android-sdk-build-tools-dummy
 # android-sdk-platform-tools-dummy
 # android-emulator-dummy
 # emacs
+# haskell-ide-engine-git
 neovim
 python2-neovim-git
 # oni

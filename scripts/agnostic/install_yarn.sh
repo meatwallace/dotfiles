@@ -3,15 +3,13 @@
 set -eu
 
 install_yarn() {
-  if [ ! -x "$(command -v yarn)" ]; then
-    # source our bashrc to make sure `asdf` is available
-    set +u
-    # shellcheck source=../../.bashrc
-    . "$HOME/.bashrc"
-    set -u
-
-    meatman add yarn
+  if ! command -v yarn; then
+    if sysinfo distro | grep -q "alpine"; then
+      sudo apk add --no-cache yarn
+    else
+      sudo pacman -Sy --noconfirm --config="$HOME/.config/pacman/pacman.conf" yarn
+    fi
   fi
 }
 
-install_yarn
+install_yarn "$@"

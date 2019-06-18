@@ -233,7 +233,7 @@ end)
 -- screenshot helper functions
 local function captureScreenshot(opts)
   opts = opts or ""
-  
+
   awful.spawn.with_shell('maim ' .. opts .. ' ~/screenshots/$(date +%Y%m%d_%H%M%S_%N).png')
 end
 
@@ -459,7 +459,7 @@ globalkeys = gears.table.join(
       group = 'layout',
     }
   ),
-  
+
   -- screenshots
   awful.key({           }, 'Print', captureScreenshot,
             { group = 'screenshot', description = 'capture a screenshot' }),

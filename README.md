@@ -3,9 +3,8 @@
 [![CircleCI](https://circleci.com/gh/meatwallace/dotfiles/tree/master.svg?style=svg)](https://circleci.com/gh/meatwallace/dotfiles/tree/master)
 
 my personal configuration for both Arch Linux based & Mac systems, available as
-both an Antergos (Arch) Linux and Alpine Linux based docker image, or can be
-installed via the setup script hosted via pulling it from the URL as described
-below.
+both an Arch Linux and Alpine Linux based docker image, or installable via the
+script hosted at [https://meatbox.one](https://meatbox.one)
 
 i recommend **not** using this, but feel free to take a gander or a gamble.
 
@@ -53,3 +52,13 @@ full desktop environment. **warning: this is insecure for a lot of reasons**.
 
 - [example Alpine x11docker script](./scripts/alpine/run-x11.sh)
 - [example Arch x11docker script](./scripts/arch/run-x11.sh)
+
+## Post-Setup Notes
+
+Google Cloud Platform CLI:
+
+```sh
+gcloud auth login
+gcloud config set project meatcloud
+gcloud config set computer/zone australia-southeast1
+```

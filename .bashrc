@@ -3,12 +3,12 @@
 # shellcheck source=.profile
 . "$HOME/.profile"
 
-asdf_dir="$MEATBOX_LIBS_DIR/asdf"
+ASDF_DIR="$MEATBOX_LIBS_DIR/asdf"
 
 # load `asdf`, our version manager
-if [ -d "$asdf_dir" ]; then
+if [ -d "$ASDF_DIR" ]; then
   # shellcheck source=libs/asdf/asdf.sh
-  . "$asdf_dir/asdf.sh"
+  . "$ASDF_DIR/asdf.sh"
 fi
 
 # if we're on mac, we'll be using `fastlane`, which requires we're setting

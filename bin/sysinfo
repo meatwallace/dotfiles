@@ -8,7 +8,7 @@ sysinfo() {
   local cmd="$1"
   local output
 
-  output="$(neofetch "$cmd")"
+  output="$(neofetch --off $cmd)"
   output="${output##*: }"
   output="$(lowercase "$output")"
   output="$(trim "$output")"

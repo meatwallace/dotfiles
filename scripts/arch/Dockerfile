@@ -15,7 +15,7 @@ RUN \
   # generate locales prior to package compilation
   locale-gen && \
   # add core dependencies - includes the kernel, bash, gnu utils, shadow, sudo
-  pacman -Sy --noconfirm --needed base base-devel git gnupg zsh >/dev/null && \
+  pacman -Sy --noconfirm --needed base base-devel git gnupg openssh zsh unzip >/dev/null && \
   # add our user account and set a passwordf
   useradd -m -g users -G wheel -s /bin/zsh "${MEATBOX_USER}" && \
   echo "${MEATBOX_USER}:${MEATBOX_PASSWORD}" | chpasswd && \
@@ -51,4 +51,5 @@ RUN \
   # remove the sudo config we previously created to make our docker setup work
   echo "${MEATBOX_PASSWORD}" | sudo -S -i rm "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
+SHELL ["/bin/zsh", "-c"]
 CMD ["/bin/zsh"]

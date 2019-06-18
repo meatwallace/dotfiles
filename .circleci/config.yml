@@ -22,7 +22,7 @@ jobs:
           name: "Deploy to Staging"
           command: "./scripts/deploy.sh"
           no_output_timeout: 30m
-  
+
   build_alpine:
     docker:
       - image: docker:latest

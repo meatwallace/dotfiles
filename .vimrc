@@ -1,19 +1,16 @@
 " `:set nocompatible` is not needed as it's done automatically when a .vimrc
 " is found, so only explicitly set it when it's not set, as it has many side
 " effects
-if &compatible
-  set nocompatible
-endif
 
 filetype plugin indent on
 syntax on
 
 " fix for rendering issue with theme background colors highlighting lines
-let &t_ut=""
+let &t_ut=''
 
 " unmap the space key's default binding and set it up as our leader key
 nnoremap <space> <Nop>
-let mapleader=" "
+let mapleader=' '
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " disable default plugins
@@ -205,7 +202,6 @@ call plug#begin('~/.vim/plugged')
   " editor ui
   Plug 'ap/vim-buftabline'
   Plug 'itchyny/lightline.vim'
-  Plug 'maximbaz/lightline-ale'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'ryanoasis/vim-devicons'
   Plug 'arcticicestudio/nord-vim'
@@ -225,10 +221,8 @@ call plug#begin('~/.vim/plugged')
 
   " searching
   Plug 'junegunn/fzf.vim'
-  " Plug 'shougo/denite.nvim', Cond(has('python3'))
 
   " autocomplete, linting, autoformatting
-  Plug 'w0rp/ale'
   Plug 'python/black'
   Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> './install.sh' } }
 
@@ -254,23 +248,10 @@ let g:lightline = {
   \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified']
   \           ],
   \   'right': [
-  \              ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
   \              ['lineinfo'],
   \              ['percent'],
   \              ['fileformat', 'fileencoding', 'filetype']
   \            ]
-  \ },
-  \ 'component_expand': {
-  \   'linter_checking': 'lightline#ale#checking',
-  \   'linter_warnings': 'lightline#ale#warnings',
-  \   'linter_errors': 'lightline#ale#errors',
-  \   'linter_ok': 'lightline#ale#ok',
-  \ },
-  \ 'component_type': {
-  \   'linter_checking': 'left',
-  \   'linter_warnings': 'warning',
-  \   'linter_errors': 'error',
-  \   'linter_ok': 'left'
   \ },
   \ 'component_function': {
   \   'cocstatus': 'coc#status',
@@ -278,15 +259,10 @@ let g:lightline = {
   \ },
   \ }
 
-let g:lightline#ale#indicator_checking = '\uf110'
-let g:lightline#ale#indicator_warnings = '\uf071'
-let g:lightline#ale#indicator_errors = '\uf05e'
-let g:lightline#ale#indicator_ok = '\uf00c'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vthaerkh/vim-workspace
 """
-let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_session_name = 'Session.vim'
 let g:workspace_autosave_always = 1
 
 nnoremap <leader>cw :ToggleWorkspace<CR>
@@ -305,23 +281,25 @@ nnoremap <C-f> :Files<CR>
 nnoremap <C-g> :Rg<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" denite.nvim
-"""
-
-" plugin: denite.nvim
-" call denite#custom#var('file_rec', 'command', ['rg', '--files', '--no-ignore', '--hidden', '--follow', '--glob', '!.git/*'])
-
-" nnoremap <C-f> :Denite file/rec<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" w0rp/ale
-"""
-
-let g:ale_fix_on_save = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neoclide/coc.nvim
 """
+let g:coc_global_extensions = [
+  \ 'coc-eslint',
+  \ 'coc-git',
+  \ 'coc-html',
+  \ 'coc-jest',
+  \ 'coc-json',
+  \ 'coc-lists',
+  \ 'coc-pairs',
+  \ 'coc-prettier',
+  \ 'coc-python',
+  \ 'coc-rls',
+  \ 'coc-snippets',
+  \ 'coc-stylelint',
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ 'coc-yank',
+  \ ]
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -416,6 +394,9 @@ nnoremap <silent> ,e :<C-u>CocList outline<CR>
 
 " search workspace symbols
 nnoremap <silent> ,s :<C-u>CocList -I symbols<CR>
+
+" open yank list
+nnoremap <silent> ,y :<C-u>CocList -A --normal yank<cr>
 
 " do default action for next item
 nnoremap <silent> ,j :<C-u>CocNext<CR>
