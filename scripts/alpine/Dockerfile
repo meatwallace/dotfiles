@@ -74,4 +74,5 @@ RUN \
   # remove the sudo config we previously created to make our docker setup work
   echo "${MEATBOX_PASSWORD}" | sudo -S rm "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
+SHELL ["/bin/zsh", "-c"]
 CMD ["/bin/zsh"]

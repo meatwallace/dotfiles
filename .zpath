@@ -1,19 +1,19 @@
-# this might be a MacOS only directory - requires reviewing
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-
 # add Mac specific directories to our path
 if [ "$(sysinfo os)" = "macos" ]; then
   path=(
-    "$HOME/.fastlane/bin" 
+    "$HOME/.fastlane/bin"
     $path
   )
 fi
 
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
 # add our non-platform specific directories to our path
 path=(
-  "$MEATBOX_BIN_DIR",
+  "$MEATBOX_BIN_DIR"
   "$HOME/node_modules/.bin"
   "$HOME/.yarn/bin"
+  "$HOME/go/bin"
   "$ANDROID_HOME/tools"
   "$ANDROID_HOME/platform-tools"
   "$HOME/google-cloud-sdk/path.zsh.inc"

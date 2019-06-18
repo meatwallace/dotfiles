@@ -16,8 +16,8 @@ update_package_configuration.sh
 
 setup() {
   for script in $scripts; do
-    "./$script" >/dev/null
+    "./$script" "$@"
   done
 }
 
-setup
+setup "$@"
