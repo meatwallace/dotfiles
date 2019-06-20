@@ -4,7 +4,7 @@
 include "/home/meatwallace/.gtkrc-2.0.mine"
 gtk-theme-name="Plata-Noir"
 gtk-icon-theme-name="zafiro-icon-theme"
-gtk-font-name="Operator Mono weight=330 10"
+gtk-font-name="Fantasque Sans Mono 12"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
