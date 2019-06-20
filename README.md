@@ -22,8 +22,8 @@ well as ongoing learning & mastery of various workflows & tools.
   no-frills getting-shit-done workflow orientated around the terminal
 - `.zfuncs/` and `bin/`, containing an array of ZSH and POSIX `sh` functions,
   respectively
-- `scripts/`, containing all of  the setup scripts, cooirdinated by `meatbox`,
-  a simplistic CLI for managing setup & upgrades of the configuration
+- `scripts/`, containing all of the setup scripts, cooirdinated by `meatbox`, a
+  simplistic CLI for managing setup & upgrades of the configuration
 - `projects/meatlab`, a work in progress config for my home media server,
   currently a whopping 2 containers glued together with `docker-compose`
 - automatic linting, testing, and building of the config into various docker
