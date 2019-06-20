@@ -1,0 +1,16 @@
+--max-columns=150
+--max-columns-preview
+
+--type-add
+web:*.{css,html,js,json,jsx,ts,tsx}*
+
+--type-add
+config:*.{json,toml,yaml}*
+
+--glob=!**/.git/*
+--glob=!**/.undodir/*
+--glob=!.vim/files/{backup,swap,undo}/*
+--glob=!Session.vim
+
+--no-messages
+--smart-case

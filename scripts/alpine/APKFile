@@ -72,6 +72,7 @@ zafiro-icon-theme@testing
 
 # core software
 # aria2
+bat@testing
 feh
 fzf
 hub@testing
