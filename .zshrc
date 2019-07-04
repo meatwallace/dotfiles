@@ -1,5 +1,7 @@
 #/usr/bin/env zsh
 
+. "$HOME/.bashrc"
+
 # load in our path that will be searched for commands
 # shellcheck source=.zpath
 . "$HOME/.zpath"
@@ -71,7 +73,7 @@ autoload -Uz compinit && compinit
 . "$HOME/.zaliases"
 
 # initialize zplugin
-. '/home/meatwallace/.zplugin/bin/zplugin.zsh'
+. "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
@@ -96,9 +98,8 @@ KEYTIMEOUT=1
 
 # export FZF_COMPLETION_TRIGGER=''
 . /usr/share/fzf/key-bindings.zsh
+
 if [ -f "/usr/share/fzf/completion.zsh" ]; then
   . /usr/share/fzf/completion.zsh
 fi
 
-# bindkey '^T' fzf-completion
-#bindkey '^I' $fzf_default_completion
