@@ -1,11 +1,3 @@
-# add Mac specific directories to our path
-if [ "$(sysinfo os)" = "macos" ]; then
-  path=(
-    "$HOME/.fastlane/bin"
-    $path
-  )
-fi
-
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # add our non-platform specific directories to our path
@@ -20,6 +12,14 @@ path=(
   /usr/local/{bin,sbin}
   $path
 )
+
+# add Mac specific directories to our path
+if [ $(uname -s) = "Darwin" ]; then
+  path=(
+    "$HOME/.fastlane/bin"
+    $path
+  )
+fi
 
 # add our ZSH functions to our path
 fpath=(
