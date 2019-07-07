@@ -6,7 +6,7 @@ systemctl_units="$(systemctl list-unit-files)"
 
 desired_services="
 bluetooth.service
-dcron.service
+cronie.service
 lightdm.service
 libvirtd.service
 virtlogd.service
