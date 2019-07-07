@@ -5,7 +5,6 @@
 base
 base-devel
 dbus
-dcron
 systemd
 
 # languages & package managers
@@ -23,7 +22,7 @@ git
 git-lfs
 
 # utils
-dcron
+cronie
 gnupg
 hub
 jq
