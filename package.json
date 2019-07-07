@@ -16,5 +16,10 @@
     "messer": "0.5.2",
     "neovim": "4.5.0",
     "readme-md-generator": "0.2.1"
+  },
+  "dependenciesMeta": {
+    "neovim": {
+      "unplugged": true
+    }
   }
 }
