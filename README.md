@@ -55,6 +55,23 @@ full desktop environment. **warning: this is insecure for a lot of reasons**.
 
 ## Post-Setup Notes
 
+SSH & PGP:
+
+```sh
+# 1. put public and private SSH keys in ~/.ssh/id_rsa.pub and ~/.ssh/id_rsa, respectively
+# 2. load the ssh agent
+eval "$(ssh-agent -s)"
+
+# 3. put private PGP key into ~/pgp_private_key.asc
+# 4. load the key then remove it from disk
+gpg --import ~/pgp_private_key.asc
+rm ~/pgp_private_key.asc
+
+# 5. restart the gpg agent
+killall gpg-agent
+gpg-agent --daemon
+```
+
 Google Cloud Platform CLI:
 
 ```sh
