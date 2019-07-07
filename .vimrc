@@ -152,7 +152,7 @@ if has('nvim')
   let g:ruby_host_prog = expand('~/.asdf/installs/ruby/2.6.3/bin/neovim-ruby-host')
   " use our hacky root package.json installed neovim instead of the expected
   " global installation location
-  let g:node_host_prog = expand('~/node_modules/neovim')
+  let g:node_host_prog = expand('~/node_modules/.bin/neovim-node-host')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,7 +224,7 @@ call plug#begin('~/.vim/plugged')
 
   " autocomplete, linting, autoformatting
   Plug 'python/black'
-  Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> './install.sh' } }
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
   " git
   Plug 'tpope/vim-fugitive'
@@ -237,7 +237,7 @@ call plug#end()
 command! PU PlugUpdate | PlugUpgrade
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" lightline(-ale)
+" lightline
 """
 
 let g:lightline = {
