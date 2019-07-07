@@ -3,7 +3,7 @@
 set -eu
 
 now() {
-  docker run -it --rm --name="now" \
+  docker run -it --rm \
     --volume="$PWD:/root/project" \
     --volume="$HOME/.now:/root/.now" \
     meatwallace/alpine-zeit-now:latest now "$@"
