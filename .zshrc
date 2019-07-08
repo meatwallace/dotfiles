@@ -90,18 +90,22 @@ autoload -Uz _zplugin
 # theme: purepower
 zplugin ice src"powerlevel10k.zsh-theme"
 zplugin light romkatv/powerlevel10k
-. ~/.purepower
+. "$HOME/.purepower"
 
 # enforce vi-mode rather than zsh's default emacs mode
 bindkey -v
 KEYTIMEOUT=1
 
-# export FZF_COMPLETION_TRIGGER=''
-if [ -f "usr/share/fzf/key-bindings.zsh" ]; then
-  . /usr/share/fzf/key-bindings.zsh
+fzf_utils_dir="/usr/share/fzf"
+
+if is-android; then
+  fzf_utils_dir="$TERMUX_ROOT_DIR/$fzf_utils_dir"
 fi
 
-if [ -f "/usr/share/fzf/completion.zsh" ]; then
-  . /usr/share/fzf/completion.zsh
+. $fzf_utils_dir/key-bindings.zsh
+
+# alpine's fzf package does not come bundled w/ completion
+if [ -f "$fzf_utils_dir/completion.zsh" ]; then
+  . $fzf_utils_dir/completion.zsh
 fi
 
