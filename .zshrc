@@ -97,7 +97,9 @@ bindkey -v
 KEYTIMEOUT=1
 
 # export FZF_COMPLETION_TRIGGER=''
-. /usr/share/fzf/key-bindings.zsh
+if [ -f "usr/share/fzf/key-bindings.zsh" ]; then
+  . /usr/share/fzf/key-bindings.zsh
+fi
 
 if [ -f "/usr/share/fzf/completion.zsh" ]; then
   . /usr/share/fzf/completion.zsh
