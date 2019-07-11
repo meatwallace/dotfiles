@@ -682,69 +682,69 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-coc-eslint@1.2.1:
+coc-eslint@>=1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/coc-eslint/-/coc-eslint-1.2.1.tgz#f92f000209926934ce1f431658ea59b05bafaed4"
   integrity sha512-Vvv5u5mj7jd9VirRKS+o6RbBQ2kyHyjZYlwQteFEUEHHL+EI0FXwkH1e91h/vJBXRsMEC+Z9h4P7xyHzRHQXVg==
 
-coc-git@1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/coc-git/-/coc-git-1.5.2.tgz#388cbc3e40fae6aa2bfdb7e0770a936935386dbe"
-  integrity sha512-uh5g4ON5FvrAiAwMdF69gP+AX1t5ti4rJEVnJ7pPNY/JXGfkzEP38JrxfnWYq+seM53FWjFuX5MzFotjSH1Xgg==
+coc-git@>=1.5.10:
+  version "1.5.14"
+  resolved "https://registry.yarnpkg.com/coc-git/-/coc-git-1.5.14.tgz#c6652110aad963e03516276775e2d760e068ae27"
+  integrity sha512-b60bBgOPdqhuYo24sJrpZFRFwYuIuleXAp/wdqrw9BQPnDFKzb8KVX5riDATBZXdCJR/zm97JqaDQdOSqI9FIw==
 
-coc-html@1.2.1:
+coc-html@>=1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/coc-html/-/coc-html-1.2.1.tgz#5df000feddcc304f57932bdb561ad61f773ddfeb"
   integrity sha512-3CAdlJnPnm03qS4/I+eMM16OI3go2v6qtCOirO20GtH+cRt08GjF0Cp6y/EnhfoQOdggNw3xoTfZtfY7loLG5w==
   dependencies:
     typescript "^3"
 
-coc-jest@1.0.3:
+coc-jest@>=1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/coc-jest/-/coc-jest-1.0.3.tgz#d002f31a5f0abe0ba1599cab352811fc78644daa"
   integrity sha512-ZxgOP00URYcmIUnl1yjxonxbwb4QHEk2JJxxcYyCHo2wJPCVQWB+WYVYzHb0pzrZdDcsj5hk6wXWnLXM5EkRjA==
 
-coc-json@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/coc-json/-/coc-json-1.2.2.tgz#f499f583a4831e1a362d8c37e547245605ccd32e"
-  integrity sha512-H3Xk1D4Y40VMkwM4UDjedFMelRZWGzEBuU4r2iYE07gepYPVGzqzTlqCSWqOLeH4CXY52gF/QkWrOn7AY6CFaw==
+coc-json@>=1.2.2:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/coc-json/-/coc-json-1.2.3.tgz#74fd20ce91387086fdc864011e28348b90063c2b"
+  integrity sha512-JlM2CqVuDcxHAxVRcCTd2PsEzAU6jCwJ3N8jaszD3m2HSjq5I796Y7zFmoW6TK/7IOqAiYWCq1l+1yqjTSBedQ==
 
-coc-lists@1.1.12:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/coc-lists/-/coc-lists-1.1.12.tgz#2247de859230034790bfba91f2c3cb3618fc6c3a"
-  integrity sha512-0F8lnfUkkuxGf2fEFYyKsr72Jrg2aXJymrqInKoNFqPgoC/27f35fwJLrrJEIpmvin9cvUF/xBMGlCDUzsWkDw==
+coc-lists@>=1.1.15:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/coc-lists/-/coc-lists-1.1.16.tgz#f36a462b47fb144453f470822cb44e11fa997dfa"
+  integrity sha512-5RuyHc+iG6sruh6JXfGoSiFQBGjTeysYWHotyuonsxvijWIMDIg+ZaUrnX+IvUq1Z/BFWKBjSpMHL1kKZKIO9Q==
 
-coc-pairs@1.2.11:
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/coc-pairs/-/coc-pairs-1.2.11.tgz#138fb56d99f42730f68ceddf63126c9dd3765193"
-  integrity sha512-6DH5KVax1Da6LeVVuyR08VX5y7N6iRwCRPgcJaMxvRpXMlZp06zPFYgkBatTBU5bnWyx1x1SymH/KCjxT/hTIQ==
+coc-pairs@>=1.2.15:
+  version "1.2.15"
+  resolved "https://registry.yarnpkg.com/coc-pairs/-/coc-pairs-1.2.15.tgz#8c37ceef3825baa7d755ab4a99a58bf701045728"
+  integrity sha512-b+Nu5hiCSJkuDiAGs8Cm5a0XE+eWrRtC4VFMDRTXAsFCczL10UHnNZl3fzuCdnotOPynJ6Uwo7I+b5jox2Q+PA==
 
-coc-prettier@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/coc-prettier/-/coc-prettier-1.1.2.tgz#fadede5de873f2d6c08d3134fc371eaa61cde957"
-  integrity sha512-nJMle0OGGHpFSVjXjuoPEj3gIb7L0wW9dNOQn2DbKOiTDDqDJ4p76z5K9SuECHPxChztfShy+YyyGS3rWzap+g==
+coc-prettier@>=1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/coc-prettier/-/coc-prettier-1.1.5.tgz#148310680ca53549eda5ac64706731330479fcf0"
+  integrity sha512-fzCoB8081jvFnlB0/Gsj1bJsk98UuwwaJSHwrzp0hOwYkGllzLlbji/K91lBSIwLRMqN+MRVDh4TH5PTIWjgMw==
   dependencies:
     prettier "^1.17.1"
     prettier-eslint "^8.8.2"
     prettier-stylelint "^0.4.2"
     prettier-tslint "^0.4.2"
 
-coc-python@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/coc-python/-/coc-python-1.2.1.tgz#a88cf3805a984eb5c8903120f5190904f4ef2de7"
-  integrity sha512-WQk1HzUSJnY0mPOie4L+4l1XQAIa0ooaiKAocKW22fkZ3qkxMxsSDUyj9C19iRlB05i0NmVobT/K2oFIZm2big==
+coc-python@>=1.2.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/coc-python/-/coc-python-1.2.2.tgz#9f2cdea99e87f9d228e6d1332a3a5597b351eacd"
+  integrity sha512-ULrSZnN/FLQEw5hIxbpCfIbwKkVKedqL9PZbub/ss/xP6HikABLB/U6Mn3EXwZTqHs823bgYwzw/ZDninh+Hrg==
 
-coc-rls@1.1.2:
+coc-rls@>=1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/coc-rls/-/coc-rls-1.1.2.tgz#d9853a1a26790c305def086b91d2c1816a602d7e"
   integrity sha512-+srC3IcThFUvKChqnx/JwAUs0OJMrjjPXtjgLmrlUOZF211LHq8oYxxQQaf7mDAMDyDEyMgWQ615mJZP7s/3EQ==
 
-coc-snippets@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/coc-snippets/-/coc-snippets-2.1.1.tgz#596390d1df7b672767280aab9975e4b98be9c4f6"
-  integrity sha512-AyZziefLYYT7TiwipCxvcrzoaSd7b2J9rLkZkkASqY1fHXErFF/YNsz4W+YRHrWILPUeQhfbylLd7atIqQSoxQ==
+coc-snippets@>=2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/coc-snippets/-/coc-snippets-2.1.5.tgz#1b9cedc8ed9985d3e3cc292ca317df28468135ce"
+  integrity sha512-tHi6z9dTPP7lFPztJFpZ42qUydGJznCqhVj2RSHetvCd5uL/r/dIGnPIc2Cs0LYHA1v6o3pwMeBoJ8tgHn1gvA==
 
-coc-stylelint@1.0.9:
+coc-stylelint@>=1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/coc-stylelint/-/coc-stylelint-1.0.9.tgz#548981c2398ca73271e30becb1be2f50917d3ca6"
   integrity sha512-XMcv8A7Ae0OjDh1uZ1HrdJQ02GIQVDBv5V0/uj/UXT8CyAhoMgqL6DUbyoAlG7Uofn6eWNQbYcPqggA9d/tjTA==
@@ -756,21 +756,21 @@ coc-stylelint@1.0.9:
     postcss-syntax "^0.34.0"
     stylelint "^9.9.0"
 
-coc-tsserver@1.3.10:
-  version "1.3.10"
-  resolved "https://registry.yarnpkg.com/coc-tsserver/-/coc-tsserver-1.3.10.tgz#4f31b38f8e2338d2cb8b26e607e31aadcb5517a8"
-  integrity sha512-Tpa8Fsi+fTehqWrvBdJAb+jY1KQx7dcdolHyXdG5+4oF9FEGbLFaxfKcgqk7gKU8U/EgocFkqPKeaNdnD1DHAg==
+coc-tsserver@>=1.3.12:
+  version "1.3.13"
+  resolved "https://registry.yarnpkg.com/coc-tsserver/-/coc-tsserver-1.3.13.tgz#f21a72adcb7db91b03512954f944e1ac9a3eb8df"
+  integrity sha512-p8yPpiZlb8YCc7wf+LZg6TBrEcEpNBcgu3WuTU6yJiEuk3LvLyY35qN+K20WSunEQb32xy7rqNKiR5MTKrabjg==
   dependencies:
     typescript "3.5.1"
 
-coc-yaml@1.0.2:
+coc-yaml@>=1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/coc-yaml/-/coc-yaml-1.0.2.tgz#9e6b141a650385ff9cf2d4e913ccbffaf1b90705"
   integrity sha512-9EHs/bsv16sCAAJK4I6SMOcIwMZYYgw5SGhVhI+pMqcxbl40mZdWmEQSqNxTY4yYScBy+JWYRMm6cKmctbgrZw==
   dependencies:
     yaml-language-server "^0.4.0"
 
-coc-yank@1.0.4:
+coc-yank@>=1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/coc-yank/-/coc-yank-1.0.4.tgz#f8b9413bd26821f0f6205e4ee7e80e5e5871a8c1"
   integrity sha512-iTLYhknTDJ9dm5ncAdIbtDIEA4l18MWvuDaEAU29zG4bYeTJUxLDtrUK/6rledQB0EkCKygPjn7vC0V8CxVn+w==
@@ -2300,9 +2300,9 @@ locate-path@^2.0.0:
     path-exists "^3.0.0"
 
 lodash.merge@^4.6.0:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
-  integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
+  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash.unescape@4.0.1:
   version "4.0.1"
