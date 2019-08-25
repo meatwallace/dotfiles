@@ -5,13 +5,16 @@ set -eu
 systemctl_units="$(systemctl list-unit-files)"
 
 desired_services="
+apparmor.service
 bluetooth.service
 cronie.service
-lightdm.service
-libvirtd.service
-virtlogd.service
 docker.service
+libvirtd.service
+lightdm.service
+snapd.apparmor.service
+snapd.socket
 sshd.socket
+virtlogd.service
 "
 
 for service in $desired_services; do

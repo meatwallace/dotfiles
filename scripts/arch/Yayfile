@@ -2,6 +2,7 @@
 # we want to pull down from the Arch default repos & the AUR
 
 # core system
+apparmor
 base
 base-devel
 dbus
@@ -10,6 +11,7 @@ systemd
 # languages & package managers
 python
 python2-pipenv
+snapd
 yarn
 yay
 
@@ -50,7 +52,7 @@ lightdm-mini-greeter
 light-locker
 plata-theme
 rofi
-# rofi-1pass
+rofi-1pass
 qt5-styleplugins
 xcape
 xclip
@@ -70,6 +72,7 @@ zafiro-icon-theme
 # fonts
 ttf-fantasque-sans-mono
 ttf-fira-code
+ttf-joypixel
 ttf-liberation
 
 # core software
@@ -104,37 +107,37 @@ dnsmasq
 docker
 docker-compose
 docker-machine
-nvidia-docker
+nvidia-container-toolkit
 
 # kubernetes
 docker-machine-driver-kvm2
-# kubectl-bin
-# minikube-bin
+kubectl-bin
+minikube-bin
 
 # editors & development tooling
-# android-studio
-# android-sdk-dummy
-# android-sdk-build-tools-dummy
-# android-sdk-platform-tools-dummy
-# android-emulator-dummy
+android-studio
+android-sdk-dummy
+android-sdk-build-tools-dummy
+android-sdk-platform-tools-dummy
+android-emulator-dummy
 # emacs
 # haskell-ide-engine-git
 neovim
 python2-neovim-git
 # oni
 # sublime-text
-# veonim
-# visual-studio-code-insiders
+veonim
+visual-studio-code-insiders
 
 # dev
-# google-cloud-sdk
-# watchman
+google-cloud-sdk
+watchman
 
 # browsers
-# firefox
-# firefox-developer-edition
-# google-chrome
-# google-chrome-dev
+firefox
+firefox-developer-edition
+google-chrome
+google-chrome-dev
 # vivaldi
 # vivaldi-ffmpeg-codecs
 vivaldi-snapshot
