@@ -83,7 +83,7 @@ awful.layout.layouts
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock('%H:%M ')
+mytextclock = wibox.widget.textclock(' %a %b %d - %H:%M ')
 
 darkblue = beautiful.bg_focus
 blue = '#9EBABA'
@@ -703,37 +703,70 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = { -- All clients will match this rule.
-{
-  rule = {},
-  properties = {
-    -- border_width = beautiful.border_width,
-    -- border_color = beautiful.border_normal,
-    focus = awful.client.focus.filter,
-    raise = true,
-    keys = clientkeys,
-    buttons = clientbuttons,
-    size_hints_honor = false, -- Remove gaps between terminals
-    screen = awful.screen.preferred,
-    callback = awful.client.setslave,
-    placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+awful.rules.rules = {
+  -- All clients will match this rule.
+  {
+    rule = {},
+    properties = {
+      -- border_width = beautiful.border_width,
+      -- border_color = beautiful.border_normal,
+      focus = awful.client.focus.filter,
+      raise = true,
+      keys = clientkeys,
+      buttons = clientbuttons,
+      size_hints_honor = false, -- Remove gaps between terminals
+      screen = awful.screen.preferred,
+      callback = awful.client.setslave,
+      placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+    },
   },
-}, -- Floating clients.
-{
-  rule_any = {
-    instance = {},
-    class = {},
-    name = {},
-    role = { 'pop-up' }, -- e.g. Google Chrome's (detached) Developer Tools.
+
+  -- Floating clients
+  {
+    rule_any = {
+      instance = {},
+      class = {
+        'Lutris',
+        'League of Legends',
+      },
+      name = {
+        'Blizzard Battle.net',
+        'Discord',
+      },
+
+      -- e.g. Google Chrome's (detached) Developer Tools.
+      role = {
+        'pop-up',
+      },
+    },
+    properties = {
+      floating = true,
+    },
   },
-  properties = { floating = true },
-}, -- Add titlebars to normal clients and dialogs
-{
-  rule_any = {
-    type = { 'normal', 'dialog' },
+
+  -- Fullscreen clients
+  {
+    rule_any = {
+      name = {
+        'League of Legends (TM) Client',
+        'World of Warcraft',
+      },
+    },
+    properties = {
+      fullscreen = true,
+    },
   },
-  properties = { titlebars_enabled = true },
-} }
+
+  -- Add titlebars to normal clients and dialogs
+  {
+    rule_any = {
+      type = { 'normal', 'dialog' },
+    },
+    properties = {
+      titlebars_enabled = true
+    },
+  }
+}
 
 -- Set Firefox to always map on the tag named "2" on screen 1.
 -- { rule = { class = "Firefox" },
@@ -789,7 +822,7 @@ client.connect_signal('focus', function(c) end)
 
 client.connect_signal('unfocus', function(c) end)
 
--- Handle border sizes of clients.
+-- Handle border sizes of clients
 for s = 1, screen.count() do
   screen[s]:connect_signal('arrange', function()
     local clients = awful.client.visible(s)
@@ -820,28 +853,15 @@ end
 
 -- }}}
 
-client.connect_signal('property::fullscreen', function(c)
-  if c.fullscreen then
-    awful.titlebar.hide(c)
-  else
-    awful.titlebar.show(c)
-  end
-end)
-
 client.connect_signal('property::maximized', function(c)
-  if c.maximized then
-    awful.titlebar.hide(c)
-  else
-    awful.titlebar.show(c)
-  end
-end)
-
-client.connect_signal('property::floating', function(c)
-  if c.floating then
-    awful.titlebar.show(c)
-  else
-    awful.titlebar.hide(c)
-  end
+  -- if c.maximized then
+  --   awful.titlebar.hide(c, 'top')
+  --   awful.titlebar.hide(c, 'left')
+  -- else
+  --   awful.titlebar.show(c, 'top')
+  --   awful.titlebar.show(c, 'left')
+  --   -- awful.titlebar.show(c)
+  -- end
 end)
 
 awful.spawn.with_shell('~/.config/awesome/autorun.sh')
