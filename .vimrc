@@ -329,7 +329,6 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-tsserver',
   \ 'coc-yaml',
-  \ 'coc-yank',
   \ ]
 
 function! s:check_back_space() abort
@@ -445,6 +444,10 @@ nnoremap <silent> ,p :<C-u>CocListResume<CR>
 " next & previous buffer
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
+
+nnoremap <leader>\ :vsplit<CR>
+nnoremap <leader>- :split<CR>
+
 
 " quote the current word
 nnoremap <leader>" viw<ESC>a"<ESC>bi"<ESC>lel
