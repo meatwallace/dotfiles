@@ -17,8 +17,8 @@ install_or_update_reason_language_server() {
   tmp_dir="$(mktemp -d)"
   output="$tmp_dir/reason-language-server.zip"
 
-  curl -L "https://github.com/$repo/releases/download/$latest/rls-$os.zip" -o "$output"
-  unzip "$output" -d "$tmp_dir"
+  curl -L "https://github.com/$repo/releases/download/$latest/rls-$os.zip" -o "$output" >/dev/null
+  unzip "$output" -d "$tmp_dir" >/dev/null
   mv "$tmp_dir/rls-linux/reason-language-server" "$HOME/bin/reason-language-server"
   rm -rf "$tmp_dir"
 }
