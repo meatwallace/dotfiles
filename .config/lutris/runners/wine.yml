@@ -1,0 +1,4 @@
+system:
+  game_path: /home/meatwallace/games
+wine:
+  dxvk: true
