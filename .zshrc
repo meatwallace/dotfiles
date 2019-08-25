@@ -79,14 +79,6 @@ autoload -Uz _zplugin
 
 # plugins
 
-# theme: pure
-# zplugin ice pick"async.zsh" src"pure.zsh"
-# zplugin light sindresorhus/pure
-
-# theme: spaceship
-# zplugin ice src"spaceship.zsh"
-# zplugin light denysdovhan/spaceship-prompt
-
 # theme: purepower
 zplugin ice src"powerlevel10k.zsh-theme"
 zplugin light romkatv/powerlevel10k
@@ -96,10 +88,15 @@ zplugin light romkatv/powerlevel10k
 bindkey -v
 KEYTIMEOUT=1
 
-# export FZF_COMPLETION_TRIGGER=''
-. /usr/share/fzf/key-bindings.zsh
+# set up fzf keybindings & completion
+fzf_path="/usr/share/fzf"
 
-if [ -f "/usr/share/fzf/completion.zsh" ]; then
-  . /usr/share/fzf/completion.zsh
+if [ $(uname -s) = "Darwin" ]; then
+  fzf_path="/usr/local/opt/fzf/shell"
 fi
 
+. "$fzf_path/key-bindings.zsh"
+
+if [ -f "$fzf_path/completion.zsh" ]; then
+  . "$fzf_path/completion.zsh"
+fi
