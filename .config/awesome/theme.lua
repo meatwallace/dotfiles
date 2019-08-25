@@ -9,8 +9,7 @@ local themes_path = gfs.get_themes_dir()
 local config_path = gfs.get_configuration_dir()
 local theme = {}
 
-theme.font = 'sans 8'
-theme.notification_font = 'sans 8'
+theme.font = 'Fantasque Sans Mono 10'
 theme.bg_normal = '#222222'
 theme.bg_focus = '#333333'
 theme.bg_urgent = '#ff0000'
@@ -50,8 +49,9 @@ theme.taglist_squares_sel =
 theme.taglist_squares_unsel =
   theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
--- Variables set for theming notifications:
--- notification_font
+-- notifications
+theme.notification_font = 'Fantasque Sans Mono 10'
+theme.notification_icon_size = dpi(72)
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
