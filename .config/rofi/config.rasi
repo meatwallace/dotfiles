@@ -1,35 +1,39 @@
 * {
-  red: #25c5ff;
-  blue: #25c5ff;
-  lightfg: rgba (12,124,140,1);
-  lightbg: rgba (3,22,25,1);
   foreground: #25c5ff;
   background: rgba (22,23,25,0.9);
   background-color: rgba (2,16,18,0);
-  separatorcolor: @foreground;
   border-color: @foreground;
-  selected-normal-foreground: @lightbg;
-  selected-normal-background: @lightfg;
-  selected-active-foreground: @background;
-  selected-active-background: @blue;
-  selected-urgent-foreground: @background;
-  selected-urgent-background: @red;
-  normal-foreground: @foreground;
-  normal-background: @background;
-  active-foreground: @blue;
-  active-background: @background;
-  urgent-foreground: @red;
-  urgent-background: @background;
-  font: "Dank Mono 12";
+  font: "Fantasque Sans Mono 12";
 }
 
 window {
   background-color: @background;
   border: 4 0 0 4;
-  padding: 8;
 }
 
 mainbox {}
+
+/* the search bar container */
+inputbar {
+  children: [
+    entry,
+    case-indicator
+  ];
+
+  padding: 8;
+  text-color: @foreground;
+}
+
+/* text element within the search box */
+entry {
+  spacing: 0;
+  text-color: @foreground;
+}
+
+case-indicator {
+  spacing: 0;
+  text-color: @foreground;
+}
 
 message {}
 
@@ -42,8 +46,8 @@ listview {
 }
 
 element {
-  text-color: @normal-foreground;
-  font: "Dank Mono 12";
+  padding: 8;
+  text-color: @foreground;
 }
 
 element normal.normal {}
@@ -52,26 +56,12 @@ element normal.urgent {}
 
 element normal.active {}
 
-element selected.normal {}
+element selected.normal {
+  background-color: @foreground;
+  color: @background;
+}
 
 element selected.urgent {}
 
 element selected.active {}
 
-inputbar {
-  text-color: @normal-foreground;
-  children: [
-    entry,
-    case-indicator
-  ];
-}
-
-case-indicator {
-  spacing: 0;
-  text-color: @normal-foreground;
-}
-
-entry {
-  spacing: 0;
-  text-color: @normal-foreground;
-}
