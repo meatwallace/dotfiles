@@ -2,4 +2,4 @@
 
 set -eu
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/meatwallace/zplugin/master/doc/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh | sh
