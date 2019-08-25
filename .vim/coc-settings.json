@@ -13,6 +13,8 @@
     "markdown",
     "python",
     "rust",
+    "typescript",
+    "typescriptreact",
     "yaml"
   ],
   "languageserver": {
@@ -131,9 +133,9 @@
       "rootPatterns": ["Cargo.toml"]
     }
   },
-  // disabled until vscode language server supports Yarn PnP
-  "eslint.enable": false,
-  "eslint.autoFixOnSave": false,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.nodePath": ".vscode/pnpify",
   "eslint.codeAction.disableRuleComment": {
     "enable": true,
     "location": "sameLine"
@@ -171,6 +173,7 @@
   "tsserver.formatOnType": true,
   "tsserver.npm": "/home/meatwallace/.asdf/shims/npm",
   "tsserver.reportStyleChecksAsWarnings": true,
+  "tsserver.tsdk": ".vscode/pnpify/typescript/lib",
   "tsserver.disableAutomaticTypeAcquisition": false,
   "typescript.implementationsCodeLens.enable": true,
   "typescript.preferences.importModuleSpecifier": "relative",
@@ -183,7 +186,7 @@
   "typescript.suggest.autoImports": true,
   "typescript.suggest.completeFunctionCalls": true,
   "typescript.showUnused": true,
-  "typescript.updateImportsOnFileMove.enable": true,
+  "typescript.updateImportsOnFileMove.enable": false,
   "typescript.validate.enable": true,
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
