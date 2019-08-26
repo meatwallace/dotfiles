@@ -1,6 +1,6 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 tap 'koekeishiya/formulae'
@@ -35,9 +35,11 @@ brew 'jq'
 brew 'p7zip'
 brew 'sox', args: ['with-lame', 'with-flac', 'with-libvorbis']
 brew 'unrar'
+cask 'xquartz'
 
 # desktop environment
-brew 'chunkwm'
+brew 'yabai'
+brew 'skhd'
 cask 'alfred'
 
 # core software
@@ -77,7 +79,7 @@ brew 'neovim'
 # cask 'oni'
 # cask 'sublime-text'
 cask 'veonim'
-# cask 'visual-studio-code-insiders'
+cask 'visual-studio-code-insiders'
 
 # dev
 brew 'watchman'
@@ -89,8 +91,8 @@ cask 'fastlane'
 cask 'firefox'
 cask 'firefox-developer-edition'
 cask 'google-chrome'
-# cask 'vivaldi'
-cask 'vivaldi-snapshot'
+cask 'vivaldi'
+# cask 'vivaldi-snapshot'
 
 # quicklook providers
 # cask 'provisionql'
@@ -102,5 +104,5 @@ cask '1password'
 cask 'krita'
 # brew 'transmission'
 # cask 'plex-media-server'
-# cask 'station'
-# cask 'notion'
+cask 'station'
+cask 'notion'

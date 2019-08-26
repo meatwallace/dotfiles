@@ -79,3 +79,9 @@ gcloud auth login
 gcloud config set project meatcloud
 gcloud config set computer/zone australia-southeast1
 ```
+
+Yabai (Tiling WM for Mac):
+
+```sh
+sudo yubai --install-sa
+```
