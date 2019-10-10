@@ -79,9 +79,12 @@ ttf-liberation
 # alacritty
 asciinema
 aria2
+barrier
 bat
 cli-visualizer
 feh
+fbset
+fff
 fzf
 insync
 kitty
@@ -92,10 +95,16 @@ ncmpcpp
 neofetch
 nnn
 ripgrep
+sampler
 scrcpy
 task
 tmux
 w3m
+w3m-img
+xdg-utils
+xdotool
+zathura
+zathura-pdf-mupdf
 
 # virtualization
 libvirt
