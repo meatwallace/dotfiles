@@ -22,7 +22,8 @@ run_unique bt-agent
 run_unique compton
 run_unique flashfocus
 run_unique insync start_insync
-run_unique light-locker
+run_unique lutris
+# run_unique light-locker
 run_unique mpd
 run_unique pulseaudio start-pulseaudio-x11
 run_unique transmission-daemon
