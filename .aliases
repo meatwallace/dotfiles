@@ -14,7 +14,7 @@ alias b='bat'
 alias c='cat'
 alias d='dirs -v | head -10'
 alias e=''
-alias f='fzf'
+alias f='fff'
 alias g='git'
 alias h=''
 alias i=''
@@ -107,6 +107,10 @@ alias code='code-insiders'
 # shortcuts
 alias chmox='chmod +x'                            # flags a file as executable
 en() { awk '{printf "%s\\n", $0}' "$1"; }         # escapes newlines
+
+# clipboard
+alias getclip="xclip -selection c -o"
+alias setclip="xclip -selection c"
 
 # cli
 alias shc="shellcheck"
