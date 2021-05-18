@@ -72,16 +72,16 @@ autoload -Uz compinit && compinit
 # shellcheck source=.zaliases
 . "$HOME/.zaliases"
 
-# initialize zplugin
-. "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+# initialize zinit
+. "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # plugins
 
 # theme: purepower
-zplugin ice src"powerlevel10k.zsh-theme"
-zplugin light romkatv/powerlevel10k
+zinit ice src"powerlevel10k.zsh-theme"
+zinit light romkatv/powerlevel10k
 . ~/.purepower
 
 # enforce vi-mode rather than zsh's default emacs mode
