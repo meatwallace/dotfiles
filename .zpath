@@ -6,7 +6,7 @@ path=(
   "$HOME/.pub-cache/bin"
   "$HOME/.yarn/bin"
   "$HOME/go/bin"
-  "$HOME/node_modules/.bin"
+  "$(npm bin -g)"
   "$ANDROID_HOME/tools"
   "$ANDROID_HOME/platform-tools"
   "$HOME/google-cloud-sdk/path.zsh.inc"
