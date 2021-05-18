@@ -11,7 +11,7 @@ systemd
 # languages & package managers
 python
 python2-pipenv
-snapd
+# snapd
 yarn
 yay
 
@@ -107,21 +107,22 @@ zathura
 zathura-pdf-mupdf
 
 # virtualization
-libvirt
-qemu-headless
-ebtables
+dmidecode
 dnsmasq
+iptables-nft
+libvirt
+qemu
 
 # docker
 docker
 docker-compose
 docker-machine
-nvidia-container-toolkit
+# nvidia-container-toolkit
 
 # kubernetes
 docker-machine-driver-kvm2
-kubectl-bin
-minikube-bin
+kubectl
+minikube
 
 # editors & development tooling
 android-studio
