@@ -329,6 +329,7 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-tsserver',
   \ 'coc-yaml',
+  \ 'coc-yank',
   \ ]
 
 function! s:check_back_space() abort
@@ -403,7 +404,7 @@ nnoremap <leader>a <Plug>(coc-codeaction-selected)
 " run our codeAction on the current line
 nnoremap <leader>ac <Plug>(coc-codeaction)
 
-" autofix problem of the currnet line
+" autofix problem of the current line
 nnoremap <leader>qf <Plug>(coc-fix-current)
 
 " use `:Format` to format current buffer
