@@ -10,7 +10,7 @@ install_or_update_go_packages() {
   echo "go: installing packages"
 
   go get github.com/mattn/efm-langserver
-  go get golang.org/x/tools/cmd/gopls
+  go get golang.org/x/tools/gopls
 }
 
 install_or_update_go_packages "$@"
