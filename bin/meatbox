@@ -40,9 +40,9 @@ meatbox_run() {
   distro=""
 
   if [ "$kernel" = "linux" ]; then
-    # normalize our distro to accomodate for higher level distros like Antergos
+    # normalize our distro to accomodate for higher level distros like EndeavourOS
     case "$(get-distro-id)" in
-      arch|antergos) distro="arch" ;;
+      arch|endeavouros) distro="arch" ;;
       alpine) distro="alpine" ;;
       *) echo "meatbox: error - distro is not supported"; exit 1 ;;
     esac
