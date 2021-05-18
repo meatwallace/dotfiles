@@ -10,7 +10,6 @@
     "30s": "1.2.8",
     "blessed": "0.1.81",
     "covgen": "3.1.0",
-    "discord-term": "1.2.3",
     "esy": "0.5.8",
     "fkill-cli": "5.2.0",
     "gtop": "1.0.0",
@@ -18,10 +17,5 @@
     "messer": "^0.5.2",
     "neovim": "4.5.0",
     "readme-md-generator": "0.5.2"
-  },
-  "dependenciesMeta": {
-    "neovim": {
-      "unplugged": true
-    }
   }
 }
