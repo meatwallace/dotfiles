@@ -3,7 +3,7 @@
 set -eo pipefail
 
 get_gpu_vendor() {
-  local vendor
+  local vendor="unknown"
 
   case "$(uname -s)" in
   Linux)
@@ -11,6 +11,7 @@ get_gpu_vendor() {
 
     case "$(lspci -k | grep -A 2 -E 'VGA|3D)')" in
     *NVIDIA*) vendor="nvidia" ;;
+    *VirtualBox*) vendor="virtual" ;;
 
     # TODO(#24): verify that AMD/ATI GPU vendor matching works
     *AMD*) vendor="amd" ;;
