@@ -12,7 +12,6 @@ systemd
 python
 python2-pipenv
 # snapd
-yarn
 yay
 
 # shell
