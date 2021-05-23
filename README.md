@@ -59,6 +59,12 @@ full desktop environment. **warning: this is insecure for a lot of reasons**.
 - [example Alpine x11docker script](./scripts/alpine/run-x11.sh)
 - [example Arch x11docker script](./scripts/arch/run-x11.sh)
 
+### VirtualBox
+
+if running in VirtualBox, ensure that the _Graphics Controller_ for the virtual
+machine is set to **VBoxSGA**. if this is set to any other value, Kitty (the
+default terminal) will not start.
+
 ## Post-Setup Notes
 
 SSH & PGP:
