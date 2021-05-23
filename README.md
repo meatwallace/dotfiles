@@ -2,6 +2,12 @@
 
 [![CircleCI](https://circleci.com/gh/meatwallace/dotfiles/tree/master.svg?style=svg)](https://circleci.com/gh/meatwallace/dotfiles/tree/master)
 
+> **!!! READ ME !!!**
+> there's currently a lot of outstanding issues with just about everything in
+> this config & surrounding tooling due to some long-term neglect. I'm working
+> to resolve everything, however, I recommend additional caution if referencing
+> anything in this repository as it may be outdated and/or broken.
+
 my personal configuration for both Arch Linux based & Mac systems, available as
 both an Arch Linux and Alpine Linux based docker image, or installable via the
 script hosted at [https://meatbox.one](https://meatbox.one)
