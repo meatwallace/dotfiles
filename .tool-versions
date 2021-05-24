@@ -1,8 +1,8 @@
-nodejs 12.9.0
-ruby 2.6.3
-lua 5.3.5
-python 3.7.4
-dart 2.4.1
+nodejs 16.2.0
+ruby 3.0.1
+lua 5.4.3
+python 3.9.5
+dart 2.13.0
 rust 1.35.0
-golang 1.12.9
+golang 1.16.4
 haskell 8.6.5
