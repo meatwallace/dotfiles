@@ -1,7 +1,7 @@
-###############################################################################
+##############################################################################
 # meatwallace/meatbox-arch
 ###
-FROM archlinux/base:latest
+FROM archlinux:latest
 
 # specific to antergos setup when using the `base` installation
 ARG USER_SUDOERS_FILE="10-user"
@@ -36,9 +36,7 @@ SHELL ["/bin/bash", "-c"]
 ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
-  # run our system setup script from our staging alias
-  curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
-  . "$HOME/.bashrc" && \
+  export PATH="$HOME/bin:$PATH" && \
   meatbox bootstrap && \
   . "$HOME/.bashrc" && \
   meatbox setup && \

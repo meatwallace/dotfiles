@@ -59,9 +59,8 @@ RUN \
     sqlite-dev \
     unzip \
     zlib-dev >/dev/null && \
-  # run our system setup script from our staging alias
-  curl "https://meatbox.meatwallace.now.sh" | MEATBOX_CHECKOUT_SHA1="${MEATBOX_CHECKOUT_SHA1}" bash && \
-  . "$HOME/.bashrc" && \
+  # run our system setup scripts
+  export PATH="$HOME/bin:$PATH" && \
   meatbox bootstrap && \
   . "$HOME/.bashrc" && \
   meatbox setup && \
