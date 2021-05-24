@@ -1,6 +1,6 @@
 # dotfiles
 
-[![CircleCI](https://circleci.com/gh/meatwallace/dotfiles/tree/master.svg?style=svg)](https://circleci.com/gh/meatwallace/dotfiles/tree/master)
+![Github Actions CI workflow status](https://github.com/meatwallace/dotfiles/actions/workflows/ci.yml/badge.svg?branch=master)
 
 > **!!! READ ME !!!**
 > there's currently a lot of outstanding issues with just about everything in

@@ -84,6 +84,7 @@ brew 'neovim'
 cask 'visual-studio-code-insiders'
 
 # dev
+brew 'act'
 brew 'watchman'
 # brew 'shellcheck'
 #cask 'google-cloud-sdk'

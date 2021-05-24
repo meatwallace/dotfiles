@@ -7,6 +7,7 @@ alias rm='rm -i -v'
 alias cp='cp -v'
 alias mkdir='mkdir -p -v'
 alias emacs='emacs -nw'
+alias act='act --env-file="$HOME/.config/act/.env"'
 
 # single letter shortcuts to core commands
 alias a=''
