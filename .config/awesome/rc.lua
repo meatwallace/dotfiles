@@ -121,9 +121,7 @@ local tasklist_buttons = gears.table.join(
 
 -- configure the wallpaper
 local function set_wallpaper(s)
-  if beautiful.wallpaper then
-    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-  end
+  gears.wallpaper.fit(beautiful.background_image, s, beautiful.background_color)
 end
 
 -- reset the wallpaper when a screen's geometry changes (e.g. different resolution)
