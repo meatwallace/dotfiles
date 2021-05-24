@@ -118,7 +118,8 @@ theme.titlebar_maximized_button_normal_active =
 theme.titlebar_maximized_button_focus_active =
   themes_path .. 'default/titlebar/maximized_focus_active.png'
 
-theme.wallpaper = config_path .. 'wallpaper.jpg'
+theme.background_image = config_path .. 'background.jpg'
+theme.background_color = '#000000'
 
 -- Generate Awesome icon:
 theme.awesome_icon =
