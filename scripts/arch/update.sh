@@ -8,6 +8,7 @@ install_or_update_packages.sh
 install_gpu_drivers.sh
 update_system_packages.sh
 update_user_groups.sh
+setup_docker.sh
 enable_services.sh
 update_package_configuration.sh
 "
