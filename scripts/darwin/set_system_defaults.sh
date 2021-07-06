@@ -2,6 +2,9 @@
 
 set -eu
 
+# show hidden files in finder
+defaults write com.apple.finder AppleShowAllFiles true
+
 # disable press-and-hold for keys in favor of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
