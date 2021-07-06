@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # commands preloaded w/ default args
-alias ls='ls -F --color'
+alias ls='nnn -de'
 alias mv='mv -v'
 alias rm='rm -i -v'
 alias cp='cp -v'
@@ -22,7 +22,7 @@ alias j=''
 alias k=''
 alias l='ls -F --color'
 alias m='mkdir'
-alias n='nnn -il'
+alias n='nnn'
 alias o=''
 alias p=''
 alias q=''
