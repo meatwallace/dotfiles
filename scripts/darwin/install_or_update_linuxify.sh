@@ -6,6 +6,6 @@ set -eu
 # with their GNU versions and adds ones that we'd expect on most linux distros
 linuxify_dir="$MEATBOX_LIBS_DIR/linuxify"
 
-git-clone-or-update git clone https://github.com/fabiomaia/linuxify.git "$linuxify_dir"
+git-clone-or-update https://github.com/fabiomaia/linuxify.git "$linuxify_dir"
 
 (cd "$linuxify_dir" && ./linuxify install >/dev/null)
