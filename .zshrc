@@ -1,5 +1,9 @@
 #/usr/bin/env zsh
 
+if [ "$(uname -s)" = "Darwin" ]; then
+  . "$HOME/.linuxify"
+fi
+
 . "$HOME/.bashrc"
 
 # load in our path that will be searched for commands
