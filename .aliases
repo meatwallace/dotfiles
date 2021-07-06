@@ -39,7 +39,6 @@ alias z=''
 # commands aliased to alternatives
 alias vim='nvim'
 alias git='hub'
-alias yadm='hub --git-dir=$HOME/.yadm/repo.git'
 
 # docker
 # TODO
