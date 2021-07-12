@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # commands preloaded w/ default args
-alias ls='nnn -de'
+alias ls='ls -F --color'
 alias mv='mv -v'
 alias rm='rm -i -v'
 alias cp='cp -v'
@@ -87,6 +87,7 @@ alias tmkss='tmux kill-session -t'
 
 # task(warrior)
 alias t='task'
+alias tf='task | fzf'
 alias tadd='task add'
 alias tactive='task active'
 alias tappend='task append'
