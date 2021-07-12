@@ -220,6 +220,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
 
   " searching
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
   " autocomplete, linting, autoformatting
