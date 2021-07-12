@@ -7,7 +7,9 @@ path=(
   "$HOME/.yarn/bin"
   "$HOME/go/bin"
   "$(npm bin -g)"
+  "$ANDROID_HOME/emulator"
   "$ANDROID_HOME/tools"
+  "$ANDROID_HOME/tools/bin"
   "$ANDROID_HOME/platform-tools"
   "$HOME/google-cloud-sdk/path.zsh.inc"
   /usr/local/{bin,sbin}
@@ -17,6 +19,7 @@ path=(
 # add Mac specific directories to our path
 if [ $(uname -s) = "Darwin" ]; then
   path=(
+    "/usr/sbin"
     "$HOME/.fastlane/bin"
     $path
   )
