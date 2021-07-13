@@ -70,14 +70,25 @@ default terminal) will not start.
 SSH & PGP:
 
 ```sh
-# 1. put public and private SSH keys in ~/.ssh/id_rsa.pub and ~/.ssh/id_rsa, respectively
-# 2. load the ssh agent
-eval "$(ssh-agent -s)"
+# 1. put public and private SSH keys in ~/.ssh/id_.pub and ~/.ssh/id, respectively
+touch .ssh/id
+touch .ssh/id.pub
 
-# 3. put private PGP key into ~/pgp_private_key.asc
-# 4. load the key then remove it from disk
-gpg --import ~/pgp_private_key.asc
-rm ~/pgp_private_key.asc
+# 2. fix the file permissions to make the ssh agent happy
+chmod 600 .ssh/id
+chmod 600 .ssh/id.pub
+
+# 3. load the ssh agent and add the key
+eval "$(ssh-agent -s)"
+ssh-add .ssh/id
+
+# 4. put private GPG key into ~/gpg.asc, load it from disk then remove it
+touch ~/gpg.pub
+touch ~/gpg.key
+gpg --import ~/gpg.pub
+gpg --import ~/gpg.key
+rm -f ~/gpg.pub
+rm -f ~/gpg.key
 
 # 5. restart the gpg agent
 killall gpg-agent
