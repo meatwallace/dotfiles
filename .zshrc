@@ -77,15 +77,23 @@ autoload -Uz compinit && compinit
 . "$HOME/.zaliases"
 
 # initialize zinit
-. "$HOME/.zinit/bin/zinit.zsh"
+. "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 # plugins
 
 # theme: purepower
+zinit ice depth"1"
 zinit ice src"powerlevel10k.zsh-theme"
 zinit light romkatv/powerlevel10k
+
 . ~/.purepower
 
 # enforce vi-mode rather than zsh's default emacs mode
@@ -104,3 +112,4 @@ fi
 if [ -f "$fzf_path/completion.zsh" ]; then
   . "$fzf_path/completion.zsh"
 fi
+

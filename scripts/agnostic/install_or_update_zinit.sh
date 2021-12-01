@@ -3,7 +3,7 @@
 set -eu
 
 install_or_update_zinit() {
-  curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh | sh
+  sh -c "$(curl -fsSL https://git.io/zinit-install)"
 }
 
 install_or_update_zinit "$@"
