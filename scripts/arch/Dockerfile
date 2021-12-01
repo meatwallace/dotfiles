@@ -28,15 +28,16 @@ RUN \
   echo "${MEATBOX_USER} ALL=NOPASSWD: ALL" | tee -a "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}" && \
   chmod 0440 "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
-# copy in our repository - this is intended to be ran where we are in our git repo
-WORKDIR "/home/${MEATBOX_USER}"
-COPY . .
 
 # swap into our user account
 USER "${MEATBOX_USER}"
 SHELL ["/bin/bash", "-c"]
 
-# we prevent caching of our setup script by injecting our current commit SHA1 here
+# copy in our repository - this is intended to be ran where we are in our git repo. this also acts as our
+# cache busting layer.
+WORKDIR "/home/${MEATBOX_USER}"
+COPY chown=${MEATBOX_USER} . .
+
 ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
