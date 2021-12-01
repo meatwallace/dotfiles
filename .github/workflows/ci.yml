@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        distro: [alpine, arch]
+        distro: [arch]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -57,9 +57,9 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           file: ./scripts/${{ matrix.distro }}/Dockerfile
           build-args: |
-            MEATBOX_USER: meatwallace
-            MEATBOX_PASSWORD: meatword
-            MEATBOX_CHECKOUT_SHA1: ${{ github.sha }}
+            "MEATBOX_USER=meatwallace"
+            "MEATBOX_PASSWORD=meatword"
+            "MEATBOX_CHECKOUT_SHA1=${{ github.sha }}"
           tags: ${{ steps.generate_image_tags.outputs.tags }}
 
       - name: Image digest

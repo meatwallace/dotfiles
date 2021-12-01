@@ -26,16 +26,7 @@ install_or_update_asdf() {
     asdf update >/dev/null || true
   fi
 
-  # we skip installing plugins on alpine and simply use a node based docker image
-  # to keep it simplistic unless required. known issues with plugins:
-  # - dart: ?
-  # - golang: requires gcc so we skip it as we're not actively developing w/ it
-  # - nodejs: asdf's plugin compiles from source, so we use a nodejs base image
-  if sysinfo distro | grep -q "alpine"; then
-    desired_plugins=""
-  else
-    desired_plugins="dart golang lua nodejs python ruby"
-  fi
+  desired_plugins="dart golang lua nodejs python ruby"
 
   # add our version manager plugins
   for plugin in $desired_plugins; do
