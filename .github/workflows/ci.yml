@@ -37,7 +37,7 @@ jobs:
         run: |
           IMAGE_TAG_BASE="meatwallace/meatbox-${{ matrix.distro }}"
 
-          if [[ "${{ github.ref}}" = refs/heads/master ]]; then
+          if [[ "${{ github.ref }}" = refs/heads/master ]]; then
             TAGS="${IMAGE_TAG_BASE}:latest,"
           fi
 
