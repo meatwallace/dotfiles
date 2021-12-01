@@ -28,7 +28,6 @@ RUN \
   echo "${MEATBOX_USER} ALL=NOPASSWD: ALL" | tee -a "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}" && \
   chmod 0440 "/etc/sudoers.d/${MEATBOX_SETUP_SUDOERS_FILE}"
 
-
 # swap into our user account
 USER "${MEATBOX_USER}"
 SHELL ["/bin/bash", "-c"]
@@ -36,16 +35,15 @@ SHELL ["/bin/bash", "-c"]
 # copy in our repository - this is intended to be ran where we are in our git repo. this also acts as our
 # cache busting layer.
 WORKDIR "/home/${MEATBOX_USER}"
-COPY chown=${MEATBOX_USER} . .
+COPY --chown=${MEATBOX_USER} . .
 
 ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
-  # kick off our index script which configures our environment with yadm
-  ./index.sh && \
   # make sure `meatbox` is available in our path
   export PATH="$HOME/bin:$PATH" && \
   meatbox bootstrap && \
+  # source .bashrc to force load of asdf in this environment
   . "$HOME/.bashrc" && \
   meatbox setup && \
   # clean up any extraneous dependencies left over by our installation
