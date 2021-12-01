@@ -40,6 +40,9 @@ SHELL ["/bin/bash", "-c"]
 ARG MEATBOX_CHECKOUT_SHA1
 
 RUN \
+  # kick off our index script which configures our environment with yadm
+  ./index.sh && \
+  # make sure `meatbox` is available in our path
   export PATH="$HOME/bin:$PATH" && \
   meatbox bootstrap && \
   . "$HOME/.bashrc" && \
