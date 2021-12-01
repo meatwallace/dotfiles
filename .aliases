@@ -38,7 +38,6 @@ alias z=''
 
 # commands aliased to alternatives
 alias vim='nvim'
-alias git='hub'
 
 # docker
 # TODO
