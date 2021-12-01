@@ -3,6 +3,11 @@
 set -eu
 
 update_pacman_mirrorlist() {
+  # bail out early if we're on CI
+  if [ "$CI" = "true" ]; then
+    return 0
+  fi
+
   if [ ! -x "$(command -v reflector)" ]; then
     sudo pacman -Sy --config="$HOME/.config/pacman/pacman.conf" --noconfirm reflector >/dev/null 2>&1
   fi
