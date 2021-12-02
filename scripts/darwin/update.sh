@@ -14,4 +14,5 @@ update() {
   done
 }
 
-update
+update "$@"
+
