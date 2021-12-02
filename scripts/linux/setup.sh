@@ -2,7 +2,9 @@
 
 set -eu
 
-scripts="install_or_update_x11docker.sh"
+scripts="
+install_or_update_x11docker.sh
+"
 
 fonts_dir="$HOME/.local/share/fonts"
 
@@ -17,4 +19,4 @@ setup() {
   done
 }
 
-setup
+setup "$@"
