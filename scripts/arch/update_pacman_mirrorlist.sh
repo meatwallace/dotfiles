@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -e
 
 update_pacman_mirrorlist() {
   # bail out early if we're on CI
